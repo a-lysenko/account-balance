@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome page</title>
+
+    <link href="libs/normalize-css/normalize.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+<body ng-app="acc">
+<acc-header>Here is a acc-header directive</acc-header>
+
+<balance-income>Here is balance-income directive</balance-income>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="libs/bootstrap/dist/js/bootstrap.js"></script>-->
+<script src="libs/angular/angular.js"></script>
+<script src="libs/angular-local-storage/dist/angular-local-storage.js"></script>
+
+<script src="libs/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="libs/angular-animate/angular-animate.js"></script>
+
+<script src="components/acc.module.js"></script>
+<script src="components/storage/storageService.js"></script>
+
+<script src="components/header/header.directive.js"></script>
+
+<script src="components/balance-income/balanceIncome.ctrl.js"></script>
+<script src="components/balance-income/balanceIncome.directive.js"></script>
+</body>
+</html>
