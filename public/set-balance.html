@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Set Balance</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body class="container-fluid">
+<h1>Set Balance</h1>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Storage</th>
+                        <th>UAH<br>([sum])</th>
+                        <th>USD<br>([sum])</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Storage 1</td>
+                        <td>123.45</td>
+                        <td>768.09</td>
+                        <td>
+                            <button type="button" class="btn-sm btn btn-default">
+                                <span class="text-danger">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Storage 2</td>
+                        <td>123.45</td>
+                        <td></td>
+                        <td>
+                            <button type="button" class="btn-sm btn btn-default">
+                                <span class="text-danger">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Storage 3</td>
+                        <td></td>
+                        <td>768.09</td>
+                        <td>
+                            <button type="button" class="btn-sm btn btn-default">
+                                <span class="text-danger">&times;</span>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr class="active">
+                        <td>
+                            <input type="text" class="form-control input-sm" placeholder="storage">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="UAH">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="USD">
+                        </td>
+                        <td>
+                            <button type="button" class="btn-sm btn btn-success" aria-label="Close">
+                                +
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-12">
+                <button class="btn btn-success">Save</button>
+                <button class="btn btn-danger" disabled="disabled">Remove</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="libs/bootstrap/dist/js/bootstrap.js"></script>-->
+</body>
+</html>

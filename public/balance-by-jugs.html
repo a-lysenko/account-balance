@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Balance by Jugs</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body class="container-fluid">
+<h1>Balance by Jugs</h1>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <label for="exchange-rate">Exchange rate:</label>
+                        <input type="number"
+                           class="form-control input-sm"
+                           id="exchange-rate"
+                           placeholder="exch. rate"
+                           value="25.00">
+                    </div>
+                </div>
+
+                <table class="table table-striped table-condensed">
+                    <thead>
+                    <tr>
+                        <th>Jug</th>
+                        <th>Initial balance</th>
+                        <th>Income</th>
+                        <th>Expense</th>
+                        <th>End balance</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <!-- Sum to spread -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>Sum to spread</i>
+                        </td>
+                        <td>
+                            3000 <small>UAH</small>
+                        </td>
+                        <td>
+                            12000 <small>UAH</small>
+                        </td>
+                        <td>
+                            <div>
+                                9650 <small>UAH</small>
+                            </div>
+                            <div>
+                                <button type="button" class="btn-xs btn btn-success">
+                                    Spread auto
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            5350 <small>UAH</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            100 <small>USD</small>
+                        </td>
+                        <td>
+                            12001 <small>USD</small>
+                        </td>
+                        <td>
+                            <div>
+                                -100 <small>USD</small>
+                            </div>
+                            <div>
+                                <button type="button" class="btn-xs btn btn-success">
+                                    Spread auto
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            200 <small>USD</small>
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <tbody>
+                    <!-- Common -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>Common<br>([% def])</i>
+                        </td>
+                        <td>
+                            500
+                        </td>
+                        <td>
+                            6000
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="5950">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="550" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0" readonly="readonly">
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <tbody>
+                    <!-- Reserve -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>Reserve<br>([% def])</i>
+                        </td>
+                        <td>
+                            2000
+                        </td>
+                        <td>
+                            5100
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="2500">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="4600"  readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            100
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="-100">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="200" readonly="readonly">
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <tbody>
+                    <!-- Charity -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>Charity<br>([% def])</i>
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            500
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="500">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0"  readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0"  readonly="readonly">
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <tbody>
+                    <!-- .. -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>..</i>
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                        <td>
+                            ..
+                        </td>
+                    </tr>
+                    </tbody>
+
+                    <tbody>
+                    <!-- Gifts -->
+                    <tr>
+                        <td rowspan="2">
+                            <i>Gifts<br>([% def])</i>
+                        </td>
+                        <td>
+                            500
+                        </td>
+                        <td>
+                            400
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="700">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="200" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- rowspan="2" -->
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm" placeholder="sum" value="0"  readonly="readonly">
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-12">
+                <button class="btn btn-success">Save</button>
+                <button class="btn btn-danger" disabled="disabled">Remove</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="libs/bootstrap/dist/js/bootstrap.js"></script>-->
+</body>
+</html>

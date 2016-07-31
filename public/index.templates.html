@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome page</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body class="container-fluid">
+<header>
+    <h1>Welcome page</h1>
+</header>
+
+<section>
+    <h2>Introduction</h2>
+
+    <h3>Goal:</h3>
+    <span>
+        help to make spending money more harmonic (in common sense)
+    </span>
+
+    <h4>
+        <em>Aim:</em>
+    </h4>
+    <span>
+        &times;&nbsp;help to understand balance in every jug after income and before each income
+    </span>
+
+    <h4>Algorithm</h4>
+    <ol>
+        <li>
+            calculate expense (common)<br>
+            <i>expense (common) = end_balance (common) - (initial_balance (common) + income (common))</i>
+        </li>
+        <li>
+            define expense by jugs (manually)
+        </li>
+        <li>
+            calculate end balance by jugs<br>
+            <i>end_balance (by jugs) = init_balance (by jugs) + income (by jugs) - expense (by jugs)</i>
+        </li>
+    </ol>
+</section>
+
+<h2>Templates:</h2>
+
+<div class="row">
+    <div class="col-md-5 col-lg-5">
+        <ul class="bg-success">
+            <li>
+                <a href="balance-income" class="btn btn-link" role="link">
+                    <span class="text-success">Balance / Income</span>
+                </a>
+                <i>#main</i>
+            </li>
+            <li>
+                <a href="set-balance" class="btn btn-link" role="link">
+                    <span class="text-success">Set balance</span>
+                </a>
+                <i>#set-balance</i>
+            </li>
+            <li>
+                <a href="add-income" class="btn btn-link" role="link">
+                    <span class="text-success">Add income</span>
+                </a>
+                <i>#add-income</i>
+            </li>
+            <li>
+                <a href="jug-list" class="btn btn-link" role="link">
+                    <span class="text-success">Jug list</span>
+                </a>
+                <i>#jug-list</i>
+            </li>
+            <li>
+                <div>
+                    <a href="income-by-jugs" class="btn btn-link" role="link">
+                        <span class="text-success">Income by jugs</span>
+                    </a>
+                    <i>#income-by-jugs</i>
+                </div>
+                <div>
+                    <a href="income-by-jugs-reverse" class="btn btn-link" role="link">
+                        <span class="text-success">Income by jugs (reverse)</span>
+                    </a>
+                    <i>#income-by-jugs-reverse</i>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a href="balance-by-jugs" class="btn btn-link" role="link">
+                        <span class="text-success">Balance by jugs</span>
+                    </a>
+                    <i>#balance-by-jugs</i>
+                </div>
+                <div>
+                    <a href="balance-by-jugs-reverse" class="btn btn-link" role="link">
+                        <span class="text-success">Balance by jugs (reverse)</span>
+                    </a>
+                    <i>#balance-by-jugs-reverse</i>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="btn btn-link" role="link">
+                    <span class="text-success">Rules</span>
+                </a>
+                <i>#rules</i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="libs/bootstrap/dist/js/bootstrap.js"></script>-->
+</body>
+</html>
