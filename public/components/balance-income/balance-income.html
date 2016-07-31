@@ -1,0 +1,63 @@
+
+<div class="container-fluid">
+<h1>Balance/Income</h1>
+
+<div class="row">
+    <div class="col-xs-11 col-md-6">
+
+        <div class="row">
+            <div class="col-xs-11">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Date</th>
+                        <th>Income<br/>sign</th>
+                        <th>UAH<br>([sum])</th>
+                        <th>USD<br>([sum])</th>
+                        <th class="text-center">Jugs</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr  ng-repeat="dataItem in vm.balanceIncomeData">
+                        <td class="text-center">{{dataItem.date}}</td>
+                        <td><span ng-if="dataItem.isIncome">+</span></td>
+                        <td>{{dataItem.sum.UAH}}</td>
+                        <td>{{dataItem.sum.USD}}</td>
+                        <td>
+                            <a ng-if="dataItem.jug"
+                               class="center-block btn btn-link btn-xs"
+                               href="#/{{dataItem.jug}}" role="button">
+                                [link]
+                            </a>
+                            <button ng-if="!dataItem.jug"
+                               class="center-block btn btn-warning btn-xs"
+                               role="button">
+                                create
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-xs-11">
+                <button class="btn btn-success">Add income</button>
+                <button class="btn btn-success">Set balance</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <div class="visible-md-block visible-lg-block">
+            Right panel. Should be hidden in Small and eXtra Small.
+        </div>
+    </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="libs/bootstrap/dist/js/bootstrap.js"></script>-->
+</div>
