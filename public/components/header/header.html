@@ -1,0 +1,16 @@
+<header class="bg-success header">
+    <!-- Simple dropdown -->
+
+
+    <!-- Single button -->
+    <div class="btn-group" uib-dropdown is-open="status.isopen">
+        <button id="single-button" type="button" class="btn btn-success" uib-dropdown-toggle ng-disabled="disabled">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+            <li role="menuitem"><a href="#/jug-list">Jug List</a></li>
+            <li class="divider"></li>
+            <li role="menuitem"><a href="#">and some more..</a></li>
+        </ul>
+    </div>
+</header>
