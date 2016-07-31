@@ -1,0 +1,33 @@
+{
+  "name": "account-balance",
+  "version": "0.0.0",
+  "authors": [
+    "a-lysenko <aleksey.lysenko@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/libs"
+  ],
+  "description": "",
+  "main": "",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-bootstrap": "^2.0.0",
+    "angular-animate": "^1.5.8",
+    "normalize-css": "^4.2.0"
+  },
+  "devDependencies": {
+    "angular-local-storage": "^0.2.7",
+    "angular-mocks": "^1.5.7"
+  }
+}
