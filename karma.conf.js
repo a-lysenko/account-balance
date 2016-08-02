@@ -6,6 +6,7 @@ module.exports = function(config) {
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'public/libs/angular-local-storage/dist/angular-local-storage.js',
+            'public/libs/angular-ui-router/release/angular-ui-router.js',
             'public/libs/angular-animate/angular-animate.js',
             'public/libs/angular-bootstrap/ui-bootstrap.js',
             'public/libs/angular-bootstrap/ui-bootstrap-tpls.js',
