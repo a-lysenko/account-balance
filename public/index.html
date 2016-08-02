@@ -18,7 +18,9 @@
 <body ng-app="acc">
 <acc-header>Here is a acc-header directive</acc-header>
 
-<balance-income>Here is balance-income directive</balance-income>
+<div ui-view></div>
+
+<!--<balance-income>Here is balance-income directive</balance-income>-->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
@@ -27,11 +29,13 @@
 <script src="libs/angular/angular.js"></script>
 <script src="libs/angular-local-storage/dist/angular-local-storage.js"></script>
 
+<script src="libs/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="libs/angular-bootstrap/ui-bootstrap.js"></script>
 <script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="libs/angular-animate/angular-animate.js"></script>
 
 <script src="components/acc.module.js"></script>
+<script src="components/acc.route.js"></script>
 <script src="components/storage/storageService.js"></script>
 
 <script src="components/header/header.directive.js"></script>
