@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
+    "prestart": "npm install && bower install",
     "start": "http-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.7",
-    "angular-local-storage": "^0.2.7",
     "angular-mocks": "^1.5.7",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
