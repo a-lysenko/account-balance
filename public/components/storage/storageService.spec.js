@@ -2,7 +2,7 @@
 
 describe('storageService', function () {
     var localStorageService;
-    var storageService = [];
+    var storageService;
     var mockStorageData = {};
 
     beforeEach(module('acc'));
@@ -26,5 +26,14 @@ describe('storageService', function () {
         });
     });
 
+    describe('getJugList', function () {
+        it('should get jug list data', function () {
+            var keyJugList = 'jugList';
+            var jugListData = {};
+            mockStorageData[keyJugList] = jugListData;
+
+            expect(storageService.getJugList()).toBe(jugListData);
+        });
+    })
 
 });
