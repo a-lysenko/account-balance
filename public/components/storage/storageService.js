@@ -3,7 +3,7 @@
 
     angular.module('acc')
         .factory('storageService', function (localStorageService) {
-            var mockedData = [
+            var mockedBalanceIncomeData = [
                 {
                     date: '2016-05-11',
                     isIncome: false,
@@ -32,14 +32,31 @@
                     jug: null
                 }
             ];
-            localStorageService.set('balanceIncome', mockedData);
+            localStorageService.set('balanceIncome', mockedBalanceIncomeData);
+
+            var mockedJugListData = [
+                {
+                    name: 'Common',
+                    percent: 53.4
+                },
+                {
+                    name: 'Reserve',
+                    percent: 12.6
+                }
+            ];
+            localStorageService.set('jugList', mockedJugListData);
 
             return {
-                getBalanceIncome: getBalanceIncome
+                getBalanceIncome: getBalanceIncome,
+                getJugList: getJugList
             };
 
             function getBalanceIncome() {
               return localStorageService.get('balanceIncome');
+            }
+
+            function getJugList() {
+                return localStorageService.get('jugList');
             }
         });
 })();
