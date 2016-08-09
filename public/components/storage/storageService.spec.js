@@ -34,6 +34,37 @@ describe('storageService', function () {
 
             expect(storageService.getJugList()).toBe(jugListData);
         });
-    })
+    });
+
+    describe('"addJugToList"', function () {
+        var keyJugList = 'jugList';
+        var initialJugItem = {
+            name: 'initial jug item'
+        };
+        var jugToAdd = {
+            name: 'jug to add'
+        };
+
+        it('should add given jug into stored jug list', function () {
+            mockStorageData[keyJugList] = [initialJugItem];
+
+            storageService.addJugToList(jugToAdd);
+
+            expect(storageService.getJugList()).toEqual([
+                initialJugItem,
+                jugToAdd
+            ]);
+        });
+
+        it('should set jug list with given jug if jug list has NOT been stored', function () {
+            mockStorageData[keyJugList] = undefined;
+
+            storageService.addJugToList(jugToAdd, true);
+
+            expect(storageService.getJugList()).toEqual([
+                jugToAdd
+            ]);
+        })
+    });
 
 });
