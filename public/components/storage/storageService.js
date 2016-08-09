@@ -60,24 +60,15 @@
                 return localStorageService.get('jugList');
             }
 
-            function addJugToList(jugToAdd, say) {
+            function addJugToList(jugToAdd) {
                 var key = 'jugList';
                 var jugList = localStorageService.get(key);
 
-                if (say) {
-                    console.log('got jugList', jugList);
-                }
-
                 if (!Array.isArray(jugList)) {
                     jugList = [];
-
-                    if (say) {
-                        console.log('modified jugList', jugList);
-                    }
                 }
 
                 jugList.push(jugToAdd);
-                    console.log('jugList to store', jugList);
                 localStorageService.set(key, jugList);
             }
         });
