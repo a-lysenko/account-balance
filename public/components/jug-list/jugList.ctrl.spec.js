@@ -11,7 +11,8 @@ describe('JugListController', function () {
         mockJugList = {};
 
         mockStorageService = {
-            getJugList: function () {return mockJugList;}
+            getJugList: function () {return mockJugList;},
+            addJugToList: function () {}
         };
 
         JugListController = $controller('JugListController', {
@@ -22,6 +23,33 @@ describe('JugListController', function () {
     describe('On init', function () {
         it('should get jug list', function () {
             expect(JugListController.jugList).toBe(mockJugList);
+        });
+    });
+
+    describe('"Add jug"', function () {
+        var mockUpdatedJugList = [];
+
+        beforeEach(function () {
+            spyOn(mockStorageService, 'getJugList').and.returnValue(mockUpdatedJugList);
+
+            JugListController.jugList = undefined;
+            JugListController.jugToAdd = {};
+            JugListController.addJug();
+        });
+
+        it('should add jug with set values into stored', function () {
+            expect(storageService.addJugToList).toHaveBeenCalledWith(JugListController.jugToAdd);
+        });
+
+        it('should clear input values', function () {
+            expect(JugListController.jugToAdd).toEqual({
+                name: '',
+                percent: 0
+            });
+        });
+
+        it('should update jug list', function () {
+            expect(JugListController.jugList).toBe(mockUpdatedJugList);
         });
     });
 });
