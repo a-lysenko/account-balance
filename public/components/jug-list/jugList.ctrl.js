@@ -7,6 +7,8 @@
     function JugListController(storageService) {
         var vm = this;
 
-        angular.extend(vm, {});
+        angular.extend(vm, {
+            jugList: storageService.getJugList()
+        });
     }
 })();

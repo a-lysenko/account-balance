@@ -11,11 +11,15 @@ module.exports = function(config) {
             'public/libs/angular-bootstrap/ui-bootstrap.js',
             'public/libs/angular-bootstrap/ui-bootstrap-tpls.js',
             'public/components/**/*.module.js',
+            'public/components/**/*.route.js',
+            'public/components/**/*.service.js',
+            'public/components/**/*.ctrl.js',
+            'public/components/**/*.directive.js',
             'public/components/**/*.js',
             'public/**/*.spec.js'
         ],
         autoWatch: true,
         browsers: ['PhantomJS'],
-        singleRun: false
+        singleRun: true
     });
 };
