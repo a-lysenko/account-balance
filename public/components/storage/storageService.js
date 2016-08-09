@@ -48,7 +48,8 @@
 
             return {
                 getBalanceIncome: getBalanceIncome,
-                getJugList: getJugList
+                getJugList: getJugList,
+                addJugToList: addJugToList
             };
 
             function getBalanceIncome() {
@@ -57,6 +58,27 @@
 
             function getJugList() {
                 return localStorageService.get('jugList');
+            }
+
+            function addJugToList(jugToAdd, say) {
+                var key = 'jugList';
+                var jugList = localStorageService.get(key);
+
+                if (say) {
+                    console.log('got jugList', jugList);
+                }
+
+                if (!Array.isArray(jugList)) {
+                    jugList = [];
+
+                    if (say) {
+                        console.log('modified jugList', jugList);
+                    }
+                }
+
+                jugList.push(jugToAdd);
+                    console.log('jugList to store', jugList);
+                localStorageService.set(key, jugList);
             }
         });
 })();

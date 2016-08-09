@@ -57,7 +57,7 @@ describe('storageService', function () {
         });
 
         it('should set jug list with given jug if jug list has NOT been stored', function () {
-            mockStorageData[keyJugList] = undefined;
+            mockStorageData[keyJugList] = null;
 
             storageService.addJugToList(jugToAdd, true);
 
