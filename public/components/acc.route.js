@@ -9,7 +9,7 @@
             $stateProvider
                 .state('jug-list', {
                     url: "/jug-list",
-                    templateUrl: 'jug-list.html'
+                    template: '<jug-list></jug-list>'
                 })
                 .state('balance-income', {
                     url: "/",

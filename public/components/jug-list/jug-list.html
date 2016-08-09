@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
     <h1>Jug List</h1>
 
     <div class="row">
@@ -15,18 +14,9 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td>Common</td>
-                    <td>53.4</td>
-                    <td>
-                        <button type="button" class="btn-sm btn btn-default">
-                            <span class="text-danger">&times;</span>
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Reserve</td>
-                    <td>12.6</td>
+                <tr ng-repeat="jug in vm.jugList">
+                    <td>{{jug.name}}</td>
+                    <td>{{jug.percent}}</td>
                     <td>
                         <button type="button" class="btn-sm btn btn-default">
                             <span class="text-danger">&times;</span>
