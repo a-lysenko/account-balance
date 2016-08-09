@@ -26,13 +26,16 @@
 
                 <tr class="active">
                     <td>
-                        <input type="text" class="form-control input-sm" placeholder="jug name">
+                        <input type="text" class="form-control input-sm" placeholder="jug name"
+                                ng-model="vm.jugToAdd.name">
                     </td>
                     <td>
-                        <input type="number" class="form-control input-sm" placeholder="%">
+                        <input type="number" class="form-control input-sm" placeholder="%"
+                                ng-model="vm.jugToAdd.percent">
                     </td>
                     <td>
-                        <button type="button" class="btn-sm btn btn-success">
+                        <button type="button" class="btn-sm btn btn-success"
+                                ng-click="vm.addJug()">
                             +
                         </button>
                     </td>

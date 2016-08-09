@@ -34,18 +34,6 @@
             ];
             localStorageService.set('balanceIncome', mockedBalanceIncomeData);
 
-            var mockedJugListData = [
-                {
-                    name: 'Common',
-                    percent: 53.4
-                },
-                {
-                    name: 'Reserve',
-                    percent: 12.6
-                }
-            ];
-            localStorageService.set('jugList', mockedJugListData);
-
             return {
                 getBalanceIncome: getBalanceIncome,
                 getJugList: getJugList,
