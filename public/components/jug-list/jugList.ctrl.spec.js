@@ -12,7 +12,7 @@ describe('JugListController', function () {
 
         mockStorageService = {
             getJugList: function () {return mockJugList;},
-            addJugToList: function () {}
+            addJugToList: jasmine.createSpy('addJugToList')
         };
 
         JugListController = $controller('JugListController', {
@@ -38,7 +38,7 @@ describe('JugListController', function () {
         });
 
         it('should add jug with set values into stored', function () {
-            expect(storageService.addJugToList).toHaveBeenCalledWith(JugListController.jugToAdd);
+            expect(mockStorageService.addJugToList).toHaveBeenCalledWith(JugListController.jugToAdd);
         });
 
         it('should clear input values', function () {
