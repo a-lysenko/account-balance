@@ -4,6 +4,7 @@ describe('storageService', function () {
     var localStorageService;
     var storageService;
     var mockStorageData = {};
+    var keyJugList = 'jugList';
 
     beforeEach(module('acc'));
 
@@ -13,7 +14,8 @@ describe('storageService', function () {
 
         spyOn(localStorageService, 'get').and.callFake(function (key) {
             return mockStorageData[key];
-        })
+        });
+        spyOn(localStorageService, 'set');
     }));
 
     describe('getBalanceIncome', function () {
@@ -26,9 +28,8 @@ describe('storageService', function () {
         });
     });
 
-    describe('getJugList', function () {
+    describe('"getJugList"', function () {
         it('should get jug list data', function () {
-            var keyJugList = 'jugList';
             var jugListData = {};
             mockStorageData[keyJugList] = jugListData;
 
@@ -37,7 +38,6 @@ describe('storageService', function () {
     });
 
     describe('"addJugToList"', function () {
-        var keyJugList = 'jugList';
         var initialJugItem = {
             name: 'initial jug item'
         };
@@ -50,7 +50,7 @@ describe('storageService', function () {
 
             storageService.addJugToList(jugToAdd);
 
-            expect(storageService.getJugList()).toEqual([
+            expect(localStorageService.set).toHaveBeenCalledWith(keyJugList, [
                 initialJugItem,
                 jugToAdd
             ]);
@@ -59,9 +59,9 @@ describe('storageService', function () {
         it('should set jug list with given jug if jug list has NOT been stored', function () {
             mockStorageData[keyJugList] = null;
 
-            storageService.addJugToList(jugToAdd, true);
+            storageService.addJugToList(jugToAdd);
 
-            expect(storageService.getJugList()).toEqual([
+            expect(localStorageService.set).toHaveBeenCalledWith(keyJugList, [
                 jugToAdd
             ]);
         })
