@@ -12,8 +12,9 @@ describe('JugListController', function () {
 
         mockStorageService = {
             getJugList: function () {return mockJugList;},
-            addJugToList: jasmine.createSpy('addJugToList')
-        };
+            addJugToList: jasmine.createSpy('addJugToList'),
+            removeJug: jasmine.createSpy('removeJug')
+    };
 
         JugListController = $controller('JugListController', {
             storageService: mockStorageService
@@ -26,7 +27,7 @@ describe('JugListController', function () {
         });
     });
 
-    describe('"Add jug"', function () {
+    describe('"addJug"', function () {
         var mockUpdatedJugList = [];
 
         beforeEach(function () {
@@ -46,6 +47,26 @@ describe('JugListController', function () {
                 name: '',
                 percent: 0
             });
+        });
+
+        it('should update jug list', function () {
+            expect(JugListController.jugList).toBe(mockUpdatedJugList);
+        });
+    });
+
+    describe('"removeJugFromList"', function () {
+        var mockUpdatedJugList = [];
+        var jugIndex = {};
+
+        beforeEach(function () {
+            spyOn(mockStorageService, 'getJugList').and.returnValue(mockUpdatedJugList);
+
+            JugListController.jugList = undefined;
+            JugListController.removeJugFromList(jugIndex);
+        });
+
+        it('should remove jug from stored', function () {
+            expect(mockStorageService.removeJug).toHaveBeenCalledWith(jugIndex);
         });
 
         it('should update jug list', function () {

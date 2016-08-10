@@ -14,13 +14,18 @@
                 percent: 0
             },
 
-            addJug: addJug
+            addJug: addJug,
+            removeJugFromList: removeJugFromList
         });
 
         function addJug() {
             storageService.addJugToList(vm.jugToAdd);
             clearJugToAdd();
             vm.jugList = storageService.getJugList();
+        }
+
+        function removeJugFromList() {
+
         }
 
         function clearJugToAdd() {
