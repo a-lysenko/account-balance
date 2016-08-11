@@ -44,4 +44,18 @@ describe('AddIncomeController', function () {
             expect(AddIncomeController.itemToIncome).toEqual(emptyItemToIncome);
         });
     });
+
+    describe('"removeItem"', function () {
+        it('should remove item from income list', function () {
+            var incomeItem1 = ['1'];
+            var incomeToRemove = ['incomeToRemove'];
+            var incomeItem3 = ['3'];
+            var itemIndexToRemove = 2;
+
+            AddIncomeController.income = [incomeItem1, incomeToRemove, incomeItem3];
+            AddIncomeController.removeJugFromList(itemIndexToRemove);
+
+            expect(AddIncomeController.income).toEqual([incomeItem1, incomeItem3]);
+        });
+    });
 });

@@ -9,7 +9,8 @@
         angular.extend(vm, {
             income: [],
             itemToIncome: getEmptyIncomeItem(),
-            addItemToIncome: addItemToIncome
+            addItemToIncome: addItemToIncome,
+            removeJugFromList: removeJugFromList
         });
 
         function addItemToIncome() {
@@ -17,6 +18,10 @@
             vm.income.push(itemCopy);
 
             vm.itemToIncome = getEmptyIncomeItem();
+        }
+
+        function removeJugFromList() {
+
         }
 
         function getEmptyIncomeItem() {
