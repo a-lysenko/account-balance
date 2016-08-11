@@ -37,7 +37,8 @@
             return {
                 getBalanceIncome: getBalanceIncome,
                 getJugList: getJugList,
-                addJugToList: addJugToList
+                addJugToList: addJugToList,
+                removeJug: removeJug
             };
 
             function getBalanceIncome() {
@@ -58,6 +59,10 @@
 
                 jugList.push(jugToAdd);
                 localStorageService.set(key, jugList);
+            }
+
+            function removeJug(jugIndex) {
+                
             }
         });
 })();
