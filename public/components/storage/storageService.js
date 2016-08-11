@@ -62,7 +62,11 @@
             }
 
             function removeJug(jugIndex) {
-                
+                var key = 'jugList';
+                var jugList = localStorageService.get(key);
+                jugList.splice(jugIndex, 1);
+
+                localStorageService.set(key, jugList);
             }
         });
 })();
