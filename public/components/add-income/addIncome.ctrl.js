@@ -7,7 +7,21 @@
     function AddIncomeController() {
         var vm = this;
         angular.extend(vm, {
-            income: []
-        })
+            income: [],
+            itemToIncome: getEmptyIncomeItem(),
+            addItemToIncome: addItemToIncome
+        });
+
+        function addItemToIncome() {
+
+        }
+
+        function getEmptyIncomeItem() {
+            return {
+                source: '',
+                UAH: 0,
+                USD: 0
+            }
+        }
     }
 })();
