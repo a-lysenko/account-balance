@@ -4,29 +4,29 @@
     angular.module('acc')
         .controller('JugListController', JugListController);
 
-    function JugListController(storageService) {
+    function JugListController(jugListService) {
         var vm = this;
 
         angular.extend(vm, {
-            jugList: storageService.getJugList(),
+            jugList: jugListService.getJugList(),
             jugToAdd: {
                 name: '',
                 percent: 0
             },
 
-            addJug: addJug,
+            addJugToList: addJugToList,
             removeJugFromList: removeJugFromList
         });
 
-        function addJug() {
-            storageService.addJugToList(vm.jugToAdd);
+        function addJugToList() {
+            jugListService.addJug(vm.jugToAdd);
             clearJugToAdd();
-            vm.jugList = storageService.getJugList();
+            vm.jugList = jugListService.getJugList();
         }
 
         function removeJugFromList(jugIndex) {
-            storageService.removeJug(jugIndex);
-            vm.jugList = storageService.getJugList();
+            jugListService.removeJug(jugIndex);
+            vm.jugList = jugListService.getJugList();
         }
 
         function clearJugToAdd() {

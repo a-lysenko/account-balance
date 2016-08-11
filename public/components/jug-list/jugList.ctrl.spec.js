@@ -2,22 +2,23 @@
 
 describe('JugListController', function () {
     var JugListController;
-    var storageService;
-    var mockStorageService;
+    var mockJugListService;
     var mockJugList;
     beforeEach(module('acc'));
 
     beforeEach(inject(function ($controller) {
         mockJugList = {};
 
-        mockStorageService = {
-            getJugList: function () {return mockJugList;},
-            addJugToList: jasmine.createSpy('addJugToList'),
+        mockJugListService = {
+            getJugList: function () {
+                return mockJugList;
+            },
+            addJug: jasmine.createSpy('addJug'),
             removeJug: jasmine.createSpy('removeJug')
     };
 
         JugListController = $controller('JugListController', {
-            storageService: mockStorageService
+            jugListService: mockJugListService
         });
     }));
 
@@ -27,19 +28,17 @@ describe('JugListController', function () {
         });
     });
 
-    describe('"addJug"', function () {
-        var mockUpdatedJugList = [];
-
+    describe('"addJugToList"', function () {
         beforeEach(function () {
-            spyOn(mockStorageService, 'getJugList').and.returnValue(mockUpdatedJugList);
+            mockJugList = ['mockJugList'];
 
             JugListController.jugList = undefined;
             JugListController.jugToAdd = {};
-            JugListController.addJug();
+            JugListController.addJugToList();
         });
 
         it('should add jug with set values into stored', function () {
-            expect(mockStorageService.addJugToList).toHaveBeenCalledWith(JugListController.jugToAdd);
+            expect(mockJugListService.addJug).toHaveBeenCalledWith(JugListController.jugToAdd);
         });
 
         it('should clear input values', function () {
@@ -50,27 +49,25 @@ describe('JugListController', function () {
         });
 
         it('should update jug list', function () {
-            expect(JugListController.jugList).toBe(mockUpdatedJugList);
+            expect(JugListController.jugList).toBe(mockJugList);
         });
     });
 
     describe('"removeJugFromList"', function () {
-        var mockUpdatedJugList = [];
-        var jugIndex = {};
+        var jugIndex = 'jugIndex';
 
         beforeEach(function () {
-            spyOn(mockStorageService, 'getJugList').and.returnValue(mockUpdatedJugList);
-
+            mockJugList = [{}];
             JugListController.jugList = undefined;
             JugListController.removeJugFromList(jugIndex);
         });
 
         it('should remove jug from stored', function () {
-            expect(mockStorageService.removeJug).toHaveBeenCalledWith(jugIndex);
+            expect(mockJugListService.removeJug).toHaveBeenCalledWith(jugIndex);
         });
 
         it('should update jug list', function () {
-            expect(JugListController.jugList).toBe(mockUpdatedJugList);
+            expect(JugListController.jugList).toBe(mockJugList);
         });
     });
 });

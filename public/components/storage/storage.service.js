@@ -3,6 +3,11 @@
 
     angular.module('acc')
         .factory('storageService', function (localStorageService) {
+            var dataKeys = {
+                balanceIncome: 'balanceIncome',
+                jugList: 'jugList'
+            };
+
             var mockedBalanceIncomeData = [
                 {
                     date: '2016-05-11',
@@ -32,41 +37,24 @@
                     jug: null
                 }
             ];
-            localStorageService.set('balanceIncome', mockedBalanceIncomeData);
+            localStorageService.set(dataKeys.balanceIncome, mockedBalanceIncomeData);
 
             return {
                 getBalanceIncome: getBalanceIncome,
                 getJugList: getJugList,
-                addJugToList: addJugToList,
-                removeJug: removeJug
+                setJugList: setJugList
             };
 
             function getBalanceIncome() {
-              return localStorageService.get('balanceIncome');
+              return localStorageService.get(dataKeys.balanceIncome);
             }
 
             function getJugList() {
-                return localStorageService.get('jugList');
+                return localStorageService.get(dataKeys.jugList);
             }
 
-            function addJugToList(jugToAdd) {
-                var key = 'jugList';
-                var jugList = localStorageService.get(key);
-
-                if (!Array.isArray(jugList)) {
-                    jugList = [];
-                }
-
-                jugList.push(jugToAdd);
-                localStorageService.set(key, jugList);
-            }
-
-            function removeJug(jugIndex) {
-                var key = 'jugList';
-                var jugList = localStorageService.get(key);
-                jugList.splice(jugIndex, 1);
-
-                localStorageService.set(key, jugList);
+            function setJugList(jugList) {
+                localStorageService.set(dataKeys.jugList, jugList);
             }
         });
 })();
