@@ -14,11 +14,12 @@
                 </thead>
 
                 <tbody>
-                <tr ng-repeat="jug in vm.jugList">
+                <tr ng-repeat="jug in vm.jugList track by $index">
                     <td>{{jug.name}}</td>
                     <td>{{jug.percent}}</td>
                     <td>
-                        <button type="button" class="btn-sm btn btn-default">
+                        <button type="button" class="btn-sm btn btn-default"
+                        ng-click="vm.removeJugFromList($index)">
                             <span class="text-danger">&times;</span>
                         </button>
                     </td>
