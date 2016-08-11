@@ -47,19 +47,32 @@
                                 </button>
                             </td>
                         </tr>
+                        <tr ng-repeat="incomeItem in vm.income track by $index">
+                            <td>{{incomeItem.source}}</td>
+                            <td>{{incomeItem.UAH}}</td>
+                            <td>{{incomeItem.USD}}</td>
+                            <td>
+                                <button type="button" class="btn-sm btn btn-default">
+                                    <span class="text-danger">&times;</span>
+                                </button>
+                            </td>
+                        </tr>
                         <tr class="active">
                             <td>
                                 <input type="text" class="form-control input-sm" placeholder="income name"
-                                       value="Unnamed">
+                                       ng-model="vm.itemToIncome.source">
                             </td>
                             <td>
-                                <input type="number" class="form-control input-sm" placeholder="UAH">
+                                <input type="number" class="form-control input-sm" placeholder="UAH"
+                                       ng-model="vm.itemToIncome.UAH">
                             </td>
                             <td>
-                                <input type="number" class="form-control input-sm" placeholder="USD">
+                                <input type="number" class="form-control input-sm" placeholder="USD"
+                                       ng-model="vm.itemToIncome.USD">
                             </td>
                             <td>
-                                <button type="button" class="btn-sm btn btn-success" aria-label="Close">
+                                <button type="button" class="btn-sm btn btn-success" aria-label="Add"
+                                    ng-click="vm.addItemToIncome()">
                                     +
                                 </button>
                             </td>

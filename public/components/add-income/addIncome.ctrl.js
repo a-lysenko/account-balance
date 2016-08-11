@@ -13,7 +13,10 @@
         });
 
         function addItemToIncome() {
+            var itemCopy = angular.extend({}, vm.itemToIncome);
+            vm.income.push(itemCopy);
 
+            vm.itemToIncome = getEmptyIncomeItem();
         }
 
         function getEmptyIncomeItem() {
