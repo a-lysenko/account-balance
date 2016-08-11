@@ -24,8 +24,9 @@
             vm.jugList = storageService.getJugList();
         }
 
-        function removeJugFromList() {
-
+        function removeJugFromList(jugIndex) {
+            storageService.removeJug(jugIndex);
+            vm.jugList = storageService.getJugList();
         }
 
         function clearJugToAdd() {
