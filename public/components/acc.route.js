@@ -11,6 +11,12 @@
                     url: "/jug-list",
                     template: '<jug-list></jug-list>'
                 })
+                .state('add-income', {
+                    url: "/add-income",
+                    templateUrl: 'components/add-income/add-income.html',
+                    controller: 'AddIncomeController',
+                    controllerAs: 'vm'
+                })
                 .state('balance-income', {
                     url: "/",
                     // TODO - remove balance income directive and use controller here directly
