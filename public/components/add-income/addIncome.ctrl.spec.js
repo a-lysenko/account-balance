@@ -1,6 +1,10 @@
 'use strict';
 describe('AddIncomeController', function () {
     var AddIncomeController;
+
+    var createdTurnoverIncome;
+    var mockTurnoverService;
+
     var emptyItemToIncome;
 
     beforeEach(module('acc'));
@@ -11,7 +15,15 @@ describe('AddIncomeController', function () {
             USD: 0
         };
 
-        AddIncomeController = $controller('AddIncomeController');
+        mockTurnoverService = {
+            createIncome: jasmine.createSpy('createIncome').and.callFake(function () {
+                return createdTurnoverIncome;
+            })
+        };
+
+        AddIncomeController = $controller('AddIncomeController', {
+            turnoverService: mockTurnoverService
+        });
     }));
 
     describe('On init', function () {
@@ -50,10 +62,10 @@ describe('AddIncomeController', function () {
             var incomeItem1 = ['1'];
             var incomeToRemove = ['incomeToRemove'];
             var incomeItem3 = ['3'];
-            var itemIndexToRemove = 2;
+            var itemIndexToRemove = 1;
 
             AddIncomeController.income = [incomeItem1, incomeToRemove, incomeItem3];
-            AddIncomeController.removeJugFromList(itemIndexToRemove);
+            AddIncomeController.removeItem(itemIndexToRemove);
 
             expect(AddIncomeController.income).toEqual([incomeItem1, incomeItem3]);
         });

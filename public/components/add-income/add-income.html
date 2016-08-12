@@ -17,42 +17,13 @@
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>Salary</td>
-                            <td>123.45</td>
-                            <td>768.09</td>
-                            <td>
-                                <button type="button" class="btn-sm btn btn-default">
-                                    <span class="text-danger">&times;</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Additional</td>
-                            <td>123.45</td>
-                            <td></td>
-                            <td>
-                                <button type="button" class="btn-sm btn btn-default">
-                                    <span class="text-danger">&times;</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Unnamed</td>
-                            <td></td>
-                            <td>768.09</td>
-                            <td>
-                                <button type="button" class="btn-sm btn btn-default">
-                                    <span class="text-danger">&times;</span>
-                                </button>
-                            </td>
-                        </tr>
                         <tr ng-repeat="incomeItem in vm.income track by $index">
                             <td>{{incomeItem.source}}</td>
                             <td>{{incomeItem.UAH}}</td>
                             <td>{{incomeItem.USD}}</td>
                             <td>
-                                <button type="button" class="btn-sm btn btn-default">
+                                <button type="button" class="btn-sm btn btn-default"
+                                        ng-click="vm.removeItem($index)">
                                     <span class="text-danger">&times;</span>
                                 </button>
                             </td>

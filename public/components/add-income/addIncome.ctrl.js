@@ -10,7 +10,7 @@
             income: [],
             itemToIncome: getEmptyIncomeItem(),
             addItemToIncome: addItemToIncome,
-            removeJugFromList: removeJugFromList
+            removeItem: removeItem
         });
 
         function addItemToIncome() {
@@ -20,8 +20,8 @@
             vm.itemToIncome = getEmptyIncomeItem();
         }
 
-        function removeJugFromList() {
-
+        function removeItem(itemIndex) {
+            vm.income.splice(itemIndex, 1);
         }
 
         function getEmptyIncomeItem() {
