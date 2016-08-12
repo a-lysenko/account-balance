@@ -4,11 +4,12 @@ describe('AddIncomeController', function () {
 
     var createdTurnoverIncome;
     var mockTurnoverService;
+    var $state;
 
     var emptyItemToIncome;
 
     beforeEach(module('acc'));
-    beforeEach(inject(function ($controller) {
+    beforeEach(inject(function ($controller, _$state_) {
         emptyItemToIncome = {
             source: '',
             UAH: 0,
@@ -18,8 +19,12 @@ describe('AddIncomeController', function () {
         mockTurnoverService = {
             createIncome: jasmine.createSpy('createIncome').and.callFake(function () {
                 return createdTurnoverIncome;
-            })
+            }),
+            addTurnoverItem: jasmine.createSpy('addTurnoverItem')
         };
+
+        $state = _$state_;
+        spyOn($state, 'go');
 
         AddIncomeController = $controller('AddIncomeController', {
             turnoverService: mockTurnoverService
@@ -68,6 +73,26 @@ describe('AddIncomeController', function () {
             AddIncomeController.removeItem(itemIndexToRemove);
 
             expect(AddIncomeController.income).toEqual([incomeItem1, incomeItem3]);
+        });
+    });
+
+    describe('"Save"', function () {
+        var mockIncome = [];
+        beforeEach(function () {
+            AddIncomeController.income = mockIncome;
+
+            AddIncomeController.saveIncome();
+        });
+        it('should create turnover item based on income data', function () {
+            expect(mockTurnoverService.createIncome).toHaveBeenCalledWith(mockIncome);
+        });
+
+        it('should add created turnover income into stored turnover', function () {
+            expect(mockTurnoverService.addTurnoverItem).toHaveBeenCalledWith(createdTurnoverIncome);
+        });
+
+        it('should redirect to main (balance-income) page', function () {
+            expect($state.go).toHaveBeenCalledWith('balance-income');
         });
     });
 });

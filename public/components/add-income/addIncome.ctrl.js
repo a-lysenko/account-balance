@@ -4,13 +4,14 @@
     angular.module('acc')
         .controller('AddIncomeController', AddIncomeController);
 
-    function AddIncomeController() {
+    function AddIncomeController($state, turnoverService) {
         var vm = this;
         angular.extend(vm, {
             income: [],
             itemToIncome: getEmptyIncomeItem(),
             addItemToIncome: addItemToIncome,
-            removeItem: removeItem
+            removeItem: removeItem,
+            saveIncome: saveIncome
         });
 
         function addItemToIncome() {
@@ -30,6 +31,13 @@
                 UAH: 0,
                 USD: 0
             }
+        }
+        
+        function saveIncome() {
+            var turnoverIncome = turnoverService.createIncome(vm.income);
+            turnoverService.addTurnoverItem(turnoverIncome);
+
+            $state.go('balance-income');
         }
     }
 })();
