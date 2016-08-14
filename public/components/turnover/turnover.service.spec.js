@@ -3,9 +3,19 @@
 describe('turnover service', function () {
     var turnoverService;
 
+    var mockStoredTurnover;
+    var storageService;
+
     beforeEach(module('acc'));
-    beforeEach(inject(function (_turnoverService_) {
+    beforeEach(inject(function (_turnoverService_, _storageService_) {
         turnoverService = _turnoverService_;
+
+        storageService = _storageService_;
+        storageService.getTurnover = jasmine.createSpy('getTurnover').and.callFake(function () {
+            return mockStoredTurnover;
+        });
+        storageService.setTurnover = jasmine.createSpy('setTurnover');
+
     }));
 
     describe('"createIncome"', function () {
@@ -40,16 +50,27 @@ describe('turnover service', function () {
     });
 
     describe('"addTurnoverItem"', function () {
-        it('should get stored turnover', function () {
+        var storedTurnoverItem = 'storedTurnoverItem';
+        var turnoverItem = {};
+        beforeEach(function () {
+            mockStoredTurnover = [storedTurnoverItem];
 
+            turnoverService.addTurnoverItem(turnoverItem);
         });
 
-        it('should add give turnover item into stored turnover', function () {
-            
+        it('should get stored turnover', function () {
+            expect(storageService.getTurnover).toHaveBeenCalled();
+        });
+
+        it('should add given turnover item into stored turnover', function () {
+            expect(storageService.setTurnover).toHaveBeenCalledWith([storedTurnoverItem, turnoverItem]);
         });
 
         it('should set turnover with given turnover item if turnover has NOT been stored', function () {
-            
+            mockStoredTurnover = undefined;
+            turnoverService.addTurnoverItem(turnoverItem);
+
+            expect(storageService.setTurnover).toHaveBeenCalledWith([storedTurnoverItem, turnoverItem]);
         });
     });
 });

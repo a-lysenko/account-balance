@@ -15,11 +15,16 @@
         };
 
         return {
-            createIncome: createIncome
+            createIncome: createIncome,
+            addTurnoverItem: addTurnoverItem
         };
 
         function createIncome(incomeSrc) {
             return new Income(incomeSrc);
+        }
+
+        function addTurnoverItem() {
+
         }
 
         function Income(src) {
