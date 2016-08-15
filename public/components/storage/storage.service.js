@@ -5,7 +5,8 @@
         .factory('storageService', function (localStorageService) {
             var dataKeys = {
                 balanceIncome: 'balanceIncome',
-                jugList: 'jugList'
+                jugList: 'jugList',
+                turnover: 'turnover'
             };
 
             var mockedBalanceIncomeData = [
@@ -42,7 +43,9 @@
             return {
                 getBalanceIncome: getBalanceIncome,
                 getJugList: getJugList,
-                setJugList: setJugList
+                setJugList: setJugList,
+                getTurnover: getTurnover,
+                setTurnover: setTurnover
             };
 
             function getBalanceIncome() {
@@ -55,6 +58,14 @@
 
             function setJugList(jugList) {
                 localStorageService.set(dataKeys.jugList, jugList);
+            }
+
+            function getTurnover() {
+                return localStorageService.get(dataKeys.turnover);
+            }
+
+            function setTurnover(turnover) {
+                localStorageService.set(dataKeys.turnover, turnover);
             }
         });
 })();

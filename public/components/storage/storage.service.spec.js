@@ -6,6 +6,7 @@ describe('storageService', function () {
     var mockStorageData = {};
     var keyJugList = 'jugList';
     var keyBalanceIncome = 'balanceIncome';
+    var keyTurnover = 'turnover';
 
     beforeEach(module('acc'));
 
@@ -43,6 +44,24 @@ describe('storageService', function () {
             storageService.setJugList(jugList);
 
             expect(localStorageService.set).toHaveBeenCalledWith(keyJugList, jugList);
+        });
+    });
+
+    describe('"getTurnover"', function () {
+        it('should get turnover data', function () {
+            var turnover = ['turnover'];
+            mockStorageData[keyTurnover] = turnover;
+
+            expect(storageService.getTurnover()).toBe(turnover);
+        });
+    });
+
+    describe('"setTurnover"', function () {
+        it('should store given turnover', function () {
+            var turnover = ['turnover'];
+            storageService.setTurnover(turnover);
+
+            expect(localStorageService.set).toHaveBeenCalledWith(keyTurnover, turnover);
         });
     });
 

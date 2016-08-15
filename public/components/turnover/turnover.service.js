@@ -4,7 +4,7 @@
     angular.module('acc')
         .factory('turnoverService', turnoverService);
 
-    function turnoverService() {
+    function turnoverService(storageService) {
         var turnoverTypes = {
             income: 'income',
             expense: 'expense'
@@ -23,8 +23,14 @@
             return new Income(incomeSrc);
         }
 
-        function addTurnoverItem() {
+        function addTurnoverItem(turnoverItem) {
+            var turnover = storageService.getTurnover();
+            if (!Array.isArray(turnover)) {
+                turnover = [];
+            }
+            turnover.push(turnoverItem);
 
+            storageService.setTurnover(turnover);
         }
 
         function Income(src) {
@@ -48,25 +54,25 @@
             this.srcData = {
                 type: null,
                 data: angular.copy(src),
-                aggregate: aggregateTurnoverSrcData()
+                aggregate: totalCurrencyList(src)
             };
             this.aggregate = null;
             this.spreadByJugs = null;
             this.balanceByJugs = null;
             this.iterationBalanceIncrementByJugs = null;
+        }
 
-            function aggregateTurnoverSrcData() {
-                var accumulated = {
-                    USD: 0,
-                    UAH: 0
-                };
-                return src.reduce(function (acc, srcItem) {
-                    acc.UAH += srcItem.UAH;
-                    acc.USD += srcItem.USD;
+        function totalCurrencyList(list) {
+            var accumulated = {
+                USD: 0,
+                UAH: 0
+            };
+            return list.reduce(function (acc, srcItem) {
+                acc.UAH += srcItem.UAH;
+                acc.USD += srcItem.USD;
 
-                    return acc;
-                }, accumulated);
-            }
+                return acc;
+            }, accumulated);
         }
     }
 })();
