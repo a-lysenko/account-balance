@@ -76,7 +76,7 @@ describe('AddIncomeController', function () {
         });
     });
 
-    describe('"Save"', function () {
+    describe('"saveIncome"', function () {
         var mockIncome = [];
         beforeEach(function () {
             AddIncomeController.income = mockIncome;
