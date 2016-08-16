@@ -4,12 +4,16 @@
     angular.module('acc')
         .factory('jugListService', jugListService);
 
-    function jugListService(storageService) {
+    function jugListService(storageService, turnoverService) {
+
+        var result12x14 = turnoverService.testMultiple(12, 14);
 
         return {
             getJugList: getJugList,
             addJug: addJug,
-            removeJug: removeJug
+            removeJug: removeJug,
+
+            result12x14: result12x14
         };
 
         function getJugList() {

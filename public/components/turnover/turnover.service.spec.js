@@ -58,6 +58,11 @@ describe('turnover service', function () {
             turnoverService.addTurnoverItem(turnoverItem);
         });
 
+        it('should test testMultiple - turnoverService.testMultiple(1, 17)', function () {
+            console.log('turnoverService.testMultiple(1, 17)');
+            expect(turnoverService.testMultiple(1, 17)).toBe(109);
+        });
+
         it('should get stored turnover', function () {
             expect(storageService.getTurnover).toHaveBeenCalled();
         });

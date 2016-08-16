@@ -4,7 +4,15 @@ describe('JugListController', function () {
     var JugListController;
     var mockJugListService;
     var mockJugList;
-    beforeEach(module('acc'));
+    beforeEach(module('acc', function ($provide) {
+        $provide.value('turnoverService', {
+            testMultiple: jasmine.createSpy('testMultiple').and.callFake(function (mockV1) {
+                console.log('mockV1 * 1001 =', mockV1 * 1001);
+                return mockV1 * 1001;
+            })
+
+        });
+    }));
 
     beforeEach(inject(function ($controller) {
         mockJugList = {};
@@ -25,6 +33,11 @@ describe('JugListController', function () {
     describe('On init', function () {
         it('should get jug list', function () {
             expect(JugListController.jugList).toBe(mockJugList);
+        });
+
+        it('should multiple 12 x 112', function () {
+            console.log(expect(JugListController.result12x112).toBe(12000));
+            expect(JugListController.result12x112).toBe(12000);
         });
     });
 

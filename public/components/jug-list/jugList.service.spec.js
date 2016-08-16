@@ -5,7 +5,15 @@ describe('jugListService', function () {
     var storageService;
     var mockJugList;
 
-    beforeEach(module('acc'));
+    beforeEach(module('acc', function ($provide) {
+        $provide.value('turnoverService', {
+            testMultiple: jasmine.createSpy('testMultiple').and.callFake(function (mockV1) {
+                console.log('mockV1 * 100 =', mockV1 * 100);
+                return mockV1 * 100;
+            })
+
+        });
+    }));
 
     beforeEach(inject(function (_jugListService_, _storageService_) {
         storageService = _storageService_;

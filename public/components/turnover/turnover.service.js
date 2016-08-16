@@ -16,7 +16,11 @@
 
         return {
             createIncome: createIncome,
-            addTurnoverItem: addTurnoverItem
+            addTurnoverItem: addTurnoverItem,
+            testMultiple: function (v1, v2) {
+                console.log('v1 * v2 =', v1 * v2);
+                return v1 * v2;
+            }
         };
 
         function createIncome(incomeSrc) {

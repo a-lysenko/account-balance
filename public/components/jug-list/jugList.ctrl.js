@@ -4,7 +4,7 @@
     angular.module('acc')
         .controller('JugListController', JugListController);
 
-    function JugListController(jugListService) {
+    function JugListController(jugListService, turnoverService) {
         var vm = this;
 
         angular.extend(vm, {
@@ -15,7 +15,9 @@
             },
 
             addJugToList: addJugToList,
-            removeJugFromList: removeJugFromList
+            removeJugFromList: removeJugFromList,
+
+            result12x112: turnoverService.testMultiple(12, 112)
         });
 
         function addJugToList() {
