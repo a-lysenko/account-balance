@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Turnover List Template</title>
 
     <!-- Bootstrap -->
     <link href="../public/libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body class="container-fluid">
-<h1>Balance/Income</h1>
+<h1>Turnover</h1>
 
 <div class="row">
     <div class="col-xs-11 col-md-6">
@@ -22,35 +22,56 @@
                 <table class="table">
                     <thead>
                     <tr>
+                        <th class="text-center"><!--Type--></th>
                         <th class="text-center">Date</th>
-                        <th>Income<br/>sign</th>
                         <th>UAH<br>([sum])</th>
                         <th>USD<br>([sum])</th>
                         <th class="text-center">Jugs</th>
+                        <!--<th class="text-center">Date</th>-->
+                        <!--<th>Income<br/>sign</th>-->
+                        <!--<th>UAH<br>([sum])</th>-->
+                        <!--<th>USD<br>([sum])</th>-->
+                        <!--<th class="text-center">Jugs</th>-->
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr>
-                        <td class="text-center">2016-05-11</td>
-                        <td></td>
-                        <td>123.45</td>
-                        <td>768.09</td>
-                        <td><a class="center-block btn btn-link btn-xs" href="#" role="button">[link]</a></td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2016-05-12</td>
                         <td>+</td>
+                        <td class="text-center">2016-05-11</td>
                         <td>123.45</td>
                         <td>768.09</td>
                         <td><a class="center-block btn btn-link btn-xs" href="#" role="button">[link]</a></td>
                     </tr>
                     <tr>
-                        <td class="text-center">2016-05-13</td>
-                        <td></td>
+                        <td colspan="2"></td>
+                        <td colspan="3">Balance: 543.21 USD, 90.876 UAH</td>
+                    </tr>
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <td>-</td>
+                        <td class="text-center">2016-05-12</td>
+                        <td>123.45</td>
+                        <td>768.09</td>
+                        <td><a class="center-block btn btn-link btn-xs" href="#" role="button">[link]</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td colspan="3">Balance: -0.21 USD, 90.876 UAH</td>
+                    </tr>
+                    </tbody>
+                    <tbody>
+                    <tr>
+                        <td>+</td>
+                        <td class="text-center">2016-05-11</td>
                         <td>123.45</td>
                         <td>768.09</td>
                         <td><button class="center-block btn btn-warning btn-xs" href="#">create</button></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td colspan="3">Balance: 543.21 USD, 90.876 UAH</td>
                     </tr>
                     </tbody>
                 </table>
