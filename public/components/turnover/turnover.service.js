@@ -15,13 +15,9 @@
         };
 
         return {
-            createIncome: createIncome,
-            addTurnoverItem: addTurnoverItem
+            addTurnoverItem: addTurnoverItem,
+            Income: Income
         };
-
-        function createIncome(incomeSrc) {
-            return new Income(incomeSrc);
-        }
 
         function addTurnoverItem(turnoverItem) {
             var turnover = storageService.getTurnover();

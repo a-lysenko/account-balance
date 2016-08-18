@@ -34,7 +34,7 @@
         }
         
         function saveIncome() {
-            var turnoverIncome = turnoverService.createIncome(vm.income);
+            var turnoverIncome = new turnoverService.Income(vm.income);
             turnoverService.addTurnoverItem(turnoverIncome);
 
             $state.go('balance-income');

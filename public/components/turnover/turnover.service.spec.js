@@ -18,7 +18,7 @@ describe('turnover service', function () {
 
     }));
 
-    describe('"createIncome"', function () {
+    describe('"Income constructor"', function () {
         var mockIncomeItem1 = {source: 'source1', UAH: 12.34, USD: 56.78};
         var mockIncomeItem2 = {source: 'source2', UAH: 90.12, USD: -34.56};
         var mockIncome = [mockIncomeItem1, mockIncomeItem2];
@@ -34,7 +34,7 @@ describe('turnover service', function () {
         });
 
         it('should create formatted income', function () {
-            var turnoverIncome = turnoverService.createIncome(mockIncome);
+            var turnoverIncome = new turnoverService.Income(mockIncome);
             var srcData = turnoverIncome.srcData;
 
             expect(turnoverIncome.type).toBe(incomeType);

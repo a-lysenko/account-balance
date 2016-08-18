@@ -17,7 +17,7 @@ describe('AddIncomeController', function () {
         };
 
         mockTurnoverService = {
-            createIncome: jasmine.createSpy('createIncome').and.callFake(function () {
+            Income: jasmine.createSpy('Income').and.callFake(function () {
                 return createdTurnoverIncome;
             }),
             addTurnoverItem: jasmine.createSpy('addTurnoverItem')
@@ -80,11 +80,14 @@ describe('AddIncomeController', function () {
         var mockIncome = [];
         beforeEach(function () {
             AddIncomeController.income = mockIncome;
+            createdTurnoverIncome = {
+                type: 'type'
+            };
 
             AddIncomeController.saveIncome();
         });
-        it('should create turnover item based on income data', function () {
-            expect(mockTurnoverService.createIncome).toHaveBeenCalledWith(mockIncome);
+        it('should create income - turnover item - based on income data', function () {
+            expect(mockTurnoverService.Income).toHaveBeenCalledWith(mockIncome);
         });
 
         it('should add created turnover income into stored turnover', function () {
