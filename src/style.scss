@@ -1,0 +1,11 @@
+@import "variables";
+
+.turnover-item {
+  &_income {
+    color: $incomeTextColor;
+  }
+
+  &_balance {
+    color: $balanceTextColor;
+  }
+}
