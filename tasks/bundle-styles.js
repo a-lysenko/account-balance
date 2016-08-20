@@ -9,17 +9,21 @@ var sassResultCb = function (err, result) {
 
     fs.writeFile(this.options.outFile, result.css, (err) => {
         if (err) throw err;
+
         console.log('Compiling SCSS -> CSS finished. (duration:', result.stats.duration, 'ms)');
     });
 
     fs.writeFile(this.options.sourceMap, result.map, (err) => {
         if (err) throw err;
+
         console.log('SCSS -> CSS source map created');
     });
 };
 
-nodeSass.render({
-    file: './src/style.scss',
-    outFile: './public/style.css',
-    sourceMap: true
-}, sassResultCb);
+module.exports = () => {
+    nodeSass.render({
+        file: './src/style.scss',
+        outFile: './public/style.css',
+        sourceMap: true
+    }, sassResultCb);
+};
