@@ -1,0 +1,54 @@
+@import "variables";
+
+.turnover-item {
+  &_income {
+    color: $incomeTextColor;
+  }
+
+  &_balance {
+    color: $balanceTextColor;
+  }
+}
+
+.header {
+  padding: 10px;
+}
+
+.turnover {}
+
+.turnover .turnover-item.turnover-item_income {
+  color: #cc3333;
+}
+
+.turnover .turnover-item.turnover-item_balance {
+  color: #339933;
+  /*background-color: #eeaaaa;*/
+}
+
+.turnover .turnover-item:nth-child(n + 1) {
+  border-top-width: 1px;
+}
+
+.turnover .turnover-item:last-child {
+  border-bottom: 1px solid #ddd;
+}
+
+.turnover .turnover-item__main {}
+.turnover .turnover-item__main > td {
+  padding-top: 5px;
+  padding-bottom: 3px;
+}
+
+.turnover .turnover-item__balance {}
+.turnover .turnover-item__balance > td {
+  border-top-width: 0;
+  padding-top: 0;
+  padding-bottom: 4px;
+
+  font-size: 0.9em;
+  color: #999;
+  font-style: italic;
+}
+
+
+

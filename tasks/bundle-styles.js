@@ -7,6 +7,11 @@ var sassResultCb = function (err, result) {
         return;
     }
 
+    // TODO - move to config
+    if (!fs.existsSync('./public/css')){
+        fs.mkdirSync('./public/css');
+    }
+
     fs.writeFile(this.options.outFile, result.css, (err) => {
         if (err) throw err;
 
@@ -20,10 +25,13 @@ var sassResultCb = function (err, result) {
     });
 };
 
-module.exports = () => {
+module.exports = (config) => {
+    var filePath = [config.src, config.file].join('/');
+    var outFilePath = [config.dist, config.outFile].join('/');
+
     nodeSass.render({
-        file: './src/style.scss',
-        outFile: './public/style.css',
-        sourceMap: true
+        file: filePath,
+        outFile: outFilePath,
+        sourceMap: config.sourceMap
     }, sassResultCb);
 };
