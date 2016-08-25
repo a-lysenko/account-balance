@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "concat:js": "node tasks/concat-js.js",
     "css": "node-sass src/scss/style.scss -o public/css --source-map true",
     "css:watch": "npm run css && node-sass src/scss/style.scss -wo public/css --source-map true",
     "test": "karma start",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "angular": "^1.5.7",
     "angular-mocks": "^1.5.7",
+    "catw": "^1.0.1",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
