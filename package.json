@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "css": "node-sass src/scss/style.scss -o public/css --source-map true",
+    "css:watch": "npm run css && node-sass src/scss/style.scss -wo public/css --source-map true",
     "test": "karma start",
-    "prestart": "npm install && bower install",
-    "start": "http-server"
+    "start": "npm run css && http-server"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
     "node-sass": "^3.8.0"

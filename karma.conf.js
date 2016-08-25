@@ -20,6 +20,12 @@ module.exports = function(config) {
         ],
         autoWatch: true,
         browsers: ['PhantomJS'],
-        singleRun: true
+        singleRun: true,
+        reporters: ['progress', 'coverage'],
+        preprocessors: {
+            'public/components/**/*!(spec).js': ['coverage'],
+            'public/js/**/*!(spec).js': ['coverage']
+        }
+
     });
 };
