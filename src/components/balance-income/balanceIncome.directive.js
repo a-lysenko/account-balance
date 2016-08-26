@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('acc')
-        .directive('jugList', jugList);
+        .directive('balanceIncome', balanceIncome);
 
-    function jugList() {
+    function balanceIncome() {
         return {
             restrict: 'E',
             scope: {},
-            templateUrl: 'components/jug-list/jug-list.html',
-            controller: 'JugListController',
+            templateUrl: 'balance-income/balance-income.html',
+            controller: 'BalanceIncomeController',
             controllerAs: 'vm',
             bindToController: true,
             replace: true

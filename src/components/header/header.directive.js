@@ -8,7 +8,7 @@
         return {
             restrict: 'E',
             scope: {},
-            templateUrl: 'components/header/header.html',
+            templateUrl: 'header/header.html',
             replace: true
         }
     }

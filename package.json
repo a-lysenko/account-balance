@@ -4,24 +4,30 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cache-templates": "node tasks/cache-templates.js",
     "concat:js": "node tasks/concat-js.js",
-    "css": "node-sass src/scss/style.scss -o public/css --source-map true",
-    "css:watch": "npm run css && node-sass src/scss/style.scss -wo public/css --source-map true",
+    "concat:css": "node tasks/concat-css.js",
+    "copy:index": "node tasks/copy-index.js",
+    "serve": "npm run concat:css && npm run concat:js && npm run cache-templates && npm run copy:index",
     "test": "karma start",
-    "start": "npm run css && http-server"
+    "prestart": "npm install && bower install && npm run serve",
+    "start": "http-server"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.7",
     "angular-mocks": "^1.5.7",
-    "catw": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.1",
-    "node-sass": "^3.8.0"
+    "karma-phantomjs-launcher": "^1.0.1"
   }
 }

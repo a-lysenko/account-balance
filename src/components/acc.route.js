@@ -13,7 +13,7 @@
                 })
                 .state('add-income', {
                     url: "/add-income",
-                    templateUrl: 'components/add-income/add-income.html',
+                    templateUrl: 'add-income/add-income.html',
                     controller: 'AddIncomeController',
                     controllerAs: 'vm'
                 })

@@ -1,11 +1,11 @@
-#!/usr/bin/env node
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
 
-var catw = require('catw');
-var fs = require('fs');
+var config = require('./config').js;
 
-catw(['public/components/*.module.js',
-    'public/components/*.route.js',
-    'public/components/**/!(*spec).js'], {watch: false},  function (stream) {
-    var w = stream.pipe(fs.createWriteStream('bundle.js'));
-    w.on('close', function () { console.log('wrote to bundle.js') });
-});
+gulp.src(config.srcFiles)
+    .pipe(sourcemaps.init())
+    .pipe(concat(config.outFile, {newLine: ';'}))
+    .pipe(sourcemaps.write('./'))
+    .pipe(gulp.dest(config.dist));
