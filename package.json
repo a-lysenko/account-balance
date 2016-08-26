@@ -8,10 +8,14 @@
     "concat:js": "node tasks/concat-js.js",
     "concat:css": "node tasks/concat-css.js",
     "copy:index": "node tasks/copy-index.js",
-    "serve": "npm run concat:css && npm run concat:js && npm run cache-templates && npm run copy:index",
+    "build": "node tasks/build.js",
+    "build:w": "node tasks/build.js --w",
+    "serve": "npm run build:w && http-server",
+
     "test": "karma start",
-    "prestart": "npm install && bower install && npm run serve",
-    "start": "http-server"
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server && npm run build:w"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +27,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-watch": "^4.3.9",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.1",
