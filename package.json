@@ -10,12 +10,10 @@
     "copy:index": "node tasks/copy-index.js",
     "build": "node tasks/build.js",
     "build:w": "node tasks/build.js --w",
-    "serve": "npm run build:w && http-server",
-
     "test": "karma start",
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "http-server && npm run build:w"
+    "start": "npm run build && http-server"
   },
   "author": "",
   "license": "ISC",

@@ -1,10 +1,15 @@
 var config = require('./config');
 
+var copyIndex = require('./copy-index');
+var concatCSS = require('./concat-css');
+var concatJS = require('./concat-js');
+var cacheTemplates = require('./cache-templates');
+
 var tasks = {
-    copyIndex: require('./copy-index')(config.index),
-    concatCSS: require('./concat-css')(config.style),
-    concatJS: require('./concat-js')(config.js),
-    cacheTemplates: require('./cache-templates')(config.templates)
+    copyIndex: copyIndex(config.index),
+    concatCSS: concatCSS(config.style),
+    concatJS: concatJS(config.js),
+    cacheTemplates: cacheTemplates(config.templates)
 };
 
 // w - watch
