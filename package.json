@@ -4,10 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cache-templates": "node tasks/cache-templates.js",
-    "concat:js": "node tasks/concat-js.js",
-    "concat:css": "node tasks/concat-css.js",
-    "copy:index": "node tasks/copy-index.js",
     "build": "node tasks/build.js",
     "build:w": "node tasks/build.js --w",
     "test": "karma start",
