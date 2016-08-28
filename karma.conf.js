@@ -10,21 +10,21 @@ module.exports = function(config) {
             'public/libs/angular-animate/angular-animate.js',
             'public/libs/angular-bootstrap/ui-bootstrap.js',
             'public/libs/angular-bootstrap/ui-bootstrap-tpls.js',
-            'public/components/**/*.module.js',
-            'public/components/**/*.route.js',
-            'public/components/**/*.service.js',
-            'public/components/**/*.ctrl.js',
-            'public/components/**/*.directive.js',
-            'public/components/**/*.js',
-            'public/**/*.spec.js'
+            'src/components/**/*.module.js',
+            'src/components/**/*.route.js',
+            'src/components/**/*.service.js',
+            'src/components/**/*.ctrl.js',
+            'src/components/**/*.directive.js',
+            'src/components/**/*.js',
+            'src/**/*.spec.js'
         ],
         autoWatch: true,
         browsers: ['PhantomJS'],
         singleRun: true,
         reporters: ['progress', 'coverage'],
         preprocessors: {
-            'public/components/**/*!(spec).js': ['coverage'],
-            'public/js/**/*!(spec).js': ['coverage']
+            'src/components/**/*!(spec).js': ['coverage'],
+            'src/js/**/*!(spec).js': ['coverage']
         }
 
     });
