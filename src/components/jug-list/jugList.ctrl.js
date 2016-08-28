@@ -8,29 +8,7 @@
         var vm = this;
 
         angular.extend(vm, {
-            jugList: jugListService.getJugList(),
-            jugToAdd: clearJugToAdd(),
-
-            addJugToList: addJugToList,
-            removeJugFromList: removeJugFromList
+            jugList: jugListService.getJugList()
         });
-
-        function addJugToList() {
-            jugListService.addJug(vm.jugToAdd);
-            clearJugToAdd();
-            vm.jugList = jugListService.getJugList();
-        }
-
-        function removeJugFromList(jugIndex) {
-            jugListService.removeJug(jugIndex);
-            vm.jugList = jugListService.getJugList();
-        }
-
-        function clearJugToAdd() {
-            vm.jugToAdd = {
-                name: '',
-                percent: 0
-            };
-        }
     }
 })();

@@ -15,8 +15,9 @@ module.exports = function(config) {
             'src/components/**/*.service.js',
             'src/components/**/*.ctrl.js',
             'src/components/**/*.directive.js',
-            'src/components/**/*.js',
-            'src/**/*.spec.js'
+            //'src/components/**/*.js',
+            'src/components/jug-list/jugList.ctrl.spec.js'
+            //'src/**/*.spec.js'
         ],
         autoWatch: true,
         browsers: ['PhantomJS'],
