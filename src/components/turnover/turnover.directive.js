@@ -2,14 +2,14 @@
     'use strict';
 
     angular.module('acc')
-        .directive('balanceIncome', balanceIncome);
+        .directive('turnover', turnover);
 
-    function balanceIncome() {
+    function turnover() {
         return {
             restrict: 'E',
             scope: {},
-            templateUrl: 'balance-income/balance-income.html',
-            controller: 'BalanceIncomeController',
+            templateUrl: 'turnover/turnover.html',
+            controller: 'TurnoverController',
             controllerAs: 'vm',
             bindToController: true,
             replace: true

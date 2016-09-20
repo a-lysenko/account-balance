@@ -5,7 +5,6 @@ describe('storageService', function () {
     var storageService;
     var mockStorageData = {};
     var keyJugList = 'jugList';
-    var keyBalanceIncome = 'balanceIncome';
     var keyTurnover = 'turnover';
 
     beforeEach(module('acc'));
@@ -21,11 +20,11 @@ describe('storageService', function () {
     }));
 
     describe('"getBalanceIncome"', function () {
-        it('should get balance-income data', function () {
-            var balanceIncomeData = {};
-            mockStorageData[keyBalanceIncome] = balanceIncomeData;
+        it('should get turnover data', function () {
+            var turnoverData = {};
+            mockStorageData[keyTurnover] = turnoverData;
 
-            expect(storageService.getBalanceIncome()).toBe(balanceIncomeData);
+            expect(storageService.getBalanceIncome()).toBe(turnoverData);
         });
     });
 

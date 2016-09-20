@@ -1,7 +1,7 @@
 'use strict';
 
-describe('BalanceIncomeController', function () {
-    var BalanceIncomeController;
+describe('TurnoverController', function () {
+    var TurnoverController;
     var storageService;
     var mockBalanceIncome;
     beforeEach(module('acc'));
@@ -12,12 +12,12 @@ describe('BalanceIncomeController', function () {
         storageService = _storageService_;
         spyOn(storageService, 'getBalanceIncome').and.returnValue(mockBalanceIncome);
 
-        BalanceIncomeController = $controller('BalanceIncomeController');
+        TurnoverController = $controller('TurnoverController');
     }));
 
     describe('On init', function () {
         it('should get balance income data', function () {
-            expect(BalanceIncomeController.balanceIncomeData).toBe(mockBalanceIncome);
+            expect(TurnoverController.balanceIncomeData).toBe(mockBalanceIncome);
         });
     });
 });

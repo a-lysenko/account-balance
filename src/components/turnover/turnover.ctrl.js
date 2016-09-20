@@ -2,9 +2,9 @@
     'use strict';
 
     angular.module('acc')
-        .controller('BalanceIncomeController', BalanceIncomeController);
+        .controller('TurnoverController', TurnoverController);
 
-    function BalanceIncomeController(storageService) {
+    function TurnoverController(storageService) {
         var vm = this;
         angular.extend(vm, {
             balanceIncomeData: storageService.getBalanceIncome()

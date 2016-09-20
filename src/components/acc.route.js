@@ -17,10 +17,10 @@
                     controller: 'AddIncomeController',
                     controllerAs: 'vm'
                 })
-                .state('balance-income', {
+                .state('turnover', {
                     url: "/",
-                    // TODO - remove balance income directive and use controller here directly
-                    template: '<balance-income>Here is balance-income directive</balance-income>'
+                    // TODO - remove turnover directive and use controller here directly
+                    template: '<turnover>Here is turnover directive</turnover>'
                 });
         });
 })();
