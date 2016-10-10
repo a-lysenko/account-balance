@@ -9,7 +9,8 @@
     "test": "karma start",
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "npm run build && http-server"
+    "start": "npm run build && http-server",
+    "start:o": "http-server"
   },
   "author": "",
   "license": "ISC",
