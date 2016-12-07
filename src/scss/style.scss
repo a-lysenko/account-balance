@@ -41,6 +41,16 @@
   }
 }
 
+.parentheses-wrap {
+  &::before {
+    content: '(';
+  }
+
+  &::after {
+    content: ')';
+  }
+}
+
 
 
 
