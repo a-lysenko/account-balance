@@ -11,7 +11,7 @@
     }
 
     &.turnover-item_balance {
-      color: $expenceTextColor;
+      color: $expenseTextColor;
     }
 
     &:nth-child(n + 1) {
@@ -35,10 +35,24 @@
       padding-bottom: 4px;
 
       font-size: 0.9em;
-      color: #999;
+      color: $secondaryTextColor;
       font-style: italic;
     }
   }
+}
+
+.spread-expense-jug {
+  .sum {
+    .&_edited {
+      color: red;
+    }
+  }
+}
+
+.unspread-info {
+  display: block;
+  padding: 5px 0 10px;
+  text-align: right;
 }
 
 .parentheses-wrap {
@@ -49,6 +63,11 @@
   &::after {
     content: ')';
   }
+}
+
+.secondary-text {
+  text-decoration: underline;
+  color: $secondaryTextColor;
 }
 
 
