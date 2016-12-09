@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <small class="unspread-info secondary-text">Left unspread: 123.89</small>
+        <small class="expense-spread__unspread-info secondary-text">Left unspread: 123.89</small>
     </div>
 </div>
 
@@ -44,9 +44,9 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>Jug</th>
-                        <th>Sum</th>
-                        <th>%<br></th>
+                        <th class="spread-expense-jug__name">Jug</th>
+                        <th class="spread-expense-jug__sum">Sum</th>
+                        <th class="spread-expense-jug__percent">%<br></th>
                     </tr>
                     </thead>
 
@@ -56,26 +56,33 @@
                             Jug 1
                             <small class="parentheses-wrap">10%</small>
                         </td>
-                        <td>
-                            <input type="number" class=" form-control" placeholder="Text input">
+                        <td class="spread-expense-jug__sum">
+                            <input type="number"
+                                   class="col-xs-6 spread-expense-jug__sum-edit spread-expense-jug__sum-edit_active form-control"
+                                   placeholder="Text input"
+                            value="543.67">
                         </td>
-                        <td>14.5</td>
+                        <td class="spread-expense-jug__percent">14.5</td>
                     </tr>
                     <tr>
                         <td>
                             Jug 2
                             <small class="parentheses-wrap">25%</small>
                         </td>
-                        <td>123.45</td>
-                        <td>15.6</td>
+                        <td class="spread-expense-jug__sum">
+                            123.45
+                        </td>
+                        <td class="spread-expense-jug__percent">15.6</td>
                     </tr>
                     <tr>
                         <td>
                             Jug 3
                             <small class="parentheses-wrap">47%</small>
                         </td>
-                        <td>123.4</td>
-                        <td>70</td>
+                        <td class="spread-expense-jug__sum">
+                            <span>123.60</span>
+                        </td>
+                        <td class="spread-expense-jug__percent">70</td>
                     </tr>
                     </tbody>
                 </table>
