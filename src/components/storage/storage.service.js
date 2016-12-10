@@ -9,6 +9,7 @@
                 turnover: 'turnover'
             };
 
+            // TODO - remove mockedBalanceIncomeData from storage service
             var mockedBalanceIncomeData = [
                 {
                     date: '2016-05-11',

@@ -94,8 +94,8 @@ describe('AddIncomeController', function () {
             expect(mockTurnoverService.addTurnoverItem).toHaveBeenCalledWith(createdTurnoverIncome);
         });
 
-        it('should redirect to main (balance-income) page', function () {
-            expect($state.go).toHaveBeenCalledWith('balance-income');
+        it('should redirect to main (turnover) page', function () {
+            expect($state.go).toHaveBeenCalledWith('turnover');
         });
     });
 });

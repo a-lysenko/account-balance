@@ -17,10 +17,12 @@
                     controller: 'AddIncomeController',
                     controllerAs: 'vm'
                 })
-                .state('balance-income', {
+                .state('turnover', {
                     url: "/",
                     // TODO - remove balance income directive and use controller here directly
-                    template: '<balance-income>Here is balance-income directive</balance-income>'
+                    // TODO - but previously check if you just can use property 'component'.
+                    //        if yes - transform the directive to component and use the approach
+                    template: '<turnover>Here is turnover directive</turnover>'
                 });
         });
 })();
