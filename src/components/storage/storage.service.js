@@ -4,7 +4,6 @@
     angular.module('acc')
         .factory('storageService', function (localStorageService) {
             var dataKeys = {
-                balanceIncome: 'balanceIncome',
                 jugList: 'jugList',
                 turnover: 'turnover'
             };
@@ -39,19 +38,13 @@
                     jug: null
                 }
             ];
-            localStorageService.set(dataKeys.balanceIncome, mockedBalanceIncomeData);
 
             return {
-                getBalanceIncome: getBalanceIncome,
                 getJugList: getJugList,
                 setJugList: setJugList,
                 getTurnover: getTurnover,
                 setTurnover: setTurnover
             };
-
-            function getBalanceIncome() {
-              return localStorageService.get(dataKeys.balanceIncome);
-            }
 
             function getJugList() {
                 return localStorageService.get(dataKeys.jugList);

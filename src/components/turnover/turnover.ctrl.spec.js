@@ -10,13 +10,13 @@ describe('TurnoverController', function () {
         mockTurnover = {};
 
         storageService = _storageService_;
-        spyOn(storageService, 'getBalanceIncome').and.returnValue(mockTurnover);
+        spyOn(storageService, 'getTurnover').and.returnValue(mockTurnover);
 
         TurnoverController = $controller('TurnoverController');
     }));
 
     describe('On init', function () {
-        it('should get balance income data', function () {
+        it('should get turnover data', function () {
             expect(TurnoverController.turnoverData).toBe(mockTurnover);
         });
     });

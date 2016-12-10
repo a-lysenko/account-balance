@@ -7,7 +7,7 @@
     function TurnoverController(storageService) {
         var vm = this;
         angular.extend(vm, {
-            turnoverData: storageService.getBalanceIncome()
+            turnoverData: storageService.getTurnover()
         });
 
     }

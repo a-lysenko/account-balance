@@ -5,6 +5,7 @@
         .factory('turnoverService', turnoverService);
 
     function turnoverService(storageService) {
+        // TODO - remove turnover types and srcData types into ng-const
         var turnoverTypes = {
             income: 'income',
             expense: 'expense'
