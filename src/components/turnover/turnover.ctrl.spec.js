@@ -2,22 +2,22 @@
 
 describe('TurnoverController', function () {
     var TurnoverController;
-    var storageService;
-    var mockTurnover;
+    var turnoverService;
+    var mockBasicTurnover;
     beforeEach(module('acc'));
 
-    beforeEach(inject(function ($controller, _storageService_) {
-        mockTurnover = {};
+    beforeEach(inject(function ($controller, _turnoverService_) {
+        mockBasicTurnover = {};
 
-        storageService = _storageService_;
-        spyOn(storageService, 'getTurnover').and.returnValue(mockTurnover);
+        turnoverService = _turnoverService_;
+        spyOn(turnoverService, 'getBasicTurnover').and.returnValue(mockBasicTurnover);
 
         TurnoverController = $controller('TurnoverController');
     }));
 
     describe('On init', function () {
         it('should get turnover data', function () {
-            expect(TurnoverController.turnoverData).toBe(mockTurnover);
+            expect(TurnoverController.turnoverData).toBe(mockBasicTurnover);
         });
     });
 });

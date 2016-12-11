@@ -4,11 +4,10 @@
     angular.module('acc')
         .controller('TurnoverController', TurnoverController);
 
-    function TurnoverController(storageService) {
+    function TurnoverController(turnoverService) {
         var vm = this;
         angular.extend(vm, {
-            turnoverData: storageService.getTurnover()
+            turnoverData: turnoverService.getBasicTurnover()
         });
-
     }
 })();
