@@ -17,7 +17,8 @@
 
         return {
             addTurnoverItem: addTurnoverItem,
-            Income: Income
+            Income: Income,
+            getBasicTurnover: getBasicTurnover
         };
 
         function addTurnoverItem(turnoverItem) {
@@ -70,6 +71,27 @@
 
                 return acc;
             }, accumulated);
+        }
+
+        function getBasicTurnover() {
+            var basicKeys = [
+                'type',
+                'date',
+                'turnover',
+                'balance'
+            ];
+            var turnover = storageService.getTurnover();
+
+            return turnover.reduce(function (basicTurnover, turnoverItem) {
+                var basicTurnoverItem = {};
+                basicKeys.forEach(function (basicKey) {
+                    basicTurnoverItem[basicKey] = turnoverItem[basicKey];
+                    return basicTurnoverItem;
+                });
+
+                basicTurnover.push(basicTurnoverItem);
+                return basicTurnover;
+            }, []);
         }
     }
 })();

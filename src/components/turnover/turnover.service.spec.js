@@ -51,7 +51,7 @@ describe('turnover service', function () {
 
     describe('"addTurnoverItem"', function () {
         var storedTurnoverItem = 'storedTurnoverItem';
-        var turnoverItem = {};
+        var turnoverItem = {turnover: 'turnover'};
         beforeEach(function () {
             mockStoredTurnover = [storedTurnoverItem];
 
@@ -70,7 +70,48 @@ describe('turnover service', function () {
             mockStoredTurnover = undefined;
             turnoverService.addTurnoverItem(turnoverItem);
 
-            expect(storageService.setTurnover).toHaveBeenCalledWith([storedTurnoverItem, turnoverItem]);
+            var turnoverSetData = storageService.setTurnover.calls.mostRecent().args[0];
+            expect(turnoverSetData).toEqual([turnoverItem]);
         });
     });
+
+    describe('"getBasicTurnover"', function () {
+        var mockStoredItem1;
+        var mockStoredItem2;
+        beforeEach(function () {
+            mockStoredItem1 = {
+                type: 'type1',
+                date: 'date1',
+                turnover: ['turnover1'],
+                balance: ['balance1'],
+                otherProps: ['otherProps']
+            };
+            mockStoredItem2 = {
+                type: 'type2',
+                date: 'date2',
+                turnover: ['turnover2'],
+                balance: ['balance2'],
+                otherProps: ['otherProps']
+            };
+            mockStoredTurnover = [mockStoredItem1, mockStoredItem2];
+        });
+
+        it('should get basic turnover data from stored', function () {
+            var basicTurnover = turnoverService.getBasicTurnover();
+
+            expect(basicTurnover.length).toBe(2);
+            expect(basicTurnover[0]).toEqual({
+                type: mockStoredItem1.type,
+                date: mockStoredItem1.date,
+                turnover: mockStoredItem1.turnover,
+                balance: mockStoredItem1.balance
+            });
+            expect(basicTurnover[1]).toEqual({
+                type: mockStoredItem2.type,
+                date: mockStoredItem2.date,
+                turnover: mockStoredItem2.turnover,
+                balance: mockStoredItem2.balance
+            });
+        });
+    })
 });
