@@ -22,13 +22,13 @@
                         <tbody ng-repeat="turnoverItem in vm.turnoverData"
                                class="turnover-item"
                                 ng-class="{
-                                    'turnover-item_income': vm.isIncome(turnoverItem),
-                                    'turnover-item_balance': vm.isExpense(turnoverItem)
+                                    'turnover-item_income': turnoverItem.income,
+                                    'turnover-item_balance': turnoverItem.expense
                                 }">
                         <tr class="turnover-item__main">
                             <td>
-                                <span ng-if="vm.isIncome(turnoverItem)">+</span>
-                                <span ng-if="vm.isExpense(turnoverItem)">-</span>
+                                <span ng-if="turnoverItem.income">+</span>
+                                <span ng-if="turnoverItem.expense">-</span>
                             </td>
                             <td class="text-center">{{turnoverItem.date | date: 'yyyy-MM-dd'}}</td>
                             <td>{{turnoverItem.turnover.UAH}}</td>
