@@ -12,7 +12,8 @@
                 getJugList: getJugList,
                 setJugList: setJugList,
                 getTurnover: getTurnover,
-                setTurnover: setTurnover
+                setTurnover: setTurnover,
+                getLatestTurnoverItem: getLatestTurnoverItem
             };
 
             function getJugList() {
@@ -29,6 +30,16 @@
 
             function setTurnover(turnover) {
                 localStorageService.set(dataKeys.turnover, turnover);
+            }
+
+            function getLatestTurnoverItem() {
+                var latestTurnoverItem = null;
+                var turnover = localStorageService.get(dataKeys.turnover);
+                if (angular.isArray(turnover) && turnover.length) {
+                    latestTurnoverItem = turnover[turnover.length - 1];
+                }
+
+                return latestTurnoverItem;
             }
         });
 })();

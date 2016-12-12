@@ -37,6 +37,7 @@
             this.type = turnoverTypes.income;
             this.srcData.type = srcDataTypes.income;
             this.turnover = angular.copy(this.srcData.aggregate);
+            this.balance = calculateCurrentBalance(this.turnover);
         }
 
         function Expense(src) {
@@ -72,6 +73,22 @@
 
                 return acc;
             }, accumulated);
+        }
+
+        function calculateCurrentBalance(turnover) {
+            var prevBalance = {
+                USD: 0,
+                UAH: 0
+            };
+            var latestTurnoverItem = storageService.getLatestTurnoverItem();
+            if (latestTurnoverItem) {
+                prevBalance = latestTurnoverItem.balance;
+            }
+
+            return {
+                USD: prevBalance.USD + turnover.USD,
+                UAH: prevBalance.UAH + turnover.UAH
+            }
         }
 
         function getBasicTurnover() {

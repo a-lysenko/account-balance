@@ -11,11 +11,11 @@ describe('turnover service', function () {
         turnoverService = _turnoverService_;
 
         storageService = _storageService_;
-        storageService.getTurnover = jasmine.createSpy('getTurnover').and.callFake(function () {
+        spyOn(storageService, 'getTurnover').and.callFake(function () {
             return mockStoredTurnover;
         });
-        storageService.setTurnover = jasmine.createSpy('setTurnover');
-
+        spyOn(storageService, 'setTurnover');
+        spyOn(storageService, 'getLatestTurnoverItem');
     }));
 
     describe('"Income constructor"', function () {
@@ -29,15 +29,12 @@ describe('turnover service', function () {
         var nowDate = {};
         var incomeType = 'income';
 
-        var turnoverIncome;
-
         beforeEach(function () {
             spyOn(Date, 'now').and.returnValue(nowDate);
-
-            turnoverIncome = new turnoverService.Income(mockIncome);
         });
 
         it('should create formatted income', function () {
+            var turnoverIncome = new turnoverService.Income(mockIncome);
             var srcData = turnoverIncome.srcData;
 
             expect(turnoverIncome.type).toBe(incomeType);
@@ -51,9 +48,35 @@ describe('turnover service', function () {
             expect(turnoverIncome.iterationBalanceIncrementByJugs).toBeNull();
         });
 
-        xit('should set balance equal to turnover if previous balance is NOT found', function () {
+        it('should set balance equal to turnover if previous balance is NOT found', function () {
             mockStoredTurnover = [];
-            expect(turnoverIncome.balance).toEqual({USD: 0, UAH: 0});
+
+            var turnoverIncome = new turnoverService.Income(mockIncome);
+            expect(turnoverIncome.balance).toEqual(mockIncomeAggregate);
+        });
+
+        it('should set balance as sum of latest and current turnover', function () {
+            var mockPrevBalance = {
+                USD: 1000.01,
+                UAH: 1000.02
+            };
+            var expectedBalance = {
+                USD: mockIncomeAggregate.USD + mockPrevBalance.USD,
+                UAH: mockIncomeAggregate.UAH + mockPrevBalance.UAH
+            };
+            storageService.getLatestTurnoverItem.and.returnValue({
+                balance: mockPrevBalance
+            });
+
+            var turnoverIncome = new turnoverService.Income(mockIncome);
+
+            // This block is a workaround (currently, at least) due to float numbers specific
+            // now turnoverIncome.balance.USD has ..000001 in the end
+            // Corresponded functional is not planned to be implemented
+            turnoverIncome.balance.USD = +turnoverIncome.balance.USD.toFixed(2);
+            turnoverIncome.balance.UAH = +turnoverIncome.balance.UAH.toFixed(2);
+
+            expect(turnoverIncome.balance).toEqual(expectedBalance);
         });
     });
 

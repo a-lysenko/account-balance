@@ -55,4 +55,21 @@ describe('storageService', function () {
         });
     });
 
+    describe('"getLatestTurnoverItem"', function () {
+        it('should get empty value on NO stored turnover items', function () {
+            mockStorageData[keyTurnover] = [];
+
+            var latestTurnoverItem = storageService.getLatestTurnoverItem();
+            expect(latestTurnoverItem).toBeNull();
+        });
+
+        it('should get last stored turnover item', function () {
+            var notLast = 'notLast';
+            var last = 'last';
+            mockStorageData[keyTurnover] = [notLast, last];
+
+            var latestTurnoverItem = storageService.getLatestTurnoverItem();
+            expect(latestTurnoverItem).toBe(last);
+        });
+    })
 });

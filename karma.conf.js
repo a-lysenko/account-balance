@@ -16,11 +16,12 @@ module.exports = function(config) {
             'src/components/**/*.ctrl.js',
             'src/components/**/*.directive.js',
             'src/components/**/*.js',
-            'src/**/*.spec.js'
+            'src/components/**/*.spec.js'
         ],
         autoWatch: true,
         browsers: ['PhantomJS'],
-        singleRun: true,
+        singleRun: false,
+        autoWatchBatchDelay: 500,
         reporters: ['progress', 'coverage'],
         preprocessors: {
             'src/components/**/*!(spec).js': ['coverage'],
