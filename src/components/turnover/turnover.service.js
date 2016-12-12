@@ -36,7 +36,7 @@
 
             this.type = turnoverTypes.income;
             this.srcData.type = srcDataTypes.income;
-            this.aggregate = angular.copy(this.srcData.aggregate);
+            this.turnover = angular.copy(this.srcData.aggregate);
         }
 
         function Expense(src) {
@@ -54,7 +54,8 @@
                 data: angular.copy(src),
                 aggregate: totalCurrencyList(src)
             };
-            this.aggregate = null;
+            this.turnover = null;
+            this.balance = null;
             this.spreadByJugs = null;
             this.balanceByJugs = null;
             this.iterationBalanceIncrementByJugs = null;
@@ -81,6 +82,10 @@
                 'balance'
             ];
             var turnover = storageService.getTurnover();
+
+            if (!turnover) {
+                turnover = [];
+            }
 
             return turnover.reduce(function (basicTurnover, turnoverItem) {
                 var basicTurnoverItem = {};

@@ -29,12 +29,15 @@ describe('turnover service', function () {
         var nowDate = {};
         var incomeType = 'income';
 
+        var turnoverIncome;
+
         beforeEach(function () {
             spyOn(Date, 'now').and.returnValue(nowDate);
+
+            turnoverIncome = new turnoverService.Income(mockIncome);
         });
 
         it('should create formatted income', function () {
-            var turnoverIncome = new turnoverService.Income(mockIncome);
             var srcData = turnoverIncome.srcData;
 
             expect(turnoverIncome.type).toBe(incomeType);
@@ -42,10 +45,15 @@ describe('turnover service', function () {
             expect(srcData.type).toBe(incomeType);
             expect(srcData.data).toEqual(mockIncome);
             expect(srcData.aggregate).toEqual(mockIncomeAggregate);
-            expect(turnoverIncome.aggregate).toEqual(mockIncomeAggregate);
+            expect(turnoverIncome.turnover).toEqual(mockIncomeAggregate);
             expect(turnoverIncome.spreadByJugs).toBeNull();
             expect(turnoverIncome.balanceByJugs).toBeNull();
             expect(turnoverIncome.iterationBalanceIncrementByJugs).toBeNull();
+        });
+
+        xit('should set balance equal to turnover if previous balance is NOT found', function () {
+            mockStoredTurnover = [];
+            expect(turnoverIncome.balance).toEqual({USD: 0, UAH: 0});
         });
     });
 
@@ -76,17 +84,22 @@ describe('turnover service', function () {
     });
 
     describe('"getBasicTurnover"', function () {
-        var mockStoredItem1;
-        var mockStoredItem2;
-        beforeEach(function () {
-            mockStoredItem1 = {
+        it('should get empty collection if turnover is NOT in stored', function () {
+            mockStoredTurnover = undefined;
+            var basicTurnover = turnoverService.getBasicTurnover();
+
+            expect(basicTurnover).toEqual([]);
+        });
+
+        it('should get basic turnover data from stored', function () {
+            var mockStoredItem1 = {
                 type: 'type1',
                 date: 'date1',
                 turnover: ['turnover1'],
                 balance: ['balance1'],
                 otherProps: ['otherProps']
             };
-            mockStoredItem2 = {
+            var mockStoredItem2 = {
                 type: 'type2',
                 date: 'date2',
                 turnover: ['turnover2'],
@@ -94,9 +107,7 @@ describe('turnover service', function () {
                 otherProps: ['otherProps']
             };
             mockStoredTurnover = [mockStoredItem1, mockStoredItem2];
-        });
 
-        it('should get basic turnover data from stored', function () {
             var basicTurnover = turnoverService.getBasicTurnover();
 
             expect(basicTurnover.length).toBe(2);

@@ -19,28 +19,28 @@
                         </tr>
                         </thead>
 
-                        <tbody ng-repeat="dataItem in vm.turnoverData"
+                        <tbody ng-repeat="turnoverItem in vm.turnoverData"
                                class="turnover-item"
                                 ng-class="{
-                                    'turnover-item_income': vm.isIncome(dataItem),
-                                    'turnover-item_balance': vm.isExpense(dataItem)
+                                    'turnover-item_income': vm.isIncome(turnoverItem),
+                                    'turnover-item_balance': vm.isExpense(turnoverItem)
                                 }">
                         <tr class="turnover-item__main">
                             <td>
-                                <span ng-if="vm.isIncome(dataItem)">+</span>
-                                <span ng-if="vm.isExpense(dataItem)">-</span>
+                                <span ng-if="vm.isIncome(turnoverItem)">+</span>
+                                <span ng-if="vm.isExpense(turnoverItem)">-</span>
                             </td>
-                            <td class="text-center">{{dataItem.date | date: 'yyyy-MM-dd'}}</td>
-                            <td>{{dataItem.turnover.UAH}}</td>
-                            <td>{{dataItem.turnover.USD}}</td>
+                            <td class="text-center">{{turnoverItem.date | date: 'yyyy-MM-dd'}}</td>
+                            <td>{{turnoverItem.turnover.UAH}}</td>
+                            <td>{{turnoverItem.turnover.USD}}</td>
                             <td>
                                 <!-- TODO - update this -->
-                                <a ng-if="dataItem.jug"
+                                <a ng-if="turnoverItem.jug"
                                    class="center-block btn btn-link btn-xs"
-                                   href="#/{{dataItem.jug}}" role="button">
+                                   href="#/{{turnoverItem.jug}}" role="button">
                                     [link]
                                 </a>
-                                <button ng-if="!dataItem.jug"
+                                <button ng-if="!turnoverItem.jug"
                                         class="center-block btn btn-warning btn-xs"
                                         role="button">
                                     create
@@ -49,7 +49,7 @@
                         </tr>
                         <tr class="turnover-item__balance">
                             <td colspan="2"></td>
-                            <td colspan="3">Balance: {{dataItem.balance.USD}} USD, {{dataItem.balance.UAH}} UAH</td>
+                            <td colspan="3">Balance: {{turnoverItem.balance.USD}} USD, {{turnoverItem.balance.UAH}} UAH</td>
                         </tr>
                         </tbody>
                     </table>
