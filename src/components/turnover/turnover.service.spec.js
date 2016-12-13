@@ -147,5 +147,29 @@ describe('turnover service', function () {
                 balance: mockStoredItem2.balance
             });
         });
-    })
+    });
+
+    describe('"isIncome"', function () {
+        it('should confirm if turnover item is income-type', function () {
+            var isIncome = turnoverService.isIncome({type: 'income'});
+            expect(isIncome).toBeTruthy();
+        });
+
+        it('should reject if turnover item is NOT income-type', function () {
+            var isNotIncome = turnoverService.isIncome({type: 'not-income'});
+            expect(isNotIncome).toBeFalsy();
+        });
+    });
+
+    describe('"isExpense"', function () {
+        it('should confirm if turnover item is expense-type', function () {
+            var isExpense = turnoverService.isExpense({type: 'expense'});
+            expect(isExpense).toBeTruthy();
+        });
+
+        it('should reject if turnover item is NOT expense-type', function () {
+            var isNotExpense = turnoverService.isExpense({type: 'not-expense'});
+            expect(isNotExpense).toBeFalsy();
+        });
+    });
 });

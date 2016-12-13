@@ -18,7 +18,9 @@
         return {
             addTurnoverItem: addTurnoverItem,
             Income: Income,
-            getBasicTurnover: getBasicTurnover
+            getBasicTurnover: getBasicTurnover,
+            isIncome: isIncome,
+            isExpense: isExpense
         };
 
         function addTurnoverItem(turnoverItem) {
@@ -114,6 +116,14 @@
                 basicTurnover.push(basicTurnoverItem);
                 return basicTurnover;
             }, []);
+        }
+
+        function isIncome(turnoverItem) {
+            return turnoverItem.type === turnoverTypes.income;
+        }
+
+        function isExpense(turnoverItem) {
+            return turnoverItem.type === turnoverTypes.expense;
         }
     }
 })();
