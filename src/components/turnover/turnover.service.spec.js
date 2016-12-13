@@ -80,6 +80,69 @@ describe('turnover service', function () {
         });
     });
 
+    describe('"Expense constructor"', function () {
+        var mockBalanceItem1 = {source: 'source1', UAH: 12.34, USD: 56.78};
+        var mockBalanceItem2 = {source: 'source2', UAH: 90.12, USD: -34.56};
+        var mockBalance = [mockBalanceItem1, mockBalanceItem2];
+        var mockBalanceAggregate = {
+            UAH: mockBalanceItem1.UAH + mockBalanceItem2.UAH,
+            USD: mockBalanceItem1.USD + mockBalanceItem2.USD
+        };
+        var nowDate = {};
+        var turnoverTypeExpense = 'expense';
+        var srcDataTypeBalance = 'balance';
+
+        beforeEach(function () {
+            spyOn(Date, 'now').and.returnValue(nowDate);
+        });
+
+        it('should create formatted income', function () {
+            var turnoverIncome = new turnoverService.Expense(mockBalance);
+            var srcData = turnoverIncome.srcData;
+
+            expect(turnoverIncome.type).toBe(turnoverTypeExpense);
+            expect(turnoverIncome.date).toBe(nowDate);
+            expect(srcData.type).toBe(srcDataTypeBalance);
+            expect(srcData.data).toEqual(mockBalance);
+            expect(srcData.aggregate).toEqual(mockBalanceAggregate);
+            expect(turnoverIncome.balance).toEqual(mockBalanceAggregate);
+            expect(turnoverIncome.spreadByJugs).toBeNull();
+            expect(turnoverIncome.balanceByJugs).toBeNull();
+            expect(turnoverIncome.iterationBalanceIncrementByJugs).toBeNull();
+        });
+
+        it('should set turnover equal to balance if previous balance is NOT found', function () {
+            mockStoredTurnover = [];
+
+            var turnoverExpense = new turnoverService.Expense(mockBalance);
+            expect(turnoverExpense.turnover).toEqual(mockBalanceAggregate);
+        });
+
+        it('should set turnover as difference between current and previous balance', function () {
+            var mockPrevBalance = {
+                USD: 1000.01,
+                UAH: 1000.02
+            };
+            var expectedBalance = {
+                USD: mockBalanceAggregate.USD + mockPrevBalance.USD,
+                UAH: mockBalanceAggregate.UAH + mockPrevBalance.UAH
+            };
+            storageService.getLatestTurnoverItem.and.returnValue({
+                balance: mockPrevBalance
+            });
+
+            var turnoverIncome = new turnoverService.Income(mockBalance);
+
+            // This block is a workaround (currently, at least) due to float numbers specific
+            // now turnoverIncome.balance.USD has ..000001 in the end
+            // Corresponded functional is not planned to be implemented
+            turnoverIncome.balance.USD = +turnoverIncome.balance.USD.toFixed(2);
+            turnoverIncome.balance.UAH = +turnoverIncome.balance.UAH.toFixed(2);
+
+            expect(turnoverIncome.balance).toEqual(expectedBalance);
+        });
+    });
+
     describe('"addTurnoverItem"', function () {
         var storedTurnoverItem = 'storedTurnoverItem';
         var turnoverItem = {turnover: 'turnover'};

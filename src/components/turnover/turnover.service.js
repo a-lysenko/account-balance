@@ -18,6 +18,7 @@
         return {
             addTurnoverItem: addTurnoverItem,
             Income: Income,
+            Expense: Expense,
             getBasicTurnover: getBasicTurnover,
             isIncome: isIncome,
             isExpense: isExpense
@@ -38,6 +39,7 @@
 
             this.type = turnoverTypes.income;
             this.srcData.type = srcDataTypes.income;
+
             this.turnover = angular.copy(this.srcData.aggregate);
             this.balance = calculateCurrentBalance(this.turnover);
         }
@@ -47,6 +49,9 @@
 
             this.type = turnoverTypes.expense;
             this.srcData.type = srcDataTypes.balance;
+
+            this.balance = angular.copy(this.srcData.aggregate);
+            this.turnover = calculateTurnoverByBalance(this.balance);
         }
 
         function TurnoverItem(src) {
@@ -90,6 +95,22 @@
             return {
                 USD: prevBalance.USD + turnover.USD,
                 UAH: prevBalance.UAH + turnover.UAH
+            }
+        }
+
+        function calculateTurnoverByBalance(currentBalance) {
+            var prevBalance = {
+                USD: 0,
+                UAH: 0
+            };
+            var latestTurnoverItem = storageService.getLatestTurnoverItem();
+            if (latestTurnoverItem) {
+                prevBalance = latestTurnoverItem.balance;
+            }
+
+            return {
+                USD: currentBalance.USD - prevBalance.USD,
+                UAH: currentBalance.UAH - prevBalance.UAH
             }
         }
 
