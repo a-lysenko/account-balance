@@ -15,7 +15,6 @@ module.exports = function(config) {
             'src/components/**/*.service.js',
             'src/components/**/*.ctrl.js',
             'src/components/**/*.directive.js',
-            'src/components/**/*.js',
             'src/components/**/*.spec.js'
         ],
         autoWatch: true,
