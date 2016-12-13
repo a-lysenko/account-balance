@@ -17,6 +17,12 @@
                     controller: 'AddIncomeController',
                     controllerAs: 'vm'
                 })
+                .state('set-balance', {
+                    url: "/set-balance",
+                    templateUrl: 'set-balance/set-balance.html',
+                    controller: 'SetBalanceController',
+                    controllerAs: 'vm'
+                })
                 .state('turnover', {
                     url: "/",
                     // TODO - remove balance income directive and use controller here directly
