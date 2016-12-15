@@ -22,20 +22,28 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <table class="table">
+                <table class="table by-jugs-table">
                     <thead>
                     <tr>
-                        <th>Jug</th>
-                        <th>
-
-                            <button type="button" class="btn-xs btn btn-block btn-success">
-                                1000 <small>UAH</small> (push to spread)
-                            </button>
+                        <th class="by-jugs-table by-jugs-table__header-name">
+                            Jug
                         </th>
-                        <th>
-                            <button type="button" class="btn-xs btn btn-block btn-success">
-                                300 <small>USD</small> (push to spread)
+                        <th class="by-jugs-table by-jugs-table__header-value">
+
+                            <button type="button" class="btn-xs btn btn-block btn-success by-jugs-table__spread-button">
+                                spread<br>1000<wbr> <small>UAH</small>
                             </button>
+                            <small class="by-jugs-table__subheader-info">
+                                123.89 un<wbr>spread
+                            </small>
+                        </th>
+                        <th class="by-jugs-table by-jugs-table__header-value">
+                            <button type="button" class="btn-xs btn btn-block btn-success by-jugs-table__spread-button">
+                                spread<br>300.01<wbr> <small>USD</small>
+                            </button>
+                            <small class="by-jugs-table__subheader-info by-jugs-table__subheader-info_over">
+                                123.89 over<wbr>spread
+                            </small>
                         </th>
                     </tr>
                     </thead>
@@ -43,59 +51,59 @@
                     <tbody>
                     <tr>
                         <td>
-                            <i>Common</i><br>([% def])
+                            Common<wbr> <small class="parentheses-wrap secondary-info">10%</small>
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="500">
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="500">
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="150">
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="150">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <i>Reserve</i><br>([% def])
+                            Reserve<wbr> <small class="parentheses-wrap secondary-info">40%</small>
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="125">
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="125">
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="37.5">
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="37.5">
                         </td>
                     </tr>
 
 
                     <tr>
                         <td>
-                            <i>Charity</i><br>([% def])
+                            Charity<wbr> <small class="parentheses-wrap secondary-info">24%</small>
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="50">
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="50">
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="15">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ..
-                        </td>
-                        <td>
-                            ..
-                        </td>
-                        <td>
-                            ..
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="15">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <i>Gifts</i><br>([% def])
+                            ..
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="50">
+                            ..
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="sum" value="15">
+                            ..
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Gifts<wbr> <small class="parentheses-wrap secondary-info">19.5%</small>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="50">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control input-sm by-jugs-table__spread-value" placeholder="sum" value="15">
                         </td>
                     </tr>
                     </tbody>

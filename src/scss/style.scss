@@ -101,7 +101,48 @@
   color: $secondaryTextColor;
 }
 
+.by-jugs-table {
+  & &__header-name {
+    width: 34%;
+    vertical-align: middle;
+  }
 
+  & &__header-value {
+    //max-width: 25%;
+  }
 
+  tr td,
+  tr th {
+    //max-width: 25%;
+  }
+  
+  & &__spread-button {
+    max-width: 100%;
+    white-space: normal; // it overrides bootstrap's nowrap in button
+  }
 
+  & &__subheader-info {
+    display: block;
+    box-sizing: content-box;
+    overflow: hidden;
+    height: 1.25em; // one line only
+    padding: 3px 0;
+    text-align: right;
+    font-weight: normal;
+    white-space: normal;
+    color: $secondaryTextColor;
+  }
+
+  & &__subheader-info_over {
+    color: $overSpreadTextColor;
+  }
+
+  .secondary-info {
+    color: $secondaryTextColor;
+  }
+
+  &__spread-value {
+    text-align: right;
+  }
+}
 
