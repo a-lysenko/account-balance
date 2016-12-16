@@ -3,6 +3,7 @@ module.exports = function(config) {
         basePath: '',
         frameworks: ['jasmine'],
         files: [
+            'public/libs/js-shortid/dist/js-shortid.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'public/libs/angular-local-storage/dist/angular-local-storage.js',
@@ -12,6 +13,7 @@ module.exports = function(config) {
             'public/libs/angular-bootstrap/ui-bootstrap-tpls.js',
             'src/components/**/*.module.js',
             'src/components/**/*.route.js',
+            'src/components/**/*.constants.js',
             'src/components/**/*.service.js',
             'src/components/**/*.ctrl.js',
             'src/components/**/*.directive.js',

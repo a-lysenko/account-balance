@@ -4,7 +4,7 @@
     angular.module('acc')
         .factory('turnoverService', turnoverService);
 
-    function turnoverService(storageService) {
+    function turnoverService(shortid, storageService) {
         // TODO - remove turnover types and srcData types into ng-const
         var turnoverTypes = {
             income: 'income',
@@ -55,6 +55,7 @@
         }
 
         function TurnoverItem(src) {
+            this.id = shortid.gen();
             this.type = null;
             this.date = Date.now();
             this.srcData = {

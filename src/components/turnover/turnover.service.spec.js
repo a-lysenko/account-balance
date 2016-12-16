@@ -7,7 +7,7 @@ describe('turnover service', function () {
     var storageService;
 
     beforeEach(module('acc'));
-    beforeEach(inject(function (_turnoverService_, _storageService_) {
+    beforeEach(inject(function (_turnoverService_, _storageService_, shortid) {
         turnoverService = _turnoverService_;
 
         storageService = _storageService_;
@@ -16,6 +16,9 @@ describe('turnover service', function () {
         });
         spyOn(storageService, 'setTurnover');
         spyOn(storageService, 'getLatestTurnoverItem');
+
+        spyOn(shortid, 'gen').and.returnValue('mock-shortid');
+
     }));
 
     describe('"Income constructor"', function () {
@@ -37,6 +40,7 @@ describe('turnover service', function () {
             var turnoverIncome = new turnoverService.Income(mockIncome);
             var srcData = turnoverIncome.srcData;
 
+            expect(turnoverIncome.id).toBe('mock-shortid');
             expect(turnoverIncome.type).toBe(incomeType);
             expect(turnoverIncome.date).toBe(nowDate);
             expect(srcData.type).toBe(incomeType);
@@ -100,6 +104,7 @@ describe('turnover service', function () {
             var turnoverIncome = new turnoverService.Expense(mockBalance);
             var srcData = turnoverIncome.srcData;
 
+            expect(turnoverIncome.id).toBe('mock-shortid');
             expect(turnoverIncome.type).toBe(turnoverTypeExpense);
             expect(turnoverIncome.date).toBe(nowDate);
             expect(srcData.type).toBe(srcDataTypeBalance);
