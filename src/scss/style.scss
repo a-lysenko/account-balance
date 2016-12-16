@@ -103,7 +103,12 @@
 
 .by-jugs-table {
   & &__header-name {
-    width: 34%;
+    width: 40%;
+    vertical-align: middle;
+  }
+
+  & &__header-value {
+    width: 30%;
     vertical-align: middle;
   }
   
@@ -134,6 +139,13 @@
 
   &__spread-value {
     text-align: right;
+
+    float: right;
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 75px;
+    max-width: 150px;
+    padding: 3px 6px;
   }
 }
 
