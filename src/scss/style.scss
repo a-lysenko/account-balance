@@ -5,6 +5,30 @@
 }
 
 .turnover { // to overweight bootstrap style
+  thead tr th,
+  tbody tr td {
+    padding: 5px;
+  }
+
+  .turnover-header,
+  .turnover-item {
+    &__date {
+      width: 30%;
+      text-align: center;
+    }
+
+    &__sum {
+      overflow: hidden;
+      width: 30%;
+      text-align: right;
+    }
+
+    &__spread {
+      width: 30%;
+      text-align: center;
+    }
+  }
+
   .turnover-item {
     &.turnover-item_income {
       color: $incomeTextColor;
@@ -32,11 +56,13 @@
     &__balance > td {
       border-top-width: 0;
       padding-top: 0;
+      padding-right: 20px;
       padding-bottom: 4px;
 
       font-size: 0.9em;
       color: $secondaryTextColor;
       font-style: italic;
+      text-align: right;
     }
   }
 }

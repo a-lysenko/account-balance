@@ -24,53 +24,60 @@
         <div class="row">
             <div class="col-xs-12">
                 <table class="table turnover">
-                    <thead class="turnover-header">
+                    <thead>
                     <tr>
                         <th class="text-center"><!--Type--></th>
                         <th class="text-center">Date</th>
-                        <th class="turnover-header__sum">
-                            Sum <small>(UAH)</small>
-                        </th>
-                        <th class="turnover-item__spread">Jugs</th>
+                        <th>UAH<br>([sum])</th>
+                        <th>USD<br>([sum])</th>
+                        <th class="text-center">Jugs</th>
+                        <!--<th class="text-center">Date</th>-->
+                        <!--<th>Income<br/>sign</th>-->
+                        <!--<th>UAH<br>([sum])</th>-->
+                        <!--<th>USD<br>([sum])</th>-->
+                        <!--<th class="text-center">Jugs</th>-->
                     </tr>
                     </thead>
 
                     <tbody class="turnover-item turnover-item_income">
                     <tr class="turnover-item__main">
                         <td class="text-center">+</td>
-                        <td class="turnover-header__date">2016-05-11</td>
-                        <td class="turnover-item__sum">123.45</td>
-                        <td class="turnover-item__spread"><a class="center-block btn btn-link btn-xs" href="#" role="button">Spread</a></td>
+                        <td class="text-center">2016-05-11</td>
+                        <td>123.45</td>
+                        <td>768.09</td>
+                        <td><a class="center-block btn btn-link btn-xs" href="#" role="button">[link]</a></td>
                     </tr>
                     <tr class="turnover-item__balance">
                         <td colspan="2"></td>
-                        <td colspan="2">Balance: 543.21</td>
+                        <td colspan="3">Balance: 543.21 USD, 90.876 UAH</td>
                     </tr>
                     </tbody>
                     <tbody class="turnover-item turnover-item_expense">
                     <tr class="turnover-item__main">
                         <td class="text-center">-</td>
-                        <td class="turnover-header__date">2016-05-12</td>
-                        <td class="turnover-item__sum">768.09</td>
-                        <td class="turnover-item__spread"><a class="center-block btn btn-link btn-xs" href="#" role="button">Spread</a></td>
+                        <td class="text-center">2016-05-12</td>
+                        <td>123.45</td>
+                        <td>768.09</td>
+                        <td><a class="center-block btn btn-link btn-xs" href="#" role="button">[link]</a></td>
                     </tr>
                     <tr class="turnover-item__balance">
                         <td colspan="2"></td>
-                        <td colspan="2">Balance: -90.87</td>
+                        <td colspan="3">Balance: -0.21 USD, 90.876 UAH</td>
                     </tr>
                     </tbody>
                     <tbody class="turnover-item turnover-item_income">
                     <tr class="turnover-item__main">
                         <td class="text-center">+</td>
-                        <td class="turnover-header__date">2016-05-11</td>
-                        <td class="turnover-item__sum">2345.67</td>
-                        <td class="turnover-item__spread">
+                        <td class="text-center">2016-05-11</td>
+                        <td>123.45</td>
+                        <td>768.09</td>
+                        <td>
                             <button class="center-block btn btn-warning btn-xs" href="#">create</button>
                         </td>
                     </tr>
                     <tr class="turnover-item__balance">
                         <td colspan="2"></td>
-                        <td colspan="2">Balance: 43.21</td>
+                        <td colspan="3">Balance: 543.21 USD, 90.876 UAH</td>
                     </tr>
                     </tbody>
                 </table>
