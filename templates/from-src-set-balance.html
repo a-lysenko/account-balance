@@ -22,21 +22,35 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <table class="table">
+                <table class="table add-data-table">
                     <thead>
                     <tr>
-                        <th>Storage</th>
-                        <th>UAH<br>([sum])</th>
-                        <th>USD<br>([sum])</th>
+                        <th>
+                            <span class="add-data-table__name">
+                                Storage
+                            </span>
+                        </th>
+                        <th>
+                            <span class="add-data-table__sum">
+                                Sum <small class="parentheses-wrap">UAH</small>
+                            </span>
+                        </th>
                         <th></th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr>
-                        <td>Storage 1</td>
-                        <td>123.45</td>
-                        <td>768.09</td>
+                        <td>
+                            <span class="add-data-table__name">
+                                Storage 1
+                            </span>
+                        </td>
+                        <td>
+                            <span class="add-data-table__sum">
+                                123.45
+                            </span>
+                        </td>
                         <td>
                             <button type="button" class="btn-sm btn btn-default">
                                 <span class="text-danger">&times;</span>
@@ -44,9 +58,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Storage 2</td>
-                        <td>123.45</td>
-                        <td></td>
+                        <td>
+                            <span class="add-data-table__name">
+                                Storage 2
+                            </span>
+                        </td>
+                        <td>
+                            <span class="add-data-table__sum">
+                                768.09
+                            </span>
+                        </td>
                         <td>
                             <button type="button" class="btn-sm btn btn-default">
                                 <span class="text-danger">&times;</span>
@@ -54,9 +75,16 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Storage 3</td>
-                        <td></td>
-                        <td>768.09</td>
+                        <td>
+                            <span class="add-data-table__name">
+                                Storage 3
+                            </span>
+                        </td>
+                        <td>
+                            <span class="add-data-table__sum">
+                                2768.09
+                            </span>
+                        </td>
                         <td>
                             <button type="button" class="btn-sm btn btn-default">
                                 <span class="text-danger">&times;</span>
@@ -65,13 +93,10 @@
                     </tr>
                     <tr class="active">
                         <td>
-                            <input type="text" class="form-control input-sm" placeholder="storage">
+                            <input type="text" class="form-control input-sm add-data-table__name" placeholder="storage">
                         </td>
                         <td>
-                            <input type="number" class="form-control input-sm" placeholder="UAH">
-                        </td>
-                        <td>
-                            <input type="number" class="form-control input-sm" placeholder="USD">
+                            <input type="number" class="form-control input-sm add-data-table__sum" placeholder="UAH">
                         </td>
                         <td>
                             <button type="button" class="btn-sm btn btn-success" aria-label="Close">
