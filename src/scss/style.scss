@@ -84,46 +84,47 @@
   }
 }
 
-.expense-spread {
-
-  &__unspread-info {
-    display: block;
-    padding: 5px 0 10px;
-    text-align: right;
-  }
-}
-
-.spread-expense-jug {
-
-  &__name {
-    width: 40%;
-  }
-
-  &__sum {
-    width: 30%;
-    overflow: hidden;
-    text-align: right;
-  }
-
-  &__percent {
-    width: 30%;
-    padding-right: 10px;
-    text-align: right;
-  }
-
-  &__sum-edit {
-    display: none;
-    float: right;
-    box-sizing: border-box;
-    margin: 0 -6px 0 0;
-    padding: 3px 6px;
-    text-align: right;
-
-    &_active {
+.turnover-by-jugs {
+  .common-sum {
+    &__unspread-info {
       display: block;
-      height: 100%;
-      min-width: 75px;
-      max-width: 150px;
+      padding: 5px 0 10px;
+      text-align: right;
+      color: $secondaryTextColor;
+    }
+  }
+
+  .spread-item {
+    &__name {
+      width: 40%;
+    }
+
+    &__sum {
+      width: 30%;
+      overflow: hidden;
+      text-align: right;
+    }
+
+    &__percent {
+      width: 30%;
+      padding-right: 10px;
+      text-align: right;
+    }
+
+    &__sum-edit {
+      display: none;
+      float: right;
+      box-sizing: border-box;
+      margin: 0 -6px 0 0;
+      padding: 3px 6px;
+      text-align: right;
+
+      &_active {
+        display: block;
+        height: 100%;
+        min-width: 75px;
+        max-width: 150px;
+      }
     }
   }
 }
