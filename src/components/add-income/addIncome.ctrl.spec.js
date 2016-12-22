@@ -12,8 +12,7 @@ describe('AddIncomeController', function () {
     beforeEach(inject(function ($controller, _$state_) {
         emptyItemToIncome = {
             source: '',
-            UAH: 0,
-            USD: 0
+            UAH: 0
         };
 
         mockTurnoverService = {

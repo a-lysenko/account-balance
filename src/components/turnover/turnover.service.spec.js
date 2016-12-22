@@ -22,12 +22,11 @@ describe('turnover service', function () {
     }));
 
     describe('"Income constructor"', function () {
-        var mockIncomeItem1 = {source: 'source1', UAH: 12.34, USD: 56.78};
-        var mockIncomeItem2 = {source: 'source2', UAH: 90.12, USD: -34.56};
+        var mockIncomeItem1 = {source: 'source1', UAH: 12.34};
+        var mockIncomeItem2 = {source: 'source2', UAH: 90.12};
         var mockIncome = [mockIncomeItem1, mockIncomeItem2];
         var mockIncomeAggregate = {
-            UAH: mockIncomeItem1.UAH + mockIncomeItem2.UAH,
-            USD: mockIncomeItem1.USD + mockIncomeItem2.USD
+            UAH: mockIncomeItem1.UAH + mockIncomeItem2.UAH
         };
         var nowDate = {};
         var incomeType = 'income';
@@ -61,11 +60,9 @@ describe('turnover service', function () {
 
         it('should set balance as sum of latest and current turnover', function () {
             var mockPrevBalance = {
-                USD: 1000.01,
                 UAH: 1000.02
             };
             var expectedBalance = {
-                USD: mockIncomeAggregate.USD + mockPrevBalance.USD,
                 UAH: mockIncomeAggregate.UAH + mockPrevBalance.UAH
             };
             storageService.getLatestTurnoverItem.and.returnValue({
@@ -75,9 +72,8 @@ describe('turnover service', function () {
             var turnoverIncome = new turnoverService.Income(mockIncome);
 
             // This block is a workaround (currently, at least) due to float numbers specific
-            // now turnoverIncome.balance.USD has ..000001 in the end
+            // now turnoverIncome.balance.{currency} has ..000001 in the end
             // Corresponded functional is not planned to be implemented
-            turnoverIncome.balance.USD = +turnoverIncome.balance.USD.toFixed(2);
             turnoverIncome.balance.UAH = +turnoverIncome.balance.UAH.toFixed(2);
 
             expect(turnoverIncome.balance).toEqual(expectedBalance);
@@ -85,12 +81,11 @@ describe('turnover service', function () {
     });
 
     describe('"Expense constructor"', function () {
-        var mockBalanceItem1 = {source: 'source1', UAH: 12.34, USD: 56.78};
-        var mockBalanceItem2 = {source: 'source2', UAH: 90.12, USD: -34.56};
+        var mockBalanceItem1 = {source: 'source1', UAH: 12.34};
+        var mockBalanceItem2 = {source: 'source2', UAH: 90.12};
         var mockBalance = [mockBalanceItem1, mockBalanceItem2];
         var mockBalanceAggregate = {
-            UAH: mockBalanceItem1.UAH + mockBalanceItem2.UAH,
-            USD: mockBalanceItem1.USD + mockBalanceItem2.USD
+            UAH: mockBalanceItem1.UAH + mockBalanceItem2.UAH
         };
         var nowDate = {};
         var turnoverTypeExpense = 'expense';
@@ -125,11 +120,9 @@ describe('turnover service', function () {
 
         it('should set turnover as difference between current and previous balance', function () {
             var mockPrevBalance = {
-                USD: 1000.01,
                 UAH: 1000.02
             };
             var expectedBalance = {
-                USD: mockBalanceAggregate.USD + mockPrevBalance.USD,
                 UAH: mockBalanceAggregate.UAH + mockPrevBalance.UAH
             };
             storageService.getLatestTurnoverItem.and.returnValue({
@@ -139,9 +132,8 @@ describe('turnover service', function () {
             var turnoverIncome = new turnoverService.Income(mockBalance);
 
             // This block is a workaround (currently, at least) due to float numbers specific
-            // now turnoverIncome.balance.USD has ..000001 in the end
+            // now turnoverIncome.balance.{currency} has ..000001 in the end
             // Corresponded functional is not planned to be implemented
-            turnoverIncome.balance.USD = +turnoverIncome.balance.USD.toFixed(2);
             turnoverIncome.balance.UAH = +turnoverIncome.balance.UAH.toFixed(2);
 
             expect(turnoverIncome.balance).toEqual(expectedBalance);

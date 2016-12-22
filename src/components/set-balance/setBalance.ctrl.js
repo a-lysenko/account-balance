@@ -37,8 +37,7 @@
         function getEmptyIncomeItem() {
             return {
                 source: '',
-                UAH: 0,
-                USD: 0
+                UAH: 0
             }
         }
     }

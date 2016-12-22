@@ -72,12 +72,10 @@
 
         function totalCurrencyList(list) {
             var accumulated = {
-                USD: 0,
                 UAH: 0
             };
             return list.reduce(function (acc, srcItem) {
                 acc.UAH += srcItem.UAH;
-                acc.USD += srcItem.USD;
 
                 return acc;
             }, accumulated);
@@ -85,7 +83,6 @@
 
         function calculateCurrentBalance(turnover) {
             var prevBalance = {
-                USD: 0,
                 UAH: 0
             };
             var latestTurnoverItem = storageService.getLatestTurnoverItem();
@@ -94,14 +91,12 @@
             }
 
             return {
-                USD: prevBalance.USD + turnover.USD,
                 UAH: prevBalance.UAH + turnover.UAH
             }
         }
 
         function calculateTurnoverByBalance(currentBalance) {
             var prevBalance = {
-                USD: 0,
                 UAH: 0
             };
             var latestTurnoverItem = storageService.getLatestTurnoverItem();
@@ -110,7 +105,6 @@
             }
 
             return {
-                USD: currentBalance.USD - prevBalance.USD,
                 UAH: currentBalance.UAH - prevBalance.UAH
             }
         }
