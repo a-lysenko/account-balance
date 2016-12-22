@@ -1,0 +1,41 @@
+.by-jugs-table thead tr th,
+.by-jugs-table tbody tr td {
+    padding: 5px; }
+
+.by-jugs-table .by-jugs-table__header-name {
+    width: 40%;
+    vertical-align: middle; }
+
+.by-jugs-table .by-jugs-table__header-value {
+    width: 30%;
+    vertical-align: middle; }
+
+.by-jugs-table .by-jugs-table__spread-button {
+    max-width: 100%;
+    white-space: normal; }
+
+.by-jugs-table .by-jugs-table__subheader-info {
+    display: block;
+    box-sizing: content-box;
+    overflow: hidden;
+    height: 1.25em;
+    padding: 3px 0;
+    text-align: right;
+    font-weight: normal;
+    white-space: normal;
+    color: #999999; }
+
+.by-jugs-table .by-jugs-table__subheader-info_over {
+    color: #cc3333; }
+
+.by-jugs-table .secondary-info {
+    color: #999999; }
+
+.by-jugs-table__spread-value {
+    float: right;
+    box-sizing: border-box;
+    height: 100%;
+    min-width: 75px;
+    max-width: 150px;
+    padding: 4px 6px;
+    text-align: right; }
