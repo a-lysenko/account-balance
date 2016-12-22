@@ -6,12 +6,19 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <table class="table">
+                    <table class="table add-data-table">
                         <thead>
                         <tr>
-                            <th>Income name</th>
-                            <th>UAH<br>([sum])</th>
-                            <th>USD<br>([sum])</th>
+                            <th>
+                                <span class="add-data-table__name">
+                                    Income name
+                                </span>
+                            </th>
+                            <th>
+                                <span class="add-data-table__sum">
+                                    Sum <small class="parentheses-wrap">UAH</small>
+                                </span>
+                            </th>
                             <th></th>
                         </tr>
                         </thead>
@@ -34,16 +41,12 @@
                                        ng-model="vm.itemToIncome.source">
                             </td>
                             <td>
-                                <input type="number" class="form-control input-sm" placeholder="UAH"
+                                <input type="number" class="form-control input-sm add-data-table__sum" placeholder="UAH"
                                        ng-model="vm.itemToIncome.UAH">
                             </td>
                             <td>
-                                <input type="number" class="form-control input-sm" placeholder="USD"
-                                       ng-model="vm.itemToIncome.USD">
-                            </td>
-                            <td>
                                 <button type="button" class="btn-sm btn btn-success" aria-label="Add"
-                                    ng-click="vm.addItemToIncome()">
+                                        ng-click="vm.addItemToIncome()">
                                     +
                                 </button>
                             </td>
@@ -54,7 +57,7 @@
 
                 <div class="col-xs-12">
                     <button class="btn btn-success"
-                        ng-click="vm.saveIncome()">
+                            ng-click="vm.saveIncome()">
                         Save
                     </button>
                     <button class="btn btn-danger" disabled="disabled">Remove</button>
