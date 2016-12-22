@@ -6,21 +6,35 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <table class="table">
+                    <table class="table add-data-table">
                         <thead>
                         <tr>
-                            <th>Storage</th>
-                            <th>UAH<br>([sum])</th>
-                            <th>USD<br>([sum])</th>
+                            <th>
+                                <span class="add-data-table__name">
+                                    Storage
+                                </span>
+                            </th>
+                            <th>
+                                <span class="add-data-table__sum">
+                                    Sum <small class="parentheses-wrap">UAH</small>
+                                </span>
+                            </th>
                             <th></th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr ng-repeat="balanceItem in vm.balance track by $index">
-                            <td>{{balanceItem.source}}</td>
-                            <td>{{balanceItem.UAH}}</td>
-                            <td>{{balanceItem.USD}}</td>
+                            <td>
+                                <span class="add-data-table__name">
+                                    {{balanceItem.source}}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="add-data-table__sum">
+                                    {{balanceItem.UAH}}
+                                </span>
+                            </td>
                             <td>
                                 <button type="button" class="btn-sm btn btn-default"
                                         ng-click="vm.removeItem($index)">
@@ -30,16 +44,12 @@
                         </tr>
                         <tr class="active">
                             <td>
-                                <input type="text" class="form-control input-sm" placeholder="storage"
+                                <input type="text" class="form-control input-sm add-data-table__name" placeholder="storage"
                                        ng-model="vm.itemToBalance.source">
                             </td>
                             <td>
-                                <input type="number" class="form-control input-sm" placeholder="UAH"
+                                <input type="number" class="form-control input-sm add-data-table__sum" placeholder="UAH"
                                        ng-model="vm.itemToBalance.UAH">
-                            </td>
-                            <td>
-                                <input type="number" class="form-control input-sm" placeholder="USD"
-                                       ng-model="vm.itemToBalance.USD">
                             </td>
                             <td>
                                 <button type="button" class="btn-sm btn btn-success" aria-label="Add"
