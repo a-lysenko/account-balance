@@ -9,38 +9,37 @@
             <div class="row">
                 <div class="col-xs-12">
                     <table class="table turnover">
-                        <thead>
+                        <thead class="turnover-header">
                         <tr>
-                            <th class="text-center"><!--Type--></th>
-                            <th class="text-center">Date</th>
-                            <th>UAH<br>([sum])</th>
-                            <th>USD<br>([sum])</th>
-                            <th class="text-center">Jugs</th>
+                            <th class="turnover-item__date">Date</th>
+                            <th class="turnover-item__sum">
+                                Sum
+                            </th>
+                            <th class="turnover-item__spread">Jugs</th>
                         </tr>
                         </thead>
 
                         <tbody ng-repeat="turnoverItem in vm.turnoverData"
                                class="turnover-item"
-                                ng-class="{
+                               ng-class="{
                                     'turnover-item_income': turnoverItem.income,
                                     'turnover-item_expense': turnoverItem.expense
                                 }">
                         <tr class="turnover-item__main">
-                            <td>
-                                <span ng-if="turnoverItem.income">+</span>
-                                <span ng-if="turnoverItem.expense">-</span>
-                            </td>
-                            <td class="text-center">{{turnoverItem.date | date: 'yyyy-MM-dd'}}</td>
-                            <td>{{turnoverItem.turnover.UAH}}</td>
-                            <td>{{turnoverItem.turnover.USD}}</td>
-                            <td>
+                            <td class="turnover-item__date">{{turnoverItem.date | date: 'yyyy-MM-dd'}}</td>
+                            <td class="turnover-item__sum">{{turnoverItem.turnover.UAH | number: 2}}</td>
+                            <!--<td>-->
+                                <!--<span ng-if="turnoverItem.income">+</span>-->
+                                <!--<span ng-if="turnoverItem.expense">-</span>-->
+                            <!--</td>-->
+                            <td class="turnover-item__spread">
                                 <!-- TODO - update this -->
-                                <a ng-if="turnoverItem.jug"
+                                <a ng-if="turnoverItem.turnoverByJugs"
                                    class="center-block btn btn-link btn-xs"
-                                   href="#/{{turnoverItem.jug}}" role="button">
+                                   href="#/spread/{{turnoverItem.id}}" role="button">
                                     [link]
                                 </a>
-                                <button ng-if="!turnoverItem.jug"
+                                <button ng-if="!turnoverItem.turnoverByJugs"
                                         class="center-block btn btn-warning btn-xs"
                                         role="button">
                                     create
@@ -48,8 +47,10 @@
                             </td>
                         </tr>
                         <tr class="turnover-item__balance">
-                            <td colspan="2"></td>
-                            <td colspan="3">Balance: {{turnoverItem.balance.USD}} USD, {{turnoverItem.balance.UAH}} UAH</td>
+                            <td colspan="1"></td>
+                            <td colspan="2">
+                                Balance: {{turnoverItem.balance.UAH}}
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -60,9 +61,6 @@
                             ui-sref="add-income">
                         Add income
                     </button>
-                    <!--<a ui-sref="add-income">-->
-                    <!--<button class="btn btn-danger navbar-btn" >Button Submit</button>-->
-                    <!--</a>-->
                     <button class="btn btn-success"
                             ui-sref="set-balance">
                         Set balance
