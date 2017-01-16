@@ -1,0 +1,157 @@
+/*@font-face {
+    font-family: 'bad_scriptregular';
+    src: url('../fonts/badscript-regular-webfont.eot');
+    src: url('../fonts/badscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/badscript-regular-webfont.woff2') format('woff2'),
+         url('../fonts/badscript-regular-webfont.woff') format('woff'),
+         url('../fonts/badscript-regular-webfont.ttf') format('truetype'),
+         url('../fonts/badscript-regular-webfont.svg#bad_scriptregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+html, body {
+	height: 100%;
+}
+
+.header {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	padding: 10px;
+	border-bottom: 1px solid green;
+	background-color: lightgreen;
+}
+
+.header .header__menu-bar {
+	overflow: hidden;
+}
+
+.header .header__menu-bar:after {
+	content: '',
+	display: block;
+	clear: both;
+}
+
+
+/* helper class due to direct css without preprocessors. should be used and extend by custom buttons*/
+.header-btn {
+	display: block;
+	box-sizing: border-box;
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	border-radius: 10px;
+	background-color: green;
+	border: none;
+}
+
+.header-btn:hover {
+	background-color: darkgreen;
+}
+
+.header .header__menu-btn {
+	float: left;
+}
+
+.header .header__achievement-page-btn {
+	float: right;
+	margin: 0 5px;
+}
+
+.header .header__help-btn {
+	float: right;
+}
+
+.header .header__add-tick-item-btn {
+	position: fixed;
+	right: 15px;
+	bottom: 15px;
+	display: block;
+	box-sizing: border-box;
+	width: 70px;
+	height: 70px;
+	padding: 0;
+	border-radius: 35px;
+	background-color: green;
+	border: none;
+	box-shadow: 1px 1px 3px 1px darkgreen;
+}
+
+.icon-menu {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background: url(../images/icon-menu.png) center center no-repeat;
+	background-size: cover;
+	background-origin: border-box;
+}
+
+.icon-help {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background: url(../images/icon-help.png) -1px 1px no-repeat;
+	background-size: cover;
+	background-origin: border-box;
+}
+
+.icon-achievement {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/icon-achievement.png) center center no-repeat;
+	background-size: cover;
+	background-origin: border-box;
+}
+
+.icon-add {
+	display: block;
+	width: 70px;
+	height: 70px;
+	background: url(../images/icon-add.png) center center no-repeat;
+	/* over size is set to hide circle in icon - quick win*/
+	background-size: 110px 110px;
+	background-origin: border-box;
+	overflow: hidden;
+}
+
+
+/* ----------------------- */
+
+.main {
+	position: relative;
+	display: block;
+}
+
+.main-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	background-color: beige;
+}
+
+.tick-list {
+	margin: 0;
+	list-style: none;
+	padding: 3px;
+}
+
+.tick-item {
+	display: block;
+	margin-top: 3px;
+	border: 1px solid burlywood;
+	padding: 5px;
+	padding-right: 100px;
+	background-color: bisque;
+
+}
+
+.tick-item:first-child {
+	margin-top: 0; 
+}
