@@ -11,7 +11,7 @@
     "prestart": "npm install",
     "start": "npm run build && http-server"
   },
-  "author": "",
+  "author": "a-lysenko",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.7",
