@@ -1,19 +1,33 @@
-<header class="bg-success header">
-    <!-- Simple dropdown -->
-
-
-    <!-- Single button -->
-    <div class="btn-group" uib-dropdown is-open="status.isopen">
-        <button id="single-button" type="button" class="btn btn-success" uib-dropdown-toggle ng-disabled="disabled">
-          <span class="glyphicon glyphicon-menu-hamburger"></span>
+<header class="header">
+    <div class="header__menu-bar">
+        <button class="header__menu-btn">
+            <i class="icon-menu"></i>
         </button>
-        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-            <li role="menuitem">
-                <a ui-sref="turnover">Turnover</a>
-                <a ui-sref="jug-list">Jug List</a>
-            </li>
-            <li class="divider"></li>
-            <li role="menuitem"><a href="#">and some more..</a></li>
-        </ul>
+        <button class="header__help-btn">
+            <i class="icon-help"></i>
+        </button>
+        <button class="header__achievement-page-btn">
+            <i class="icon-achievement"></i>
+        </button>
     </div>
+
+    <!-- <header class="bg-success header">
+        Simple dropdown
+
+
+        Single button
+        <div class="btn-group" uib-dropdown is-open="status.isopen">
+            <button id="single-button" type="button" class="btn btn-success" uib-dropdown-toggle ng-disabled="disabled">
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <li role="menuitem">
+                    <a ui-sref="turnover">Turnover</a>
+                    <a ui-sref="jug-list">Jug List</a>
+                </li>
+                <li class="divider"></li>
+                <li role="menuitem"><a href="#">and some more..</a></li>
+            </ul>
+        </div>
+    </header> -->
 </header>

@@ -6,9 +6,9 @@ var sourcemaps = require('gulp-sourcemaps');
 
 
 function concatCSS(config) {
-    var srcFilePath = [config.src, config.file].join('/');
+    //var srcFilePath = [config.src, config.file].join('/');
 
-    gulp.src(srcFilePath)
+    gulp.src(config.src)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(concat(config.outFile))

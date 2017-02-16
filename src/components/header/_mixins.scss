@@ -1,0 +1,118 @@
+@import "variables";
+
+@mixin header-button {
+    display: block;
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 10px;
+    background-color: green;
+    border: none;
+
+    &:hover {
+        background-color: darkgreen;
+    }
+}
+
+@mixin header-back-button {
+    @include header-button;
+
+    width: 25px;
+    border: 25px solid transparent;
+    border-left-width: 0px;
+    border-right: 25px solid green;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@mixin footer-button {
+    box-sizing: border-box;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    padding: 0;
+    outline: none;
+
+    &:hover {
+        box-shadow: inset 0 0 10px 1px $black;
+    }
+
+    &:active {
+        box-shadow: inset 0 0 15px 2px $black;
+    }
+}
+
+@mixin input-number {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 8px 10px 3px;
+    background-color: $main;
+    box-shadow: inset 0 0 3px 1px $light;
+
+    text-align: right;
+
+    transition: background-color, color 0.3s linear;
+
+    &:focus {
+        outline-style: none;
+        background-color: $dark;
+        box-shadow: inset 0 0 3px -1px $black;
+        color: $light;
+    }
+}
+
+@mixin percent-value-no-wrap {
+    &:after {
+        content: "%";
+    }
+}
+
+@mixin percent-value {
+    &:before {
+        content: "(";
+    }
+
+    &:after {
+        content: "%)";
+    }
+}
+
+@mixin plain-text {
+    font-size: 1rem;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+}
+
+@mixin button {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 3px;
+
+    background-color: $main;
+    line-height: normal;
+    box-shadow: 0px 0 2px 1px $light;
+
+    transition: box-shadow 0.15s linear;
+    outline: none;
+    user-select: none;
+
+    &:hover {
+        background-color: $dark;
+        box-shadow: 0px 0 1px 0 $light;
+    }
+
+    &:active {
+        background-color: $dark;
+        box-shadow: inset 0 0 3px 0 $black;
+    }
+}

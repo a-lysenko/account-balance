@@ -1,0 +1,72 @@
+@import "mixins";
+
+.header {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    border-bottom: 1px solid green;
+    background-color: lightgreen;
+
+    & &__menu-bar {
+        overflow: hidden;
+    }
+
+    & &__menu-bar:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    &__back-btn {
+        @include header-back-button;
+
+        float: left;
+    }
+
+    &__menu-btn {
+        @include header-button;
+
+        float: left;
+    }
+
+    &__achievement-page-btn {
+        @include header-button;
+
+        float: right;
+        margin: 0 5px;
+    }
+
+    &__help-btn {
+        @include header-button;
+
+        float: right;
+    }
+}
+
+.icon-menu {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icon-menu.png) center center no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+}
+
+.icon-help {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../images/icon-help.png) -1px 1px no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+}
+
+.icon-achievement {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(../images/i-achievement.png) center center no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+}

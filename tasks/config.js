@@ -1,7 +1,6 @@
 module.exports = {
     style: {
-        src: 'src/scss',
-        file: 'style.scss',
+        src: 'src/**/*.scss',
         dist: 'public/css',
         outFile: 'style.css',
         watchSrc: 'src/scss/**/*.scss'
@@ -26,5 +25,9 @@ module.exports = {
         src: 'src/index.html',
         dist: 'public',
         outFile: 'index.html'
+    },
+    images: {
+        src: 'src/**/*.png',
+        dist: 'public/images'
     }
 };

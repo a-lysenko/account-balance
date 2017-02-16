@@ -1,11 +1,18 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var watch = require('gulp-watch');
+const fsE = require('fs-extra');
+const path = require('path');
+const watch = require('gulp-watch');
 
 function copyIndex(config) {
-    gulp.src(config.src)
-        .pipe(concat(config.outFile))
-        .pipe(gulp.dest(config.dist));
+    const distFileName = path.join(config.dist, config.outFile);
+
+    fsE.copy(config.src, distFileName, (err) => {
+        if (err) {
+            console.log('Task "copy-index" has errors:', err);
+            return;
+        }
+
+        console.log('Task "copy-index": done.');
+    });
 }
 
 module.exports = (config) => {
