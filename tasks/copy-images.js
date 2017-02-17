@@ -10,8 +10,8 @@ function copyImages(config) {
             return;
         };
 
-        console.log(`Task "copy-images" found (${files.length}) file(s):
-                \t ${files.join('\n\t')}`);
+        console.log(`Task "copy-images" found (${files.length}) file(s):`+
+            `\n\t ${files.join('\n\t')}`);
 
         let amountOfFinished = 0;
         let errorOcurred = false;

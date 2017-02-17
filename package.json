@@ -6,12 +6,15 @@
   "scripts": {
     "build": "node tasks/build.js",
     "build:w": "node tasks/build.js --w",
+    "build:noexec": "node tasks/build.js --noexec --w",
     "test": "karma start",
+    "server:basic": "node tasks/server.js",
+    "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 tasks/server.js",
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "npm run build && http-server"
+    "start": "npm run build:w | npm run server:basic",
+    "start:dev": "npm run build:w | npm run server:nodemon"
   },
-
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -32,6 +35,8 @@
   },
   "dependencies": {
     "fs-extra": "^2.0.0",
-    "glob": "^7.1.1"
+    "glob": "^7.1.1",
+    "node-static": "^0.7.9",
+    "nodemon": "^1.11.0"
   }
 }
