@@ -3,7 +3,7 @@ module.exports = {
         src: 'src/**/*.scss',
         dist: 'public/css',
         outFile: 'style.css',
-        watchSrc: 'src/scss/**/*.scss'
+        watchSrc: 'src/**/*.scss'
     },
     js: {
         srcFiles: [
