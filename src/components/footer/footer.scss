@@ -1,55 +1,45 @@
-@import "mixins";
+@import "../../scss/mixins";
 
-// TODO - place into footer component.
-// FIXME - place into footer component. It should be used not directly from every component as part of it's style,
-// but separate 'footer' component should use it. And after definitely 'footer' component has to be used inside other
-// components.
 .footer {
+    display: flex;
+    flex-direction: row-reverse;
+
     position: fixed;
     box-sizing: border-box;
     bottom: 0;
     width: 100%;
-    height: (50px + 15px); // includes padding
-    padding: 0 0 15px 15px;
+    padding: 0 15px 15px 15px;
     background-color: transparent;
 
     &__btn {
         @include footer-button;
+        margin-left: 10px;
 
         &.footer__btn_add,
         &.footer__btn_save {
             background-color: green;
         }
-
-        &.footer__btn_remove {
-            background-color: red;
-        }
-
-        &.footer__btn_right {
-            position: absolute;
-            right: 15px;
-        }
     }
 }
 
-.icon-add {
+@mixin icon($imgPath) {
     display: block;
     width: 50px;
     height: 50px;
-    background: url(../images/i-add.png) center center no-repeat;
+    background: url($imgPath) center center no-repeat;
     background-origin: border-box;
     overflow: hidden;
+}
+
+.icon-add {
+    @include icon('../images/i-add.png');
 }
 
 .icon-save {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background: url(../images/i-save.png) center center no-repeat;
-    background-origin: border-box;
-    overflow: hidden;
+    @include icon('../images/i-save.png');
 }
 
+// TODO - candidate to get rid off. 'Remove' button will be in header
 .icon-remove {
     display: block;
     width: 35px; // icon has usual style.
@@ -57,7 +47,7 @@
     // So its lines equal not 50/2 but 50*sqrt(2)/2 - diagonal half-length
     // So decreased size is set to compensate it and make
     // length of lines as in non-rotated cross: 50/2. (35 is approx)
-     height: 35px;
+    height: 35px;
     margin: 0 auto;
     background: url(../images/i-remove.png) center center no-repeat;
     background-origin: border-box;

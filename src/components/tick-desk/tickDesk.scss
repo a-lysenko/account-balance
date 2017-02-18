@@ -1,9 +1,5 @@
 @import "../../scss/mixins";
-
 @import "../../scss/_style-tick-list";
-
-@import "../../scss/footer";
-
 
 .tick-list {
 	@include tick-list;
