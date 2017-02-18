@@ -38,19 +38,3 @@
 .icon-save {
     @include icon('../images/i-save.png');
 }
-
-// TODO - candidate to get rid off. 'Remove' button will be in header
-.icon-remove {
-    display: block;
-    width: 35px; // icon has usual style.
-    //  At the same time cross in 50x50 squared is rotated 45 degs.
-    // So its lines equal not 50/2 but 50*sqrt(2)/2 - diagonal half-length
-    // So decreased size is set to compensate it and make
-    // length of lines as in non-rotated cross: 50/2. (35 is approx)
-    height: 35px;
-    margin: 0 auto;
-    background: url(../images/i-remove.png) center center no-repeat;
-    background-origin: border-box;
-    overflow: hidden;
-    border-radius: 24px;
-}
