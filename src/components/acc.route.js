@@ -23,12 +23,12 @@
                     controller: 'SetBalanceController',
                     controllerAs: 'vm'
                 })
-                .state('turnover', {
+                .state('tick-desk', {
                     url: "/",
                     // TODO - remove balance income directive and use controller here directly
                     // TODO - but previously check if you just can use property 'component'.
                     //        if yes - transform the directive to component and use the approach
-                    template: '<turnover>Here is turnover directive</turnover>'
+                    template: '<tick-desk>Here is tick-desk directive</tick-desk>'
                 });
         });
 })();

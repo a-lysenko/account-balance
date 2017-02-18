@@ -1,0 +1,121 @@
+@import "../../scss/mixins";
+
+@import "../../scss/_style-tick-list";
+
+@import "../../scss/footer";
+
+
+.tick-list {
+	@include tick-list;
+}
+
+.tick-item {
+	@include tick-list-item;
+
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+	align-items: center;
+
+	padding: 5px 0 5px 5px;
+
+	&__achieved-percent {
+		flex-shrink: 1;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		box-sizing: border-box;
+		height: 50px;
+		width: 50px;
+		border: 2px solid $dark;
+		border-radius: 50%;
+		font-size: 20px;
+
+		&_great {
+		    color: green;
+			border-color: green;
+		}
+
+		&_good {
+		    color: yellowgreen;
+			border-color: yellowgreen;
+		}
+
+		&_poor {
+			color: red;
+			border-color: red;
+		}
+	}
+
+	&__container {
+		flex-shrink: 1;
+
+		display: block;
+	}
+
+	&__sum-container,
+	&__date-container {
+		display: block;
+		margin: 0;
+		padding: 0 0 0 10px;
+	}
+
+	&__text,
+	&__planned-sum,
+	&__unspread-sum,
+	&__date-text,
+	&__date-value {
+		display: inline;
+	}
+
+	&__date-text,
+	&__date-value {
+		font-size: 0.75em;
+		font-style: italic;
+	}
+
+	&__medal-box {
+		flex-shrink: 1;
+	    align-self: flex-start;
+
+		display: block;
+		min-width: 80px;
+		min-height: 50px;
+		height: 100%;
+	}
+}
+
+.medal-list {
+	display: flex;
+	flex-direction: row-reverse;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	&__item {
+		display: inline-block;
+		margin-left: 5px;
+	}
+}
+
+.icon-medal {
+    display: block;
+    height: 35px; // drives image size
+    width: 23px; // to fit the driver
+    margin: 0;
+    background: url(../images/i-achievement.png) -6px 0 no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+
+    &.icon-medal_balancer {
+    	background-image: url(../images/i-achievement-balancer.png);
+    }
+
+    &.icon-medal_gold {
+    	background-image: url(../images/i-achievement-gold.png);
+    }
+}
+

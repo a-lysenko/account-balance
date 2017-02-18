@@ -1,0 +1,42 @@
+@import "variables";
+
+/*@font-face {
+    font-family: 'bad_scriptregular';
+    src: url('../fonts/badscript-regular-webfont.eot');
+    src: url('../fonts/badscript-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/badscript-regular-webfont.woff2') format('woff2'),
+         url('../fonts/badscript-regular-webfont.woff') format('woff'),
+         url('../fonts/badscript-regular-webfont.ttf') format('truetype'),
+         url('../fonts/badscript-regular-webfont.svg#bad_scriptregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+
+// This file is not imported to any other file. But it's a part of concatenated stylesheet.
+// All scss files with name not from '_' are included.
+// These styles used across all the app out of index.html directly
+// TODO - Probably layouts should be transformed so that .main-cover will used in index.html
+
+html, body {
+    height: 100%;
+}
+
+/* ----------------------- */
+
+.main {
+    position: relative;
+    display: block;
+}
+
+.main-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: $main;
+}

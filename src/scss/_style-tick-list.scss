@@ -1,0 +1,51 @@
+@import "variables";
+
+
+@mixin tick-list {
+    display: block;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: $main;
+}
+
+@mixin tick-list-item {
+    display: flex;
+    margin-top: 10px;
+    border: none;
+    border-top: 1px solid $black;
+    border-right: 1px solid $black;
+    border-bottom: 1px solid $black;
+    box-shadow: 0 3px 1px 0 $light;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &__jug-container {
+        display: flex;
+        flex-basis: 33.33333%;
+        flex-grow: 1;
+        flex-shrink: 1;
+        box-sizing: border-box;
+        padding: 2px 5px 5px;
+    }
+
+    &__jug {
+        margin: auto; // flex magic
+        padding-top: 6px;
+    }
+
+    &__jug-percent {
+        @include percent-value;
+    }
+
+    &__sum,
+    &__percent {
+        display: block;
+        box-sizing: border-box;
+        width: 100%; // display block is not enough for inputs
+
+        @include input-number;
+    }
+}
