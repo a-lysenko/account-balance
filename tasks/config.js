@@ -9,6 +9,9 @@ module.exports = {
         srcFiles: [
             'src/js/!(*.spec).js',
             'src/components/acc.module.js',
+
+            'src/mock/**/*.mock.js',
+
             'src/components/acc.route.js',
             'src/components/**/!(*.spec).js'
         ],
