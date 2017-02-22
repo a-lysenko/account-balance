@@ -11,7 +11,7 @@
                     factedDate: new Date(),
                     plannedValue: 12345.67,
                     factedValue: 1234.56,
-                    factedPercent: 17,
+                    factedPercent: 48,
                     achievements: {
                         balancer: {
                             icon: 'violet',
@@ -32,7 +32,7 @@
                     factedDate: new Date(),
                     plannedValue: 12345.67,
                     factedValue: 1234.56,
-                    factedPercent: 17,
+                    factedPercent: 48,
                     achievements: {
                         progress: {
                             value: 'good'
@@ -49,7 +49,7 @@
                     factedDate: new Date(),
                     plannedValue: 12345.67,
                     factedValue: 1234.56,
-                    factedPercent: 17,
+                    factedPercent: 48,
                     achievements: {
                         progress: {
                             value: 'poor'
@@ -62,7 +62,7 @@
                     factedDate: new Date(),
                     plannedValue: 12345.67,
                     factedValue: 1234.56,
-                    factedPercent: 17,
+                    factedPercent: 48,
                     achievements: {
                         balancer: {
                             icon: 'violet',
