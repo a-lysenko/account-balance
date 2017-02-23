@@ -67,13 +67,14 @@
     }
 }
 
-@mixin percent-value-no-wrap {
+// Ex. percent-value-no-wrap
+@mixin percent-value {
     &:after {
         content: "%";
     }
 }
 
-@mixin percent-value {
+@mixin percent-value-wrapped {
     &:before {
         content: "(";
     }
@@ -88,6 +89,14 @@
     font-weight: normal;
     text-decoration: none;
     font-style: normal;
+}
+
+@mixin link {
+    font-size: 1rem;
+    font-weight: normal;
+    text-decoration: underline;
+    font-style: normal;
+    color: $light;
 }
 
 @mixin button {

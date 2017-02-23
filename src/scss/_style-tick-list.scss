@@ -37,7 +37,7 @@
     }
 
     &__jug-percent {
-        @include percent-value;
+        @include percent-value-wrapped;
     }
 
     &__sum,
