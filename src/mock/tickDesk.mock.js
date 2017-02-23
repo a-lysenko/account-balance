@@ -10,69 +10,63 @@
                     plannedDate: new Date(),
                     factedDate: new Date(),
                     plannedValue: 12345.67,
-                    factedValue: 1234.56,
+                    unspread: 1234.56,
                     factedPercent: 48,
-                    achievements: {
-                        balancer: {
-                            icon: 'violet',
+                    tickStatus: 'great',
+                    medals: [
+                        {
+                            icon: 'balancer',
                             title: 'Balancer'
                         },
-                        progress: {
-                            value: 'great'
-                        },
-                        row: {
+                        {
                             icon: 'gold',
                             title: '3 good or better in row'
                         }
-                    }
+                    ]
                 },
                 {
                     id: shortid.gen(),
                     plannedDate: new Date(),
                     factedDate: new Date(),
                     plannedValue: 12345.67,
-                    factedValue: 1234.56,
+                    unspread: 1234.56,
                     factedPercent: 48,
-                    achievements: {
-                        progress: {
-                            value: 'good'
-                        },
-                        row: {
+                    tickStatus: 'good',
+                    medals: [
+                        {
                             icon: 'gold',
                             title: '3 good or better in row'
                         }
-                    }
+                    ]
                 },
                 {
                     id: shortid.gen(),
                     plannedDate: new Date(),
                     factedDate: new Date(),
                     plannedValue: 12345.67,
-                    factedValue: 1234.56,
+                    unspread: 1234.56,
                     factedPercent: 48,
-                    achievements: {
-                        progress: {
-                            value: 'poor'
-                        }
-                    }
+                    tickStatus: 'poor',
+                    medals: []
                 },
                 {
                     id: shortid.gen(),
                     plannedDate: new Date(),
                     factedDate: new Date(),
                     plannedValue: 12345.67,
-                    factedValue: 1234.56,
+                    unspread: 1234.56,
                     factedPercent: 48,
-                    achievements: {
-                        balancer: {
-                            icon: 'violet',
+                    tickStatus: '',
+                    medals: [
+                        {
+                            icon: 'balancer',
                             title: 'Balancer'
                         },
-                        firstBlood: {
+                        {
                             icon: 'red',
-                            title: 'first closed tick as good or better'
+                            title: 'First blood! first closed tick as good or better'
                         }
-                    }
+                    ]
                 }
             ]);
         });

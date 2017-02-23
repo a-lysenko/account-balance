@@ -13,6 +13,8 @@
         });
 
         ctrl.$onInit = function () {
+            // TODO - on real request to server it can be sent on controller creation
+            // and just its promise should processed in $onInit
             ctrl.tickDeskData = localStorageService.get(tickDeskDataKey);
             console.log('ctrl.tickDeskData', ctrl.tickDeskData);
         };

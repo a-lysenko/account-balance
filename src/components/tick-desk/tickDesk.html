@@ -1,9 +1,11 @@
 <article class="main">
     <ul class="tick-list">
-        <li class="tick-item">
+        <li ng-repeat="tick in $ctrl.tickDeskData"
+            class="tick-item">
 
-				<span class="tick-item__achieved-percent tick-item__achieved-percent_great">
-					48%
+				<span class="tick-item__achieved-percent"
+                        ng-class="'tick-item__achieved-percent_' + tick.tickStatus">
+					{{tick.factedPercent}}%
 				</span>
 
             <div class="tick-item__container">
@@ -13,7 +15,7 @@
 								of
 							</span>
 							<span class="tick-item__planned-sum">
-								12345.67
+								{{tick.plannedValue}}
 							</span>
                     </div>
 
@@ -22,154 +24,25 @@
 								Unspread:
 							</span>
 							<span class="tick-item__unspread-sum">
-								 12345.67
+								 {{tick.unspread}}
 							</span>
                     </div>
                 </div>
 
                 <div class="tick-item__date-container">
                     <span class="tick-item__date-text">plan</span>
-                    <span class="tick-item__date-value">12.06.2014</span>
+                    <span class="tick-item__date-value">{{tick.plannedDate | date:'dd.MM.yyyy'}}</span>
                     <span class="tick-item__date-text">-</span>
                     <span class="tick-item__date-text">fact</span>
-                    <span class="tick-item__date-value">23.07.2014</span>
+                    <span class="tick-item__date-value">{{tick.factedDate | date}}</span>
                 </div>
             </div>
 
             <ul class="tick-item__medal-box medal-list">
-                <li class="medal-list__item">
-                    <i class="icon-medal icon-medal_balancer"></i>
-                </li>
-                <li class="medal-list__item">
-                    <i class="icon-medal icon-medal_gold"></i>
-                </li>
-            </ul>
-        </li>
-
-        <li class="tick-item">
-
-				<span class="tick-item__achieved-percent tick-item__achieved-percent_good">
-					48%
-				</span>
-
-            <div class="tick-item__container">
-                <div class="tick-item__sum-container">
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								of
-							</span>
-							<span class="tick-item__planned-sum">
-								12345.67
-							</span>
-                    </div>
-
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								Unspread:
-							</span>
-							<span class="tick-item__unspread-sum">
-								 12345.67
-							</span>
-                    </div>
-                </div>
-
-                <div class="tick-item__date-container">
-                    <span class="tick-item__date-text">plan</span>
-                    <span class="tick-item__date-value">12.06.2014</span>
-                    <span class="tick-item__date-text">-</span>
-                    <span class="tick-item__date-text">fact</span>
-                    <span class="tick-item__date-value">23.07.2014</span>
-                </div>
-            </div>
-
-            <ul class="tick-item__medal-box medal-list">
-                <li class="medal-list__item">
-                    <i class="icon-medal icon-medal_gold"></i>
-                </li>
-            </ul>
-        </li>
-        <li class="tick-item">
-
-				<span class="tick-item__achieved-percent tick-item__achieved-percent_poor">
-					48%
-				</span>
-
-            <div class="tick-item__container">
-                <div class="tick-item__sum-container">
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								of
-							</span>
-							<span class="tick-item__planned-sum">
-								12345.67
-							</span>
-                    </div>
-
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								Unspread:
-							</span>
-							<span class="tick-item__unspread-sum">
-								 12345.67
-							</span>
-                    </div>
-                </div>
-
-                <div class="tick-item__date-container">
-                    <span class="tick-item__date-text">plan</span>
-                    <span class="tick-item__date-value">12.06.2014</span>
-                    <span class="tick-item__date-text">-</span>
-                    <span class="tick-item__date-text">fact</span>
-                    <span class="tick-item__date-value">23.07.2014</span>
-                </div>
-            </div>
-
-            <ul class="tick-item__medal-box medal-list">
-
-            </ul>
-            <!-- <div class="tick-item__medal-box">
-                no medals
-            </div> -->
-        </li>
-        <li class="tick-item">
-
-				<span class="tick-item__achieved-percent">
-					48%
-				</span>
-
-            <div class="tick-item__container">
-                <div class="tick-item__sum-container">
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								of
-							</span>
-							<span class="tick-item__planned-sum">
-								12345.67
-							</span>
-                    </div>
-
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								Unspread:
-							</span>
-							<span class="tick-item__unspread-sum">
-								 12345.67
-							</span>
-                    </div>
-                </div>
-
-                <div class="tick-item__date-container">
-                    <span class="tick-item__date-text">plan</span>
-                    <span class="tick-item__date-value">12.06.2014</span>
-                    <span class="tick-item__date-text">-</span>
-                    <span class="tick-item__date-text">fact</span>
-                    <span class="tick-item__date-value">23.07.2014</span>
-                </div>
-            </div>
-
-            <ul class="tick-item__medal-box medal-list">
-                <li class="medal-list__item">
-                    <i class="icon-medal icon-medal_balancer"></i>
+                <li ng-repeat="medal in tick.medals"
+                    class="medal-list__item">
+                    <i class="icon-medal"
+                            ng-class="'icon-medal_' + medal.icon"></i>
                 </li>
             </ul>
         </li>
