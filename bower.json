@@ -26,7 +26,6 @@
     "angular-animate": "^1.5.8",
     "angular-ui-router": "^0.4.2",
     "normalize-css": "^4.2.0",
-    "bootstrap": "^3.3.7",
     "js-shortid": "^0.1.1"
   },
   "devDependencies": {
