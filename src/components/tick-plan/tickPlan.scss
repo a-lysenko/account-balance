@@ -1,0 +1,130 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+@import "../../scss/common";
+@import "../../scss/style-tick-list";
+
+.tick-plan-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+
+	&__plan-container {
+		flex-basis: 60%;
+	}
+
+	&__fact-container {
+		flex-basis: 40%;
+
+		display: flex;
+    	flex-direction: column;
+
+		border-left: 1px solid $black;
+	}
+}
+
+.plan-menu {
+	display: block;
+
+	&__header {
+		display: block;
+		margin: 0;
+		border-bottom: 1px solid $black;
+		padding: 0;
+		@include plain-text;
+
+	}
+
+
+	&__main {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: stretch;
+		padding: 5px 5px 0 0;
+	}
+
+	&__sum-destination-list,
+	&__sum-values-list,
+	&__extras-list {
+		display: block;
+	}
+
+	&__sum-destination-item,
+	&__sum-value,
+	&__extra-item {
+		display: block;
+		box-sizing: content-box;
+		margin: 0;
+		height: 1.5rem;
+		padding: 3px 0;
+		line-height: 1.5rem;
+
+		@include plain-text;
+		text-align: right;
+	}
+
+	&__edit-plan-sum-btn {
+		@include button;
+
+		display: inline-block;
+	    height: 100%;
+	}
+
+	&__percent-value {
+		display: inline;
+		@include percent-value;
+	}
+
+	&__spread-btn {
+		@include button;
+
+		width: 90%;
+		margin: 0 auto;
+	}
+
+}
+
+.fact-menu {
+	display: block;
+	box-sizing: border-box;
+
+	&__header {
+		display: block;
+		margin: 0;
+		border-bottom: 1px solid $black;
+		padding: 0;
+		@include plain-text;
+	}
+
+	&__facted-link {
+		display: block;
+		box-sizing: content-box;
+		margin: auto 0 auto 5px; // auto - flex magic to center vertically
+		padding: 3px 0;
+		line-height: 1.5rem;
+
+		@include link;
+		color: $light;
+
+		&::after {
+			content: ' >>';
+		}
+	}
+
+	&__percent-value {
+		display: inline;
+		@include percent-value;
+	}
+}
+
+.tick-plan-list {
+	@include tick-list;
+}
+
+.tick-plan-item {
+	@include tick-list-item;
+}

@@ -1,0 +1,79 @@
+<section class="main">
+    <section class="tick-plan-header">
+        <div class="tick-plan-header__plan-container">
+            <div class="plan-menu">
+                <h2 class="plan-menu__header">plan</h2>
+                <div class="plan-menu__main">
+                    <div class="plan-menu__sum-destination-list">
+                        <h3 class="plan-menu__sum-destination-item">To plan:</h3>
+                        <h3 class="plan-menu__sum-destination-item">Spread:</h3>
+                        <h3 class="plan-menu__sum-destination-item">Unspread:</h3>
+                    </div>
+                    <div class="plan-menu__sum-values-list">
+                        <span class="plan-menu__sum-value">12345.67</span>
+                        <span class="plan-menu__sum-value">23456.7</span>
+                        <span class="plan-menu__sum-value">123.45</span>
+                    </div>
+                    <div class="plan-menu__extras-list">
+                        <div class="plan-menu__extra-item">
+                            <button class="plan-menu__edit-plan-sum-btn">edit</button>
+                        </div>
+                        <div class="plan-menu__extra-item">
+                            <span class="plan-menu__percent-value">12.34</span>
+                        </div>
+                        <div class="plan-menu__extra-item">
+                            <span class="plan-menu__percent-value">56.78</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="plan-menu__spread-btn">Spread</button>
+            </div>
+        </div>
+
+        <div class="tick-plan-header__fact-container">
+            <h2 class="fact-menu__header">fact</h2>
+            <a href="" class="fact-menu__facted-link">
+                Go to facted <span class="fact-menu__percent-value">45</span> done
+            </a>
+        </div>
+    </section>
+
+    <ul class="tick-plan-list">
+        <li class="tick-plan-item">
+            <div class="tick-plan-item__jug-container">
+					<span class="tick-plan-item__jug">
+                        Main
+                        <span class="tick-plan-item__jug-percent">50</span>
+                    </span>
+
+            </div>
+            <div class="tick-plan-item__jug-container">
+                <input type="number" class="tick-plan-item__sum"
+                       value="4321.05">
+            </div>
+            <div class="tick-plan-item__jug-container">
+                <input type="number" class="tick-plan-item__percent"
+                       value="43.21">
+            </div>
+        </li>
+        <li class="tick-plan-item">
+            <div class="tick-plan-item__jug-container">
+                    <span class="tick-plan-item__jug">
+                        Main
+                        <span class="tick-plan-item__jug-percent">50</span>
+                    </span>
+
+            </div>
+            <div class="tick-plan-item__jug-container">
+                <input type="number" class="tick-plan-item__sum"
+                       value="4321.05">
+            </div>
+            <div class="tick-plan-item__jug-container">
+                <input type="number" class="tick-plan-item__percent"
+                       value="43.21">
+            </div>
+        </li>
+    </ul>
+</section>
+
+<acc-footer save="$ctrl.saveTickPlan()"></acc-footer>
