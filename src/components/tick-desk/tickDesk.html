@@ -1,7 +1,8 @@
 <article class="main">
     <ul class="tick-list">
         <li ng-repeat="tick in $ctrl.tickDeskData"
-            class="tick-item">
+            class="tick-item"
+            ui-sref="tick-plan/{{tick.id}}">
 
 				<span class="tick-item__achieved-percent"
                         ng-class="'tick-item__achieved-percent_' + tick.tickStatus">
