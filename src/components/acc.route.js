@@ -31,7 +31,7 @@
                     template: '<tick-desk>Here is tick-desk directive</tick-desk>'
                 })
                 .state('tick-plan', {
-                    url:'/tick-plan',
+                    url:'/tick-plan/:id',
                     template: '<tick-plan>Here is tick-plan directive</tick-plan>'
                 });
 

@@ -14,7 +14,17 @@
 	align-items: center;
 
 	padding: 5px 0 5px 5px;
+  	transition: background-color $transition-quick linear;
 
+	&:hover,
+  	&:active {
+	  background-color: $dark;
+	}
+  
+  	&:hover {
+	  cursor: pointer;
+	}
+  
 	&__achieved-percent {
 		flex-shrink: 1;
 
