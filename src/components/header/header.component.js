@@ -3,6 +3,8 @@
 
     angular.module('acc')
         .component('accHeader', {
-            templateUrl: 'header/header.html'
+            templateUrl: 'header/header.html',
+            controller: 'HeaderController',
+            controllerAs: '$ctrl'
         });
 })();

@@ -9,7 +9,9 @@
         <button class="header__achievement-page-btn">
             <i class="icon-achievement"></i>
         </button>
-        <button class="header__trash-bin-btn">
+        <button class="header__trash-bin-btn"
+                ng-show="$ctrl.hasActions()"
+                ng-click="$ctrl.fireTrashBinActions()">
             <i class="icon-bin"></i>
         </button>
     </div>
