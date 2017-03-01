@@ -33,7 +33,12 @@
         <div class="tick-plan-header__fact-container">
             <h2 class="fact-menu__header">fact</h2>
             <a href="" class="fact-menu__facted-link">
-                Go to facted <span class="fact-menu__percent-value">{{$ctrl.tickPlanData.factedPercent}}</span> done
+                <span ng-if="$ctrl.tickPlanData.factedPercent">
+                    Go to facted <span class="fact-menu__percent-value">{{$ctrl.tickPlanData.factedPercent}}</span> done
+                </span>
+                <span ng-if="!$ctrl.tickPlanData.factedPercent">
+                    No facted <br> Click to add
+                </span>
             </a>
         </div>
     </section>
