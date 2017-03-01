@@ -1,4 +1,5 @@
 @import "../../scss/mixins";
+@import "../../scss/variables";
 
 .footer {
     display: flex;
@@ -8,7 +9,8 @@
     box-sizing: border-box;
     bottom: 0;
     width: 100%;
-    padding: 0 15px 15px 15px;
+    max-height: $footer-height;
+    padding: 5px 15px 15px 15px;
     background-color: transparent;
 
     &__btn {

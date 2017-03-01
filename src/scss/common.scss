@@ -27,10 +27,11 @@ html, body {
 .main {
     position: relative;
     display: block;
+    padding-bottom: $footer-height;
 }
 
 .main-cover {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;

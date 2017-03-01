@@ -49,9 +49,13 @@
 }
 
 @mixin input-number {
+    box-sizing: content-box;
     border: 1px solid black;
     border-radius: 3px;
     padding: 8px 10px 3px;
+    max-height: 1.15rem;
+    line-height: 1.15rem;
+
     background-color: $main;
     box-shadow: inset 0 0 3px 1px $light;
 

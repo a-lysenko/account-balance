@@ -10,19 +10,19 @@
                         <h3 class="plan-menu__sum-destination-item">Unspread:</h3>
                     </div>
                     <div class="plan-menu__sum-values-list">
-                        <span class="plan-menu__sum-value">12345.67</span>
-                        <span class="plan-menu__sum-value">23456.7</span>
-                        <span class="plan-menu__sum-value">123.45</span>
+                        <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.plannedValue}}</span>
+                        <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.spreadValue}}</span>
+                        <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.unspreadValue}}</span>
                     </div>
                     <div class="plan-menu__extras-list">
                         <div class="plan-menu__extra-item">
                             <button class="plan-menu__edit-plan-sum-btn">edit</button>
                         </div>
                         <div class="plan-menu__extra-item">
-                            <span class="plan-menu__percent-value">12.34</span>
+                            <span class="plan-menu__percent-value">{{$ctrl.tickPlanData.spreadPercent}}</span>
                         </div>
                         <div class="plan-menu__extra-item">
-                            <span class="plan-menu__percent-value">56.78</span>
+                            <span class="plan-menu__percent-value">{{$ctrl.tickPlanData.unspreadPercent}}</span>
                         </div>
                     </div>
                 </div>
@@ -33,44 +33,28 @@
         <div class="tick-plan-header__fact-container">
             <h2 class="fact-menu__header">fact</h2>
             <a href="" class="fact-menu__facted-link">
-                Go to facted <span class="fact-menu__percent-value">45</span> done
+                Go to facted <span class="fact-menu__percent-value">{{$ctrl.tickPlanData.factedPercent}}</span> done
             </a>
         </div>
     </section>
 
     <ul class="tick-plan-list">
-        <li class="tick-plan-item">
-            <div class="tick-plan-item__jug-container">
-					<span class="tick-plan-item__jug">
-                        Main
-                        <span class="tick-plan-item__jug-percent">50</span>
-                    </span>
-
-            </div>
-            <div class="tick-plan-item__jug-container">
-                <input type="number" class="tick-plan-item__sum"
-                       value="4321.05">
-            </div>
-            <div class="tick-plan-item__jug-container">
-                <input type="number" class="tick-plan-item__percent"
-                       value="43.21">
-            </div>
-        </li>
-        <li class="tick-plan-item">
+        <li ng-repeat="spreadItem in $ctrl.tickPlanData.spread"
+            class="tick-plan-item">
             <div class="tick-plan-item__jug-container">
                     <span class="tick-plan-item__jug">
-                        Main
-                        <span class="tick-plan-item__jug-percent">50</span>
+                        {{spreadItem.jugName}}
+                        <span class="tick-plan-item__jug-percent">{{spreadItem.jugDefaultPercent}}</span>
                     </span>
 
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__sum"
-                       value="4321.05">
+                       ng-model="spreadItem.jugValue">
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__percent"
-                       value="43.21">
+                       ng-model="spreadItem.jugPercent">
             </div>
         </li>
     </ul>
