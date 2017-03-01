@@ -1,11 +1,12 @@
 const fsE = require('fs-extra');
 const path = require('path');
-const watch = require('gulp-watch');
+const watch = require('watch');
 
 function copyIndex(config) {
-    const distFileName = path.join(config.dist, config.outFile);
+    const srcFileName = path.join(config.src, config.fileName);
+    const distFileName = path.join(config.dist, config.fileName);
 
-    fsE.copy(config.src, distFileName, (err) => {
+    fsE.copy(srcFileName, distFileName, (err) => {
         if (err) {
             console.log('Task "copy-index" has errors:', err);
             return;
@@ -17,13 +18,22 @@ function copyIndex(config) {
 
 module.exports = (config) => {
     function exec() {
+        console.log('Index updated!');
         copyIndex(config);
     }
 
     return {
         exec: exec,
         watch: () => {
-            watch(config.src, exec);
+            function filterFiles(fileName) {
+                const {base: fileBase, dir: fileDir} = path.parse(fileName);
+                const {fileName: srcFileBase, src: srcFileDir} = config;
+
+                return fileBase === srcFileBase
+                    && fileDir === srcFileDir;
+            }
+
+            watch.watchTree(config.src, {filter: filterFiles}, exec);
         }
     }
 };

@@ -25,9 +25,9 @@ module.exports = {
         moduleName: 'acc'
     },
     index: {
-        src: 'src/index.html',
+        src: 'src',
         dist: 'public',
-        outFile: 'index.html'
+        fileName: 'index.html'
     },
     images: {
         src: 'src/**/*.png',
