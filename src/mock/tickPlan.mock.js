@@ -13,7 +13,6 @@
                 spreadPercent: 12.34,
                 unspreadPercent: 56.78,
                 factedPercent: 46,
-                factedId: shortid.gen(),
                 spread: [
                     {
                         jugName: 'jug-' + shortid.gen().slice(-2),
