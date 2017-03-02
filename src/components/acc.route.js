@@ -33,6 +33,10 @@
                 .state('tick-plan', {
                     url:'/tick-plan/:id',
                     template: '<tick-plan>Here is tick-plan directive</tick-plan>'
+                })
+                .state('tick-fact', {
+                    url:'/tick-fact/:id',
+                    template: '<tick-fact>Here is tick-fact directive</tick-fact>'
                 });
 
             // use the HTML5 History API

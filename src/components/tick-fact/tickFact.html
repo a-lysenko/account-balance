@@ -1,0 +1,58 @@
+<section class="main">
+    <section class="tick-fact-header">
+        <div class="tick-fact-header__sum-container">
+            <div class="tick-fact-header__sum-destination-list">
+                <h3 class="tick-fact-header__sum-destination-item">To fact:</h3>
+
+                <h3 class="tick-fact-header__sum-destination-item">of planned:</h3>
+
+                <h3 class="tick-fact-header__sum-destination-item">Left:</h3>
+
+                <h3 class="tick-fact-header__sum-destination-item">Prev Left:</h3>
+            </div>
+            <div class="tick-fact-header__sum-values-list">
+                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.factedValue}}</span>
+                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.plannedValue}}</span>
+                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.leftValue}}</span>
+                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.prevLeftValue}}</span>
+            </div>
+            <div class="tick-fact-header__extras-list">
+                <div class="tick-fact-header__extra-item">
+                    <span class="tick-fact-header__percent-value">{{$ctrl.tickFactData.factedPercent}}</span>
+                        <span class="tick-fact-header__edit-fact-sum-btn-container">
+                            <button class="tick-fact-header__edit-fact-sum-btn">edit</button>
+                        </span>
+                </div>
+                <div class="tick-fact-header__extra-item"></div>
+                <div class="tick-fact-header__extra-item">
+                    <span class="tick-fact-header__percent-value">{{$ctrl.tickFactData.leftPercent}}</span>
+                </div>
+                <div class="tick-fact-header__extra-item"></div>
+            </div>
+        </div>
+        <button class="tick-fact-header__spread-btn">Spread</button>
+    </section>
+
+    <ul class="tick-fact-list">
+        <li ng-repeat="spreadItem in $ctrl.tickFactData.spread"
+            class="tick-fact-item">
+            <div class="tick-fact-item__jug-container">
+                    <span class="tick-fact-item__jug">
+                        {{spreadItem.jugName}}
+                        <span class="tick-fact-item__jug-percent">{{spreadItem.jugDefaultPercent}}</span>
+                    </span>
+
+            </div>
+            <div class="tick-fact-item__jug-container">
+                <input type="number" class="tick-fact-item__sum"
+                       ng-model="spreadItem.jugValue">
+            </div>
+            <div class="tick-fact-item__jug-container">
+                <input type="number" class="tick-fact-item__percent"
+                       ng-model="spreadItem.jugPercent">
+            </div>
+        </li>
+    </ul>
+</section>
+
+<acc-footer save="$ctrl.saveTickFact()"></acc-footer>

@@ -1,0 +1,73 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+@import "../../scss/common";
+@import "../../scss/style-tick-list";
+
+.tick-fact-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 10px 0 10px;
+
+    &__sum-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__sum-destination-lis,
+    &__sum-values-list,
+    &__extras-list {
+        display: block;
+    }
+
+    &__sum-destination-item,
+    &__sum-value,
+    &__extra-item {
+        display: block;
+        box-sizing: content-box;
+        margin: 0;
+        height: 1.5rem;
+        padding: 3px 0;
+        line-height: 1.5rem;
+
+        @include plain-text;
+    }
+
+    &__sum-destination-item,
+    &__sum-value {
+        text-align: right;
+    }
+
+    &__extra-item {
+        margin-left: 5px;
+        text-align: left;
+    }
+
+    &__percent-value {
+        display: inline;
+        @include percent-value;
+    }
+
+    &__edit-fact-sum-btn-container {
+        float: right;
+        margin-left: 0.125em;
+    }
+
+    &__edit-fact-sum-btn {
+        @include button;
+    }
+
+    &__spread-btn {
+        @include button;
+    }
+}
+
+.tick-fact-list {
+	@include tick-list;
+}
+
+.tick-fact-item {
+	@include tick-list-item;
+}
