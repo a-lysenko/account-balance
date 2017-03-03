@@ -3,15 +3,27 @@
     angular.module('acc')
         .factory('tickDeskService', tickDeskService);
 
-    function tickDeskService($q, localStorageService, tickDeskDataKey) {
+    function tickDeskService($q, $resource) {
+        const tickDeskDataRes = $resource('tick-desk-data', {}, {
+            get: {
+                method: 'GET',
+                params: {
+                    id: ''
+                },
+                url: 'tick-desk-data/:id',
+                isArray: true
+            }
+        });
 
         return {
             getTickDeskData: getTickDeskData
         };
 
-        function getTickDeskData() {
-            const tickDeskData = localStorageService.get(tickDeskDataKey);
-            return $q.resolve(tickDeskData);
+        function getTickDeskData(id) {
+            const tickDeskDataQ = tickDeskDataRes.get({id: id})
+                .$promise;
+
+            return tickDeskDataQ;
         }
     }
 })();

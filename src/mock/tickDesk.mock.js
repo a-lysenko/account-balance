@@ -1,5 +1,7 @@
 (function () {
     'use strict';
+
+
     angular.module('acc')
         .run(function (localStorageService, shortid,
                        tickDeskDataKey) {
@@ -70,5 +72,40 @@
                     ]
                 }
             ]);
+        })
+        .factory('mockInterceptor', mockInterceptor)
+        .config(function ($httpProvider) {
+            $httpProvider.interceptors.push('mockInterceptor');
         });
+
+        function mockInterceptor($q, localStorageService, tickDeskDataKey) {
+            return {
+                // optional method
+                request: function (config) {
+                    if (config.url === 'tick-desk-data') {
+                        config.headers['is-mock'] = true;
+
+                        console.log('Intercepted. config', config);
+                        console.log('arguments', arguments);
+                    }
+
+                    return config;
+
+                },
+
+                responseError: function(rejection) {
+                    if (rejection.config.headers['is-mock']
+                        && 'tick-desk-data' === rejection.config.url) {
+
+                        rejection.status = 200;
+                        rejection.data = localStorageService.get(tickDeskDataKey);
+
+                        return rejection;
+                    }
+                    console.log('responseError Intercepted. rejection', rejection);
+                    console.log('responseError arguments', arguments);
+                    return rejection;
+                }
+            };
+        }
 })();
