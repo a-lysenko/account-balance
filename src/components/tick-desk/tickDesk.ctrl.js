@@ -4,8 +4,10 @@
     angular.module('acc')
         .controller('TickDeskController', TickDeskController);
 
-    function TickDeskController(localStorageService, tickDeskDataKey) {
+    function TickDeskController(tickDeskService) {
         const ctrl = this;
+        const tickDeskDataQ = tickDeskService.getTickDeskData();
+
         angular.extend(ctrl, {
             tickDeskData: [],
 
@@ -13,10 +15,10 @@
         });
 
         ctrl.$onInit = function () {
-            // TODO - on real request to server it can be sent on controller creation
-            // and just its promise should processed in $onInit
-            ctrl.tickDeskData = localStorageService.get(tickDeskDataKey);
-            console.log('ctrl.tickDeskData', ctrl.tickDeskData);
+            tickDeskDataQ.then((tickDeskData) => {
+                ctrl.tickDeskData = tickDeskData;
+                console.log('ctrl.tickDeskData', ctrl.tickDeskData);
+            });
         };
 
         function addTick() {
