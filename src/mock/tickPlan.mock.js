@@ -6,7 +6,7 @@
             $httpProvider.interceptors.push('mockPlanInterceptor');
         });
 
-    function mockPlanInterceptor(shortid) {
+    function mockPlanInterceptor($q, shortid) {
         console.info('Mock tickPlan data included in build due to "src/mock/**/*.mock.js" pattern.');
 
         return {
@@ -14,7 +14,7 @@
                 if (config.url === 'tick-plan-data') {
                     config.headers['is-mock'] = true;
 
-                    console.log('Intercepted. config', config);
+                    console.log('url: tick-desk-data. request Intercepted. config', config);
                     console.log('arguments', arguments);
                 }
 
@@ -48,14 +48,15 @@
 
                 if (rejection.config.headers['is-mock']
                     && 'tick-plan-data' === rejection.config.url) {
+                    console.log('url: tick-plan-data. responseError Intercepted. rejection', rejection);
 
                     rejection.status = 200;
                     rejection.data = mockPlanData;
 
                     return rejection;
                 }
-                console.log('responseError Intercepted. rejection', rejection);
-                return rejection;
+
+                return $q.reject(rejection);
             }
         };
     }

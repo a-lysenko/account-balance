@@ -4,8 +4,11 @@
     angular.module('acc')
         .controller('TickFactController', TickFactController);
 
-    function TickFactController(localStorageService, tickFactDataKey) {
+    function TickFactController(tickFactService) {
         const ctrl = this;
+        // TODO - pass id here
+        const tickFactDataQ = tickFactService.getTickFactData();
+
         angular.extend(ctrl, {
             tickFactData: [],
 
@@ -13,10 +16,10 @@
         });
 
         ctrl.$onInit = function () {
-            // TODO - on real request to server it can be sent on controller creation
-            // and just its promise should processed in $onInit
-            ctrl.tickFactData = localStorageService.get(tickFactDataKey);
-            console.log('ctrl.tickFactData', ctrl.tickFactData);
+            tickFactDataQ.then((tickFactData) => {
+                ctrl.tickFactData = tickFactData;
+                console.log('ctrl.tickFactData', ctrl.tickFactData);
+            });
         };
 
         function saveTickFact() {
