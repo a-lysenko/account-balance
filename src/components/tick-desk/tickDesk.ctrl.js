@@ -6,6 +6,7 @@
 
     function TickDeskController(tickDeskService) {
         const ctrl = this;
+        // TODO - pass id here
         const tickDeskDataQ = tickDeskService.getTickDeskData();
 
         angular.extend(ctrl, {

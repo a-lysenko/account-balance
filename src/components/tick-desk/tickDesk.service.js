@@ -3,7 +3,7 @@
     angular.module('acc')
         .factory('tickDeskService', tickDeskService);
 
-    function tickDeskService($q, $resource) {
+    function tickDeskService($resource) {
         const tickDeskDataRes = $resource('tick-desk-data', {}, {
             get: {
                 method: 'GET',

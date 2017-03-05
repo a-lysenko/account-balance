@@ -1,12 +1,12 @@
 (function () {
     'use strict';
     angular.module('acc')
-        .factory('mockInterceptor', mockInterceptor)
+        .factory('mockDeskInterceptor', mockDeskInterceptor)
         .config(function ($httpProvider) {
-            $httpProvider.interceptors.push('mockInterceptor');
+            $httpProvider.interceptors.push('mockDeskInterceptor');
         });
 
-        function mockInterceptor(shortid) {
+        function mockDeskInterceptor(shortid) {
             console.info('Mock tickDesk data included in build due to "src/mock/**/*.mock.js" pattern.');
 
             return {
@@ -22,7 +22,7 @@
                 },
 
                 responseError: function(rejection) {
-                    const deskDataKey = [
+                    const mockDeskData = [
                         {
                             id: shortid.gen(),
                             plannedDate: new Date(),
@@ -92,7 +92,7 @@
                         && 'tick-desk-data' === rejection.config.url) {
 
                         rejection.status = 200;
-                        rejection.data = deskDataKey;
+                        rejection.data = mockDeskData;
 
                         return rejection;
                     }
