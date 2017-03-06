@@ -36,8 +36,10 @@
   "dependencies": {
     "fs-extra": "^2.0.0",
     "glob": "^7.1.1",
+    "minimatch": "^3.0.3",
     "node-static": "^0.7.9",
     "nodemon": "^1.11.0",
+    "normalize-path": "^2.0.1",
     "watch": "^1.0.2"
   }
 }
