@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node tasks/build.js",
-    "build:w": "node tasks/build.js --w",
-    "build:noexec": "node tasks/build.js --noexec --w",
+    "build:w": "node tasks/build-watch.js",
     "test": "karma start",
     "server:basic": "node tasks/server.js",
     "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 tasks/server.js",
@@ -25,7 +24,6 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.11.1",
-    "gulp-watch": "^4.3.11",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.5.2",
     "karma": "^1.5.0",

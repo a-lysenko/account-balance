@@ -1,11 +1,12 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var concat = require('gulp-concat');
-var watch = require('gulp-watch');
-var sourcemaps = require('gulp-sourcemaps');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
 
+const config = require('./config').style;
+const taskName = 'concat-css';
 
-function concatCSS(config) {
+function concatCSS() {
     //var srcFilePath = [config.src, config.file].join('/');
 
     gulp.src(config.src)
@@ -14,17 +15,13 @@ function concatCSS(config) {
         .pipe(concat(config.outFile))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dist));
+
+    // TODO - change text after resolving gulp tasks
+    console.log(`Task "${taskName}": on its way.`);
 }
 
-module.exports = (config) => {
-    function exec() {
-        concatCSS(config);
-    }
-
-    return {
-        exec: exec,
-        watch: () => {
-            watch(config.watchSrc, exec);
-        }
-    }
+module.exports = {
+    exec: concatCSS,
+    pattern: config.watchPattern,
+    name: taskName
 };

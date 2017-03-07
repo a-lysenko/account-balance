@@ -1,27 +1,25 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var sourcemaps = require('gulp-sourcemaps');
-var watch = require('gulp-watch');
+const gulp = require('gulp');
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
 
-function concatJS(config) {
+const config = require('./config').js;
+const taskName = 'concat-js';
+
+function concatJS() {
     gulp.src(config.srcFiles)
         .pipe(sourcemaps.init())
         .pipe(concat(config.outFile, {newLine: ';'}))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dist));
+
+    // TODO - change text after resolving gulp tasks
+    console.log(`Task "${taskName}": on its way.`);
 }
 
-module.exports = (config) => {
-    function exec() {
-        concatJS(config);
-    }
-
-    return {
-        exec: exec,
-        watch: () => {
-            watch(config.srcFiles, exec);
-        }
-    }
+module.exports = {
+    exec: concatJS,
+    pattern: config.watchPattern,
+    name: taskName
 };
 
 

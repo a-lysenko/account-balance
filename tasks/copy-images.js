@@ -1,16 +1,18 @@
 const glob = require('glob');
 const fsE = require('fs-extra');
 const path = require('path');
-var watch = require('gulp-watch');
 
-function copyImages(config) {
+const config = require('./config').images;
+const taskName = 'copy-images';
+
+function copyImages() {
     glob(config.src, {}, (err, files) => {
         if (err) {
-            console.log('Task "copy-images" has errors:', err);
+            console.log(`Task "${taskName}" has errors:`, err);
             return;
-        };
+        }
 
-        console.log(`Task "copy-images" found (${files.length}) file(s):`+
+        console.log(`Task "${taskName}" found (${files.length}) file(s):`+
             `\n\t ${files.join('\n\t')}`);
 
         let amountOfFinished = 0;
@@ -25,14 +27,14 @@ function copyImages(config) {
 
             fsE.copy(file, distFileName, (err) => {
                 if (err) {
-                    console.log('Task "copy-images" has errors:', err);
+                    console.log(`Task "${taskName}" has errors:`, err);
                     errorOcurred = true;
                     return;
                 }
 
                 amountOfFinished++;
                 if (amountOfFinished === files.length) {
-                    console.log('Task "copy-images": All files copied.');
+                    console.log(`Task "${taskName}": done. All files copied.`);
                 }
             });
 
@@ -40,15 +42,8 @@ function copyImages(config) {
     })
 }
 
-module.exports = (config) => {
-    function exec() {
-        copyImages(config);
-    }
-
-    return {
-        exec: exec,
-        watch: () => {
-            watch(config.src, exec);
-        }
-    }
+module.exports = {
+    exec: copyImages,
+    pattern: config.watchPattern,
+    name: taskName
 };

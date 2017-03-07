@@ -3,7 +3,7 @@ module.exports = {
         src: 'src/**/*.scss',
         dist: 'public/css',
         outFile: 'style.css',
-        watchSrc: 'src/**/*.scss'
+        watchPattern: 'src/**/*.scss'
     },
     js: {
         srcFiles: [
@@ -16,21 +16,25 @@ module.exports = {
             'src/components/**/!(*.spec).js'
         ],
         dist: 'public/js',
-        outFile: 'script.js'
+        outFile: 'script.js',
+        watchPattern: 'src/**/*.js'
     },
     templates: {
         src: 'src/components/**/*.html',
         dist: 'public/js',
         outFile: 'templates.js',
-        moduleName: 'acc'
+        moduleName: 'acc',
+        watchPattern: 'src/components/**/*.html'
     },
     index: {
         src: 'src',
         dist: 'public',
-        fileName: 'index.html'
+        fileName: 'index.html',
+        watchPattern: 'src/index.html'
     },
     images: {
         src: 'src/**/*.png',
-        dist: 'public/images'
+        dist: 'public/images',
+        watchPattern: 'src/**/*.png'
     }
 };

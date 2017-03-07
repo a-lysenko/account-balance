@@ -1,17 +1,17 @@
-var config = require('./config');
+//var config = require('./config');
 
-var copyIndex = require('./copy-index');
-var concatCSS = require('./concat-css');
-var concatJS = require('./concat-js');
-var cacheTemplates = require('./cache-templates');
-var copyImages = require('./copy-images');
+const copyIndex = require('./copy-index');
+const concatCSS = require('./concat-css');
+const concatJS = require('./concat-js');
+const cacheTemplates = require('./cache-templates');
+const copyImages = require('./copy-images');
 
-var tasks = {
-    copyIndex: copyIndex(config.index),
-    concatCSS: concatCSS(config.style),
-    concatJS: concatJS(config.js),
-    cacheTemplates: cacheTemplates(config.templates),
-    copyImages: copyImages(config.images)
+const tasks = {
+    [copyIndex.name]: copyIndex,
+    [concatCSS.name]: concatCSS,
+    [concatJS.name]: concatJS,
+    [cacheTemplates.name]: cacheTemplates,
+    [copyImages.name]: copyImages
 };
 
 // w - watch
@@ -25,14 +25,14 @@ var taskNames = params.o || Object.keys(tasks);
 taskNames.forEach((taskName) => {
     if (tasks[taskName]) {
         if (!params.noexec) {
-            tasks[taskName].exec();
             console.log('Task "' + taskName + '" exec');
+            tasks[taskName].exec();
         }
 
-        if (params.w) {
-            tasks[taskName].watch();
-            console.log('Task "' + taskName + '" watch');
-        }
+        //if (params.w) {
+        //    tasks[taskName].watch();
+        //    console.log('Task "' + taskName + '" watch');
+        //}
     }
 });
 
