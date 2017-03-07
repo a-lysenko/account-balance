@@ -21,7 +21,7 @@ const config = [
 // WATCH MODULE
 console.log('Tasks under watch:', config.map(item => item.name));
 
-watch.watchTree(rootDir, (fileName, currStat, prevStat) => {
+watch.watchTree(rootDir, {interval: 1.5}, (fileName, currStat, prevStat) => {
 	let fileNames = [];
 
 	if (typeof fileName === 'object') {
