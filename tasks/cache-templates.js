@@ -7,10 +7,10 @@ const taskName = 'cache-templates';
 function cacheTemplates() {
     gulp.src(config.src)
         .pipe(templateCache(config.outFile, {module: config.moduleName}))
-        .pipe(gulp.dest(config.dist));
-
-    // TODO - change text after resolving gulp tasks
-    console.log(`Task "${taskName}": on its way.`);
+        .pipe(gulp.dest(config.dist))
+        .on('end', () => {
+            console.log(`Task "${taskName}": done.`);
+        });
 }
 
 module.exports = {

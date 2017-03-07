@@ -14,10 +14,10 @@ function concatCSS() {
         .pipe(sass().on('error', sass.logError))
         .pipe(concat(config.outFile))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest(config.dist));
-
-    // TODO - change text after resolving gulp tasks
-    console.log(`Task "${taskName}": on its way.`);
+        .pipe(gulp.dest(config.dist))
+        .on('end', () => {
+            console.log(`Task "${taskName}": done.`);
+        });
 }
 
 module.exports = {
