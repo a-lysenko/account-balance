@@ -13,13 +13,13 @@
                 })
                 .state('add-income', {
                     url: "/add-income",
-                    templateUrl: 'add-income/add-income.html',
+                    templateUrl: '_obsolete/add-income/add-income.html',
                     controller: 'AddIncomeController',
                     controllerAs: 'vm'
                 })
                 .state('set-balance', {
                     url: "/set-balance",
-                    templateUrl: 'set-balance/set-balance.html',
+                    templateUrl: '_obsolete/set-balance/set-balance.html',
                     controller: 'SetBalanceController',
                     controllerAs: 'vm'
                 })
