@@ -1,5 +1,3 @@
-//var config = require('./config');
-
 const copyIndex = require('./copy-index');
 const concatCSS = require('./concat-css');
 const concatJS = require('./concat-js');
@@ -14,50 +12,38 @@ const tasks = {
     [copyImages.name]: copyImages
 };
 
-// w - watch
-// o - optional list of tasks
-// noexec - no execution, can be used to start watch without initial exec
-var options = ['w', 'o', 'noexec'];
+const optionalTasks = parseOptionalTasks();
 
-var params = parseParams();
-
-var taskNames = params.o || Object.keys(tasks);
+var taskNames = optionalTasks || Object.keys(tasks);
 taskNames.forEach((taskName) => {
     if (tasks[taskName]) {
-        if (!params.noexec) {
-            console.log('Task "' + taskName + '" exec');
-            tasks[taskName].exec();
-        }
-
-        //if (params.w) {
-        //    tasks[taskName].watch();
-        //    console.log('Task "' + taskName + '" watch');
-        //}
+        console.log(`Task "${taskName}" exec`);
+        tasks[taskName].exec();
     }
 });
 
-function parseParams() {
-    var bufferedOption = null;
+function parseOptionalTasks() {
+    // o - optional list of tasks
+    const optionName = 'o';
+    let optionCaptured = false;
 
-    return process.argv.reduce((accum, val) => {
+    return process.argv.reduce((optionalTasks, val) => {
         var param = getParam(val);
 
-        if (~options.indexOf(param)) {
-            bufferedOption = param;
-            accum[param] = [];
+        if (param === optionName) {
+            optionCaptured = true;
+            optionalTasks = [];
         } else {
-            if (bufferedOption) {
-                accum[bufferedOption] = accum[bufferedOption].concat(val.split(','));
+            if (optionCaptured) {
+                optionalTasks = optionalTasks.concat(val.split(',').map(item => item.trim()))
             }
         }
 
-        return accum;
-    }, {});
+        return optionalTasks;
+    }, []);
 
     function getParam(value) {
         var matcher = value.match(/^--(\w+)$/);
         return matcher && matcher[1];
     }
 }
-
-
