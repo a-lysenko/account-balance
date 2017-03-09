@@ -7,8 +7,8 @@
     "build": "node tasks/build.js",
     "build:w": "node tasks/build-watch.js",
     "test": "karma start",
-    "server:basic": "node tasks/server.js",
-    "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 tasks/server.js",
+    "server:basic": "node app/server.js",
+    "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 app/server.js",
     "postinstall": "bower install",
     "prestart": "npm install",
     "start": "npm run build:w | npm run server:basic",
@@ -33,9 +33,11 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "minimatch": "^3.0.3",
-    "node-static": "^0.7.9",
     "nodemon": "^1.11.0",
     "normalize-path": "^2.0.1",
     "watch": "^1.0.2"
+  },
+  "dependencies": {
+    "express": "^4.15.2"
   }
 }
