@@ -4,10 +4,10 @@
     angular.module('acc')
         .controller('TickPlanController', TickPlanController);
 
-    function TickPlanController(tickPlanService) {
+    function TickPlanController($state, tickPlanService) {
         const ctrl = this;
-        // TODO - pass id here
-        const tickPlanDataQ = tickPlanService.getTickPlanData();
+
+        const tickPlanDataQ = tickPlanService.getTickPlanData($state.params.id);
 
         angular.extend(ctrl, {
             tickPlanData: [],

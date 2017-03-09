@@ -4,10 +4,10 @@
     angular.module('acc')
         .controller('TickFactController', TickFactController);
 
-    function TickFactController(tickFactService) {
+    function TickFactController($state, tickFactService) {
         const ctrl = this;
-        // TODO - pass id here
-        const tickFactDataQ = tickFactService.getTickFactData();
+
+        const tickFactDataQ = tickFactService.getTickFactData($state.params.id);
 
         angular.extend(ctrl, {
             tickFactData: [],

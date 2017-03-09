@@ -10,7 +10,6 @@
                 params: {
                     id: ''
                 },
-                url: 'tick-desk-data/:id',
                 isArray: true
             }
         });
@@ -20,7 +19,7 @@
         };
 
         function getTickDeskData(id) {
-            const tickDeskDataQ = tickDeskDataRes.get({id: id})
+            const tickDeskDataQ = tickDeskDataRes.get()
                 .$promise;
 
             return tickDeskDataQ;
