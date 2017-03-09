@@ -18,7 +18,7 @@
             getTickDeskData: getTickDeskData
         };
 
-        function getTickDeskData(id) {
+        function getTickDeskData() {
             const tickDeskDataQ = tickDeskDataRes.get()
                 .$promise;
 
