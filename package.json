@@ -11,14 +11,16 @@
     "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 app/server.js",
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "npm run build:w | npm run server:basic",
-    "start:dev": "npm run build:w | npm run server:nodemon"
+    "start": "npm run build && npm run server:basic",
+    "start:nodemon": "npm run build:w | npm run server:nodemon",
+    "start:dev": "concurrently --raw \"npm run build:w\" \"npm run server:basic\""
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.6.2",
     "angular-mocks": "^1.6.2",
+    "concurrently": "^3.4.0",
     "fs-extra": "^2.0.0",
     "glob": "^7.1.1",
     "gulp": "^3.9.1",
