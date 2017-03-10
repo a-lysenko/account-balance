@@ -7,9 +7,6 @@
         const tickDeskDataRes = $resource('tick-desk-data', {}, {
             get: {
                 method: 'GET',
-                params: {
-                    id: ''
-                },
                 isArray: true
             }
         });
