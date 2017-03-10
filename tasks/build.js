@@ -13,8 +13,8 @@ const tasks = {
 };
 
 const optionalTasks = parseOptionalTasks();
+const taskNames = optionalTasks || Object.keys(tasks);
 
-var taskNames = optionalTasks || Object.keys(tasks);
 taskNames.forEach((taskName) => {
     if (tasks[taskName]) {
         console.log(`Task "${taskName}" exec`);
@@ -24,26 +24,25 @@ taskNames.forEach((taskName) => {
 
 function parseOptionalTasks() {
     // o - optional list of tasks
-    const optionName = 'o';
+    const optionName = '--o';
     let optionCaptured = false;
-
-    return process.argv.reduce((optionalTasks, val) => {
-        var param = getParam(val);
-
-        if (param === optionName) {
+   
+    let optionalTasks = process.argv.reduce((optionalTasks, val) => {
+        if (val === optionName) {
             optionCaptured = true;
             optionalTasks = [];
         } else {
             if (optionCaptured) {
-                optionalTasks = optionalTasks.concat(val.split(',').map(item => item.trim()))
+                optionalTasks.push(val);
             }
         }
 
         return optionalTasks;
     }, []);
 
-    function getParam(value) {
-        var matcher = value.match(/^--(\w+)$/);
-        return matcher && matcher[1];
+    if (!optionCaptured) {
+        optionalTasks = undefined;
     }
+
+    return optionalTasks;
 }
