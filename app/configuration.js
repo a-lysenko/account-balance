@@ -1,1 +1,1 @@
-exports.path = 'mongodb://lysenko:Password1@ds021356.mlab.com:21356/accountbalance';
+exports.mLabURL =  'mongodb://lysenko:Password1@ds021356.mlab.com:21356/jug-craft';
