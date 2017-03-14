@@ -4,7 +4,7 @@
     angular.module('acc')
         .controller('TickDeskController', TickDeskController);
 
-    function TickDeskController(tickDeskService) {
+    function TickDeskController($state, tickDeskService) {
         const ctrl = this;
 
         const tickDeskDataQ = tickDeskService.getTickDeskData();
@@ -23,7 +23,9 @@
         };
 
         function addTick() {
-            console.log('addTick called');
+            $state.go('tick-plan', {
+                id: 'new'
+            });
         }
     }
 })();
