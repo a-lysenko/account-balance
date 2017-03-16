@@ -1,0 +1,27 @@
+<div class="plan-menu">
+    <h2 class="plan-menu__header">plan</h2>
+    <div class="plan-menu__main">
+        <div class="plan-menu__sum-destination-list">
+            <h3 class="plan-menu__sum-destination-item">To plan:</h3>
+            <h3 class="plan-menu__sum-destination-item">Spread:</h3>
+            <h3 class="plan-menu__sum-destination-item">Unspread:</h3>
+        </div>
+        <div class="plan-menu__sum-values-list">
+            <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.plannedValue}}</span>
+            <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.spreadValue}}</span>
+            <span class="plan-menu__sum-value">{{$ctrl.tickPlanData.unspreadValue}}</span>
+        </div>
+        <div class="plan-menu__extras-list">
+            <div class="plan-menu__extra-item">
+                <button class="plan-menu__edit-plan-sum-btn">edit</button>
+            </div>
+            <div class="plan-menu__extra-item">
+                <span class="plan-menu__percent-value">{{$ctrl.tickPlanData.spreadPercent}}</span>
+            </div>
+            <div class="plan-menu__extra-item">
+                <span class="plan-menu__percent-value">{{$ctrl.tickPlanData.unspreadPercent}}</span>
+            </div>
+        </div>
+    </div>
+    <button class="plan-menu__spread-btn">Spread</button>
+</div>

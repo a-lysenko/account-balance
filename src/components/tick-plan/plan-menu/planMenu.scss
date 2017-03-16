@@ -1,0 +1,61 @@
+@import "../../../scss/mixins";
+
+.plan-menu {
+    display: block;
+
+    &__header {
+        display: block;
+        margin: 0;
+        border-bottom: 1px solid $black;
+        padding: 0;
+        @include plain-text;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: 5px 5px 0 0;
+    }
+
+    &__sum-destination-list,
+    &__sum-values-list,
+    &__extras-list {
+        display: block;
+    }
+
+    &__sum-destination-item,
+    &__sum-value,
+    &__extra-item {
+        display: block;
+        box-sizing: content-box;
+        margin: 0;
+        height: 1.5rem;
+        padding: 3px 0;
+        line-height: 1.5rem;
+
+        @include plain-text;
+        text-align: right;
+    }
+
+    &__edit-plan-sum-btn {
+        @include button;
+
+        display: inline-block;
+        height: 100%;
+    }
+
+    &__percent-value {
+        display: inline;
+        @include percent-value;
+    }
+
+    &__spread-btn {
+        @include button;
+
+        width: 90%;
+        margin: 0 auto;
+    }
+
+}
