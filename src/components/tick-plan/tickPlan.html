@@ -3,6 +3,11 @@
         <div class="tick-plan-header__plan-container">
             <div class="plan-menu">
                 <h2 class="plan-menu__header">plan</h2>
+                <div class="plan-menu__edit-plan-sum-panel">
+                    <input type="number" class="plan-menu__sum-edit-value" />
+                    <button class="plan-menu__sum-edit-confirm-btn">ok</button>
+                </div>
+
                 <div class="plan-menu__main">
                     <div class="plan-menu__sum-destination-list">
                         <h3 class="plan-menu__sum-destination-item">To plan:</h3>
@@ -25,8 +30,9 @@
                             <span class="plan-menu__percent-value">{{$ctrl.tickPlanData.unspreadPercent}}</span>
                         </div>
                     </div>
+
+                    <button class="plan-menu__spread-btn">Spread</button>
                 </div>
-                <button class="plan-menu__spread-btn">Spread</button>
             </div>
         </div>
 
