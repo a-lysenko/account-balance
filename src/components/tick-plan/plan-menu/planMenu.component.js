@@ -7,7 +7,7 @@
             controller: 'PlanMenuController',
             controllerAs: '$ctrl',
             bindings: {
-                tickPlanData: '<'
+                planMenuData: '<'
             }
         });
 })();

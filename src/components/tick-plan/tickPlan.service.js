@@ -41,7 +41,8 @@
         });
 
         return {
-            getTickPlanData: getTickPlanData
+            getTickPlanData: getTickPlanData,
+            retrievePlanMenuDataFrom: retrievePlanMenuDataFrom
         };
 
         function getTickPlanData(id) {
@@ -54,6 +55,22 @@
                     .$promise;
             }
             return tickPlanDataQ;
+        }
+
+        function retrievePlanMenuDataFrom(data) {
+            const propsToCopy = [
+                'plannedValue',
+                'spreadValue',
+                'unspreadValue',
+                'spreadPercent',
+                'unspreadPercent'
+            ];
+
+            return propsToCopy.reduce((planMenuData, propName) => {
+                planMenuData[propName] = data[propName];
+
+                return planMenuData;
+            }, {});
         }
     }
 })();
