@@ -41,14 +41,15 @@
         });
 
         return {
-            getTickPlanData: getTickPlanData,
-            retrievePlanMenuDataFrom: retrievePlanMenuDataFrom
+            getTickPlanData,
+            retrievePlanMenuDataFrom,
+            isTickNew
         };
 
         function getTickPlanData(id) {
             let tickPlanDataQ;
 
-            if (id === 'new') {
+            if (isTickNew(id)) {
                 tickPlanDataQ = $q.resolve(angular.copy(emptyData));
             } else {
                 tickPlanDataQ = tickPlanDataRes.get({id: id})
@@ -71,6 +72,10 @@
 
                 return planMenuData;
             }, {});
+        }
+
+        function isTickNew(id) {
+            return id === 'new';
         }
     }
 })();

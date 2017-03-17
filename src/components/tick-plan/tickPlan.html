@@ -1,7 +1,9 @@
 <section class="main">
     <section class="tick-plan-header">
         <div class="tick-plan-header__plan-container">
-            <plan-menu plan-menu-data="$ctrl.tickPlanMenuData"></plan-menu>
+            <plan-menu plan-menu-data="$ctrl.tickPlanMenuData"
+                       init-edit-panel-is-active="::$ctrl.isTickNew"
+                       on-planned-sum-edit-end="$ctrl.updatePlannedValue(plannedValue)"></plan-menu>
         </div>
 
         <div class="tick-plan-header__fact-container">

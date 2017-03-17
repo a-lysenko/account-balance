@@ -7,7 +7,9 @@
             controller: 'PlanMenuController',
             controllerAs: '$ctrl',
             bindings: {
-                planMenuData: '<'
+                planMenuData: '<',
+                initEditPanelIsActive: '<',
+                onPlannedSumEditEnd: '&'
             }
         });
 })();
