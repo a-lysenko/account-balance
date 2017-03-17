@@ -1,7 +1,7 @@
-@import "../../../scss/mixins";
-
 .plan-menu {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     &__header {
         display: block;
@@ -9,6 +9,8 @@
         border-bottom: 1px solid $black;
         padding: 0;
         @include plain-text;
+
+        width: 100%;
     }
 
     &__main {
@@ -17,6 +19,16 @@
         justify-content: space-between;
         align-items: stretch;
         padding: 5px 5px 0 0;
+
+        flex-wrap: wrap;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        &.plan-menu__main_hidden {
+            margin-left: -100%;
+            visibility: hidden;
+        }
     }
 
     &__sum-destination-list,
@@ -44,6 +56,45 @@
 
         display: inline-block;
         height: 100%;
+    }
+
+    &__edit-plan-sum-panel {
+        //display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 0; // for animation
+        overflow: hidden;
+        display: none;
+        padding-right: 5px;
+        box-sizing: border-box;
+
+        &.plan-menu__edit-plan-sum-panel_active {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    &__sum-edit-value {
+        display: block;
+        width: 100%; // display block is not enough for inputs
+
+        @include input-number;
+        padding-top: 3px;
+        margin-right: 5px;
+
+        box-shadow: inset 0 0 3px 1px green;
+
+        &:focus {
+            box-shadow: inset 0 0 3px 1px green;
+        }
+    }
+
+    &__sum-edit-confirm-btn {
+        @include button;
+
+        box-shadow: 0 0 2px 1px green;
     }
 
     &__percent-value {
