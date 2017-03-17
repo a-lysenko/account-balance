@@ -11,7 +11,7 @@
 
         angular.extend(ctrl, {
             tickPlanData: [],
-            tickPlanned: {},
+            tickPlanMenuData: {},
 
             saveTickPlan: saveTickPlan
         });
@@ -21,10 +21,7 @@
                 ctrl.tickPlanData = tickPlanData;
                 console.log('ctrl.tickPlanData', ctrl.tickPlanData);
 
-                // TODO - name of function is inconsistent. But renaming
-                // tickPlanData -> tickData
-                // tickPlanned -> tickPlanData is planned
-                ctrl.tickPlanned = tickPlanService.retrievePlanMenuDataFrom(ctrl.tickPlanData);
+                ctrl.tickPlanMenuData = tickPlanService.retrievePlanMenuDataFrom(ctrl.tickPlanData);
             });
         };
 
