@@ -29,16 +29,18 @@
 
         function openEditPanel() {
             ctrl.editPanelIsActive = true;
-            console.log('!!ctrl.editPanelIsActive', ctrl.editPanelIsActive);
-
         }
 
         function closeEditPanel() {
-            ctrl.editPanelIsActive = false;
+            if (ctrl.editpanel.plannedvalue.$valid) {
+                ctrl.editPanelIsActive = false;
 
-            ctrl.onPlannedSumEditEnd({
-                plannedValue: ctrl.plannedValue
-            });
+                ctrl.onPlannedSumEditEnd({
+                    plannedValue: ctrl.plannedValue
+                });
+            } else {
+                console.log('Invalid planned value!');
+            }
         }
     }
 })();

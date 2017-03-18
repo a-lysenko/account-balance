@@ -91,6 +91,11 @@
         &:focus {
             box-shadow: inset 0 0 3px 1px green;
         }
+
+        &.plan-menu__sum-edit-value_invalid,
+        &.plan-menu__sum-edit-value_invalid:focus {
+            box-shadow: inset 0 0 3px 1px red;
+        }
     }
 
     &__sum-edit-confirm-btn {
