@@ -32,6 +32,7 @@
 
         function saveTickPlan() {
             console.log('saveTickPlan called');
+            tickPlanService.saveNewTick(ctrl.tickPlanData);
         }
 
         function updatePlannedValue(plannedValue) {

@@ -32,7 +32,7 @@
         }
 
         function closeEditPanel() {
-            if (ctrl.editpanel.plannedvalue.$valid) {
+            if (ctrl.editPanelForm.plannedValue.$valid) {
                 ctrl.editPanelIsActive = false;
 
                 ctrl.onPlannedSumEditEnd({

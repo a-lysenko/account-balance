@@ -43,7 +43,8 @@
         return {
             getTickPlanData,
             retrievePlanMenuDataFrom,
-            isTickNew
+            isTickNew,
+            saveNewTick
         };
 
         function getTickPlanData(id) {
@@ -76,6 +77,20 @@
 
         function isTickNew(id) {
             return id === 'new';
+        }
+
+        function saveNewTick(tickData) {
+            const resource = $resource('tick-new', {}, {
+                save: {
+                    method: 'PUT',
+                    isArray: false
+                }
+            });
+
+            return resource.save({}, tickData).$promise
+                .then((...args) => {
+                    console.log('args', args);
+                });
         }
     }
 })();

@@ -1,14 +1,14 @@
 <div class="plan-menu">
     <h2 class="plan-menu__header">plan</h2>
 
-    <form novalidate name="$ctrl.editpanel"
+    <form novalidate name="$ctrl.editPanelForm"
           class="plan-menu__edit-plan-sum-panel"
          ng-class="{'plan-menu__edit-plan-sum-panel_active': $ctrl.editPanelIsActive}">
         <input type="number"
-               name="plannedvalue"
+               name="plannedValue"
                class="plan-menu__sum-edit-value"
                ng-model="$ctrl.plannedValue" required
-                ng-class="{'plan-menu__sum-edit-value_invalid': $ctrl.editpanel.plannedvalue.$invalid}"/>
+                ng-class="{'plan-menu__sum-edit-value_invalid': $ctrl.editPanelForm.plannedValue.$invalid}"/>
         <button class="plan-menu__sum-edit-confirm-btn"
                 ng-click="$ctrl.closeEditPanel()">
             ok
