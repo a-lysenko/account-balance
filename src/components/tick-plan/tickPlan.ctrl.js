@@ -19,7 +19,6 @@
         });
 
         ctrl.isTickNew = tickPlanService.isTickNew($state.params.id);
-        console.log('ctrl.isTickNew', ctrl.isTickNew);
 
         ctrl.$onInit = function () {
             tickPlanDataQ.then((tickPlanData) => {
@@ -31,7 +30,6 @@
         };
 
         function saveTickPlan() {
-            console.log('saveTickPlan called');
             tickPlanService.saveNewTick(ctrl.tickPlanData)
                 .then((resData) => {
                     console.log('resData', resData);

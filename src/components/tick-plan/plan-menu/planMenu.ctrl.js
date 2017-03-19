@@ -17,7 +17,6 @@
 
         ctrl.$onInit = function () {
             ctrl.editPanelIsActive = ctrl.initEditPanelIsActive;
-            console.log('ctrl.editPanelIsActive', ctrl.editPanelIsActive);
         };
 
         ctrl.$onChanges = function (change) {
