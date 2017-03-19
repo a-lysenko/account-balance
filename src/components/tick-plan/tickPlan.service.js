@@ -87,10 +87,7 @@
                 }
             });
 
-            return resource.save({}, tickData).$promise
-                .then((...args) => {
-                    console.log('args', args);
-                });
+            return resource.save({}, tickData).$promise;
         }
     }
 })();

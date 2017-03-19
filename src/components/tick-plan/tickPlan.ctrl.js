@@ -32,7 +32,11 @@
 
         function saveTickPlan() {
             console.log('saveTickPlan called');
-            tickPlanService.saveNewTick(ctrl.tickPlanData);
+            tickPlanService.saveNewTick(ctrl.tickPlanData)
+                .then((resData) => {
+                    console.log('resData', resData);
+                    $state.go('tick-desk');
+                });
         }
 
         function updatePlannedValue(plannedValue) {

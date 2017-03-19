@@ -6,6 +6,8 @@ const mockDataTickDesk = require('./mock/tickDesk.mock');
 const mockDataTickPlan = require('./mock/tickPlan.mock');
 const mockDataTickFact = require('./mock/tickFact.mock');
 
+const mockTickNewData = require('./mock/tickNew.mock');
+
 app.use(express.static('./public'));
 
 app.get('/tick-desk-data', (req, res) => {
@@ -19,6 +21,10 @@ app.get('/tick-plan-data/:id', (req, res) => {
 app.get('/tick-fact-data/:id', (req, res) => {
     res.send(mockDataTickFact);
 
+});
+
+app.put('/tick-new', (req, res) => {
+    res.send(mockTickNewData);
 });
 
 
