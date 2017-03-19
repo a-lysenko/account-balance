@@ -8,7 +8,8 @@
 
         <div class="tick-plan-header__fact-container">
             <h2 class="fact-menu__header">fact</h2>
-            <a class="fact-menu__facted-link"
+            <a ng-if="::!$ctrl.isTickNew"
+               class="fact-menu__facted-link"
                ui-sref="tick-fact({id: $ctrl.tickPlanData.id})">
                 <span ng-if="$ctrl.tickPlanData.factedPercent">
                     Go to facted <span class="fact-menu__percent-value">{{$ctrl.tickPlanData.factedPercent}}</span> done
@@ -17,6 +18,10 @@
                     No facted <br> Click to add
                 </span>
             </a>
+            <span ng-if="::$ctrl.isTickNew"
+                  class="fact-menu__no-link-text">
+                To access facted save before
+            </span>
         </div>
     </section>
 

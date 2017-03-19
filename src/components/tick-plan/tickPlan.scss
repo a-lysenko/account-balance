@@ -46,7 +46,7 @@
 		line-height: 1.5rem;
 
 		@include link;
-		color: $light;
+		//color: $light;
 
 		&::after {
 			content: ' >>';
@@ -57,6 +57,13 @@
 		display: inline;
 		@include percent-value;
 	}
+
+    &__no-link-text {
+        @include plain-text;
+        display: block;
+        box-sizing: content-box;
+        margin: auto 0; // auto - flex magic to center vertically
+    }
 }
 
 .tick-plan-list {
