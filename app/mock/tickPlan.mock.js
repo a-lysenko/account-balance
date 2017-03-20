@@ -3,10 +3,6 @@ const shortid = require('js-shortid');
 const mockPlanData = {
     id: shortid.gen(),
     plannedValue: 12345.67,
-    spreadValue: 1234.5,
-    unspreadValue: 123.45,
-    spreadPercent: 12.34,
-    unspreadPercent: 56.78,
     factedPercent: 46,
     spread: [
         {

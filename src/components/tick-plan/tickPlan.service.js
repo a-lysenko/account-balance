@@ -8,9 +8,7 @@
         const emptyData = {
             id: undefined,
             plannedValue: 0,
-            spreadValue: 0,
             unspreadValue: 0,
-            spreadPercent: 0,
             unspreadPercent: 0,
             factedPercent: 0,
             spread: [
@@ -62,9 +60,7 @@
         function retrievePlanMenuDataFrom(data) {
             const propsToCopy = [
                 'plannedValue',
-                'spreadValue',
                 'unspreadValue',
-                'spreadPercent',
                 'unspreadPercent'
             ];
 
