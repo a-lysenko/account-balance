@@ -8,8 +8,6 @@
         const emptyData = {
             id: undefined,
             plannedValue: 0,
-            unspreadValue: 0,
-            unspreadPercent: 0,
             factedPercent: 0,
             spread: [
                 {
@@ -58,17 +56,11 @@
         }
 
         function retrievePlanMenuDataFrom(data) {
-            const propsToCopy = [
-                'plannedValue',
-                'unspreadValue',
-                'unspreadPercent'
-            ];
-
-            return propsToCopy.reduce((planMenuData, propName) => {
-                planMenuData[propName] = data[propName];
-
-                return planMenuData;
-            }, {});
+            return {
+                plannedValue: data.plannedValue,
+                unspreadValue: data.unspreadValue || 0,
+                unspreadPercent: data.unspreadPercent || 0
+            };
         }
 
         function isTickNew(id) {
