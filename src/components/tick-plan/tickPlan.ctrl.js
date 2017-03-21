@@ -7,6 +7,7 @@
     function TickPlanController($state, tickPlanService) {
         const ctrl = this;
 
+        const {round2} = tickPlanService;
         const tickPlanDataQ = tickPlanService.getTickPlanData($state.params.id);
 
         angular.extend(ctrl, {
@@ -60,6 +61,7 @@
         }
 
         function updatePlannedValue(plannedValue) {
+            plannedValue = round2(plannedValue);
             ctrl.tickPlanData.plannedValue = plannedValue;
             ctrl.tickPlanMenuData.plannedValue = plannedValue;
         }
@@ -68,8 +70,8 @@
             const spreadSum = calculateSpreadSum();
             const unspreadValue = ctrl.tickPlanMenuData.plannedValue - spreadSum;
             const unspread = {
-                unspreadValue,
-                unspreadPercent: unspreadValue / ctrl.tickPlanMenuData.plannedValue * 100
+                unspreadValue: round2(unspreadValue),
+                unspreadPercent: round2(unspreadValue / ctrl.tickPlanMenuData.plannedValue * 100)
             };
 
             // It is not applied for one-way binding without copying
@@ -77,18 +79,20 @@
         }
 
         function updateSpreadItemValue(item) {
-            item.jugValue = ctrl.tickPlanData.plannedValue * item.jugPercent / 100;
+            item.jugValue = round2(ctrl.tickPlanData.plannedValue * item.jugPercent / 100);
         }
 
         function updateSpreadItemPercent(item) {
-            item.jugPercent = item.jugValue / ctrl.tickPlanData.plannedValue * 100;
+            item.jugPercent = round2(item.jugValue / ctrl.tickPlanData.plannedValue * 100);
         }
 
         function calculateSpreadSum() {
             const {spread} = ctrl.tickPlanData;
-            return spread.reduce((acc, spreadItem) => {
+            const spreadSum = spread.reduce((acc, spreadItem) => {
                 return acc + spreadItem.jugValue;
             }, 0);
+
+            return round2(spreadSum);
         }
     }
 })();

@@ -40,7 +40,8 @@
             getTickPlanData,
             retrievePlanMenuDataFrom,
             isTickNew,
-            saveNewTick
+            saveNewTick,
+            round2
         };
 
         function getTickPlanData(id) {
@@ -76,6 +77,10 @@
             });
 
             return resource.save({}, tickData).$promise;
+        }
+
+        function round2(value) {
+            return Math.round(value * 100) / 100;
         }
     }
 })();
