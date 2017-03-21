@@ -8,7 +8,7 @@
             controllerAs: '$ctrl',
             bindings: {
                 planMenuData: '<',
-                initEditPanelIsActive: '<',
+                initEditPanelIsActive: '<?',
                 onPlannedSumEditEnd: '&'
             }
         });
