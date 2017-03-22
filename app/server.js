@@ -5,6 +5,8 @@ const app = express();
 const mockDataTickDesk = require('./mock/tickDesk.mock');
 const mockDataTickPlan = require('./mock/tickPlan.mock');
 const mockDataTickFact = require('./mock/tickFact.mock');
+const mockDataJugList = require('./mock/jugList.mock');
+
 
 const mockTickNewData = require('./mock/tickNew.mock');
 
@@ -23,11 +25,49 @@ app.get('/tick-fact-data/:id', (req, res) => {
 
 });
 
-app.put('/tick-new', (req, res) => {
-    res.send(mockTickNewData);
+app.get('/jug-list', (req, res) => {
+	res.send(mockDataJugList);
 });
+
+app.route('/tick-new')
+	.get((req, res) => {
+		getTickNew()
+			.then((tickNew) => {
+				console.log('Received tick new', tickNew);
+
+				res.send(tickNew);
+			})
+			.catch((err) => {
+
+			});
+	})
+	.post((req, res) => {
+		console.log('New tick was successfully saved!');
+    	res.send(mockTickNewData);
+	});
+
+
 
 
 app.listen(8080);
 
 console.log('Server running on port 8080');
+
+function getTickNew() {
+	const tickNew = {
+		spread: getExtendedJugList()
+	};
+
+	return Promise.resolve(tickNew);
+
+	function getExtendedJugList() {
+		return mockDataJugList.map((jug) => {
+			return Object.assign({},
+				jug, 
+				{
+					value: 0,
+					percent: 0
+				});
+		});
+	}
+}
