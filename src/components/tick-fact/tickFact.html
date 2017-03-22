@@ -38,18 +38,18 @@
             class="tick-fact-item">
             <div class="tick-fact-item__jug-container">
                     <span class="tick-fact-item__jug">
-                        {{spreadItem.jugName}}
-                        <span class="tick-fact-item__jug-percent">{{spreadItem.jugDefaultPercent}}</span>
+                        {{spreadItem.name}}
+                        <span class="tick-fact-item__jug-percent">{{spreadItem.defaultPercent}}</span>
                     </span>
 
             </div>
             <div class="tick-fact-item__jug-container">
                 <input type="number" class="tick-fact-item__sum"
-                       ng-model="spreadItem.jugValue">
+                       ng-model="spreadItem.value">
             </div>
             <div class="tick-fact-item__jug-container">
                 <input type="number" class="tick-fact-item__percent"
-                       ng-model="spreadItem.jugPercent">
+                       ng-model="spreadItem.percent">
             </div>
         </li>
     </ul>

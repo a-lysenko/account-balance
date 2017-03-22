@@ -30,20 +30,20 @@
             class="tick-plan-item">
             <div class="tick-plan-item__jug-container">
                     <span class="tick-plan-item__jug">
-                        {{spreadItem.jugName}}
-                        <span class="tick-plan-item__jug-percent">{{spreadItem.jugDefaultPercent}}</span>
+                        {{spreadItem.name}}
+                        <span class="tick-plan-item__jug-percent">{{spreadItem.defaultPercent}}</span>
                     </span>
 
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__sum"
-                       ng-model="spreadItem.jugValue"
+                       ng-model="spreadItem.value"
                        ng-model-options="{debounce: 300}"
                         ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__percent"
-                       ng-model="spreadItem.jugPercent"
+                       ng-model="spreadItem.percent"
                        ng-model-options="{debounce: 300}"
                        ng-change="$ctrl.handleSpreadItemPercentChange(spreadItem)">
             </div>

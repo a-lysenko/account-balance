@@ -11,16 +11,16 @@
             factedPercent: 0,
             spread: [
                 {
-                    jugName: 'jug-' + shortid.gen().slice(-2),
-                    jugDefaultPercent: 51,
-                    jugValue: 0,
-                    jugPercent: 0
+                    name: 'jug-' + shortid.gen().slice(-2),
+                    defaultPercent: 51,
+                    value: 0,
+                    percent: 0
                 },
                 {
-                    jugName: 'jug-' + shortid.gen().slice(-2),
-                    jugDefaultPercent: 52,
-                    jugValue: 0,
-                    jugPercent: 0
+                    name: 'jug-' + shortid.gen().slice(-2),
+                    defaultPercent: 52,
+                    value: 0,
+                    percent: 0
                 }
             ]
         };

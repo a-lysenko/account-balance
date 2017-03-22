@@ -79,17 +79,17 @@
         }
 
         function updateSpreadItemValue(item) {
-            item.jugValue = round2(ctrl.tickPlanData.plannedValue * item.jugPercent / 100);
+            item.value = round2(ctrl.tickPlanData.plannedValue * item.percent / 100);
         }
 
         function updateSpreadItemPercent(item) {
-            item.jugPercent = round2(item.jugValue / ctrl.tickPlanData.plannedValue * 100);
+            item.percent = round2(item.value / ctrl.tickPlanData.plannedValue * 100);
         }
 
         function calculateSpreadSum() {
             const {spread} = ctrl.tickPlanData;
             const spreadSum = spread.reduce((acc, spreadItem) => {
-                return acc + spreadItem.jugValue;
+                return acc + spreadItem.value;
             }, 0);
 
             return round2(spreadSum);

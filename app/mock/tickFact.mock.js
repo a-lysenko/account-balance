@@ -10,16 +10,16 @@ const mockFactData = {
     prevLeftValue: 123.4,
     spread: [
         {
-            jugName: 'jug-' + shortid.gen().slice(-2),
-            jugDefaultPercent: 51,
-            jugValue: 4321.05,
-            jugPercent: 43.21
+            name: 'jug-' + shortid.gen().slice(-2),
+            defaultPercent: 51,
+            value: 4321.05,
+            percent: 43.21
         },
         {
-            jugName: 'jug-' + shortid.gen().slice(-2),
-            jugDefaultPercent: 52,
-            jugValue: 4321.06,
-            jugPercent: 43.2
+            name: 'jug-' + shortid.gen().slice(-2),
+            defaultPercent: 52,
+            value: 4321.06,
+            percent: 43.2
         }
     ]
 };
