@@ -8,23 +8,7 @@
         const emptyData = {
             id: undefined,
             plannedValue: 0,
-            factedPercent: 0,
-            spread: [
-                {   
-                    id: shortid.gen(),
-                    name: 'jug-' + shortid.gen().slice(-2),
-                    defaultPercent: 51,
-                    value: 0,
-                    percent: 0
-                },
-                {
-                    id: shortid.gen(),
-                    name: 'jug-' + shortid.gen().slice(-2),
-                    defaultPercent: 52,
-                    value: 0,
-                    percent: 0
-                }
-            ]
+            factedPercent: 0
         };
 
         const tickPlanDataRes = $resource('tick-plan-data', {}, {
@@ -34,6 +18,13 @@
                     id: ''
                 },
                 url: 'tick-plan-data/:id',
+                isArray: false
+            }
+        });
+
+        const tickNewRes = $resource('tick-new', {}, {
+            get: {
+                method: 'GET',
                 isArray: false
             }
         });
@@ -50,7 +41,11 @@
             let tickPlanDataQ;
 
             if (isTickNew(id)) {
-                tickPlanDataQ = $q.resolve(angular.copy(emptyData));
+                tickPlanDataQ = tickNewRes.get()
+                    .$promise.then((tickNew) => {
+                        return Object.assign({}, emptyData, tickNew);
+                    });
+                $q.resolve(angular.copy(emptyData));
             } else {
                 tickPlanDataQ = tickPlanDataRes.get({id: id})
                     .$promise;

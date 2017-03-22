@@ -33,8 +33,6 @@ app.route('/tick-new')
 	.get((req, res) => {
 		getTickNew()
 			.then((tickNew) => {
-				console.log('Received tick new', tickNew);
-
 				res.send(tickNew);
 			})
 			.catch((err) => {
