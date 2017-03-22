@@ -6,13 +6,15 @@ const mockPlanData = {
     factedPercent: 46,
     spread: [
         {
-            name: 'jug-' + shortid.gen().slice(-2),
+            id: 'wzpJs7bIv4',
+            name: 'Other',
             defaultPercent: 51,
             value: 4321.05,
             percent: 43.21
         },
         {
-            name: 'jug-' + shortid.gen().slice(-2),
+            id: 'wzqGwYQavP',
+            name: 'Entertainment',
             defaultPercent: 52,
             value: 4321.06,
             percent: 43.2

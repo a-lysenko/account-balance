@@ -10,13 +10,15 @@
             plannedValue: 0,
             factedPercent: 0,
             spread: [
-                {
+                {   
+                    id: shortid.gen(),
                     name: 'jug-' + shortid.gen().slice(-2),
                     defaultPercent: 51,
                     value: 0,
                     percent: 0
                 },
                 {
+                    id: shortid.gen(),
                     name: 'jug-' + shortid.gen().slice(-2),
                     defaultPercent: 52,
                     value: 0,
