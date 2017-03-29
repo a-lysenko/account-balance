@@ -6,7 +6,7 @@ const mockDeskData = [
         plannedDate: new Date(),
         factedDate: new Date(),
         plannedValue: 12345.67,
-        unspread: 1234.56,
+        unfactedValue: 1234.56,
         factedPercent: 48,
         tickStatus: 'great',
         medals: [
@@ -25,7 +25,7 @@ const mockDeskData = [
         plannedDate: new Date(),
         factedDate: new Date(),
         plannedValue: 12345.67,
-        unspread: 1234.56,
+        unfactedValue: 1234.56,
         factedPercent: 48,
         tickStatus: 'good',
         medals: [
@@ -40,7 +40,7 @@ const mockDeskData = [
         plannedDate: new Date(),
         factedDate: new Date(),
         plannedValue: 12345.67,
-        unspread: 1234.56,
+        unfactedValue: 1234.56,
         factedPercent: 48,
         tickStatus: 'poor',
         medals: []
@@ -50,7 +50,7 @@ const mockDeskData = [
         plannedDate: new Date(),
         factedDate: new Date(),
         plannedValue: 12345.67,
-        unspread: 1234.56,
+        unfactedValue: 1234.56,
         factedPercent: 48,
         tickStatus: '',
         medals: [
