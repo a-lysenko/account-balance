@@ -26,6 +26,10 @@
             get: {
                 method: 'GET',
                 isArray: false
+            },
+            add: {
+                method: 'POST',
+                isArray: false
             }
         });
 
@@ -66,14 +70,7 @@
         }
 
         function saveNewTick(tickData) {
-            const resource = $resource('tick-new', {}, {
-                save: {
-                    method: 'PUT',
-                    isArray: false
-                }
-            });
-
-            return resource.save({}, tickData).$promise;
+            return tickNewRes.add({}, tickData).$promise;
         }
 
         function round2(value) {

@@ -1,16 +1,17 @@
-const path = require('path');
+const db = require('./db/main.js');
+
 const express = require('express');
 const app = express();
+
+const bodyParser = require('body-parser');
 
 const mockDataTickDesk = require('./mock/tickDesk.mock');
 const mockDataTickPlan = require('./mock/tickPlan.mock');
 const mockDataTickFact = require('./mock/tickFact.mock');
 const mockDataJugList = require('./mock/jugList.mock');
 
-
-const mockTickNewData = require('./mock/tickNew.mock');
-
 app.use(express.static('./public'));
+app.use(bodyParser.json());
 
 app.get('/tick-desk-data', (req, res) => {
     res.send(mockDataTickDesk);
@@ -40,12 +41,30 @@ app.route('/tick-new')
 			});
 	})
 	.post((req, res) => {
-		console.log('New tick was successfully saved!');
-    	res.send(mockTickNewData);
+        const tickData = prepareDataToTick(req.body);
+
+        db.saveTick(tickData,
+            (tickId) => {
+                console.log('New tick was successfully saved!');
+                res.send(tickId);
+            });
 	});
 
 
+function prepareDataToTick(data) {
+    const spread = data.spread.map((item) => {
+        return {
+            id: item.id,
+            plannedValue: item.value,
+            plannedPercent: item.percent
+        }
+    });
 
+    return {
+        plannedValue: data.plannedValue,
+        spread
+    };
+}
 
 app.listen(8080);
 
