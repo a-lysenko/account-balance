@@ -23,7 +23,7 @@ exports.saveTick = (tickData, successCb) => {
     const tick = new TickModel(tickData);
     tick.save((err) => {
         if (err) {
-            console.log('err on save', err);
+            console.log('err on save tick', err);
             return;
         }
 
@@ -31,3 +31,17 @@ exports.saveTick = (tickData, successCb) => {
         successCb(tick._id);
     });
 };
+
+exports.getAllTicks = (successCb) => {
+    TickModel.find((err, ticks) => {
+        if (err) {
+            console.log('err on get all ticks', err);
+            return;
+        }
+
+        console.log('Ticks were gotten successfully. amount of ticks', ticks.length);
+        if (successCb) {
+            successCb(ticks);
+        }
+    })
+}
