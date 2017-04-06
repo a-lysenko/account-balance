@@ -32,10 +32,11 @@ exports.saveTick = (tickData, successCb) => {
     });
 };
 
-exports.getAllTicks = (successCb) => {
+exports.getAllTicks = (successCb, errorCb) => {
     TickModel.find((err, ticks) => {
         if (err) {
             console.log('err on get all ticks', err);
+            errorCb(err);
             return;
         }
 

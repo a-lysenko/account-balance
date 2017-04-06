@@ -1,6 +1,8 @@
 module.exports = (mongoose) => {
     //const Schema = mongoose.Schema;
 
+    const statuses = ['great', 'poor', 'good', ''];
+
     const tickSchema = {
         //id: String,
 
@@ -15,10 +17,13 @@ module.exports = (mongoose) => {
             plannedPercent: Number,
             factedValue: {type: Number, default: 0},
             factedPercent: {type: Number, default: 0}
-        }]
-
-
-        // TODO - add medals/achievements
+        }],
+        //tickStatus: {type: String, enum: statuses},
+        tickStatus: {type: String, default: ''},
+        medals: [/*{
+            icon: 'balancer',
+            title: 'Balancer'
+        }...*/]
     };
 
     return mongoose.model('Tick', tickSchema);

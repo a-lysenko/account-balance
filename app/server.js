@@ -1,4 +1,5 @@
 const db = require('./db/main.js');
+const tickDeskCtrl = require('./tick-desk/tickDesk.controller');
 
 const express = require('express');
 const app = express();
@@ -14,9 +15,13 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 app.get('/tick-desk-data', (req, res) => {
-    res.send(mockDataTickDesk);
-
+    // TODO - remove mock tick desk data concat
+    tickDeskCtrl.getAllTicks()
+        .then((ticks) => {
+            res.send(ticks.concat(mockDataTickDesk));
+        });
 });
+
 app.get('/tick-plan-data/:id', (req, res) => {
     res.send(mockDataTickPlan);
 
@@ -51,6 +56,8 @@ app.route('/tick-new')
 	});
 
 
+// TODO - rename to buildNewTickData
+// TODO - create tick (mapper, controller and move there)
 function prepareDataToTick(data) {
     const spread = data.spread.map((item) => {
         return {
