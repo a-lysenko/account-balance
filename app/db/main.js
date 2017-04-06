@@ -19,11 +19,12 @@ db.once('open', () => {
 
 });
 
-exports.saveTick = (tickData, successCb) => {
+exports.saveTick = (tickData, successCb, errorCb) => {
     const tick = new TickModel(tickData);
     tick.save((err) => {
         if (err) {
             console.log('err on save tick', err);
+            errorCb(err);
             return;
         }
 

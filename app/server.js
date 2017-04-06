@@ -1,5 +1,6 @@
 const db = require('./db/main.js');
 const tickDeskCtrl = require('./tick-desk/tickDesk.controller');
+const tickCtrl = require('./tick/tick.controller');
 
 const express = require('express');
 const app = express();
@@ -46,31 +47,14 @@ app.route('/tick-new')
 			});
 	})
 	.post((req, res) => {
-        const tickData = buildNewTickData(req.body);
-
-        db.saveTick(tickData,
-            (tickId) => {
+        tickCtrl.saveTick(req.body)
+            .then((tickId) => {
                 console.log('New tick was successfully saved!');
                 res.send(tickId);
             });
 	});
 
 
-// TODO - create tick (mapper, controller and move there)
-function buildNewTickData(data) {
-    const spread = data.spread.map((item) => {
-        return {
-            id: item.id,
-            plannedValue: item.value,
-            plannedPercent: item.percent
-        }
-    });
-
-    return {
-        plannedValue: data.plannedValue,
-        spread
-    };
-}
 
 app.listen(8080);
 
