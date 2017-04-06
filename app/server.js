@@ -46,7 +46,7 @@ app.route('/tick-new')
 			});
 	})
 	.post((req, res) => {
-        const tickData = prepareDataToTick(req.body);
+        const tickData = buildNewTickData(req.body);
 
         db.saveTick(tickData,
             (tickId) => {
@@ -56,9 +56,8 @@ app.route('/tick-new')
 	});
 
 
-// TODO - rename to buildNewTickData
 // TODO - create tick (mapper, controller and move there)
-function prepareDataToTick(data) {
+function buildNewTickData(data) {
     const spread = data.spread.map((item) => {
         return {
             id: item.id,
