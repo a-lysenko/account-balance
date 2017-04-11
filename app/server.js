@@ -24,8 +24,6 @@ app.get('/tick-desk-data', (req, res) => {
 });
 
 app.get('/tick-plan-data/:id', (req, res) => {
-    console.log('Got tick ID:', req.params.id);
-
     tickCtrl.getTick(req.params.id)
         .then((tick) => {
             res.send(tick);
