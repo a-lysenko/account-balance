@@ -30,12 +30,19 @@
                     //        if yes - transform the directive to component and use the approach
                     template: '<tick-desk>Here is tick-desk directive</tick-desk>'
                 })
+
+                /* TODO -implement routing similar to described below
+                 * parent state: tick-item (url: /tick/:id)
+                 * nested state: tick-item.plan (url: /tick/:id/plan)
+                 * nested state: tick-item.fact (url: /tick/:id/fact)
+                 * nested state: tick-item.new (url: /tick/new)- new item*/
+
                 .state('tick-plan', {
-                    url:'/tick-plan/:id',
+                    url: '/:id/tick-plan',
                     template: '<tick-plan>Here is tick-plan directive</tick-plan>'
                 })
                 .state('tick-fact', {
-                    url:'/tick-fact/:id',
+                    url: '/:id/tick-fact',
                     template: '<tick-fact>Here is tick-fact directive</tick-fact>'
                 });
 
