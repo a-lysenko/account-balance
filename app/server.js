@@ -24,7 +24,12 @@ app.get('/tick-desk-data', (req, res) => {
 });
 
 app.get('/tick-plan-data/:id', (req, res) => {
-    res.send(mockDataTickPlan);
+    console.log('Got tick ID:', req.params.id);
+
+    tickCtrl.getTick(req.params.id)
+        .then((tick) => {
+            res.send(tick);
+        });
 
 });
 app.get('/tick-fact-data/:id', (req, res) => {
@@ -38,12 +43,9 @@ app.get('/jug-list', (req, res) => {
 
 app.route('/tick-new')
 	.get((req, res) => {
-		getTickNew()
+        tickCtrl.getTickNew()
 			.then((tickNew) => {
 				res.send(tickNew);
-			})
-			.catch((err) => {
-
 			});
 	})
 	.post((req, res) => {
@@ -60,21 +62,3 @@ app.listen(8080);
 
 console.log('Server running on port 8080');
 
-function getTickNew() {
-	const tickNew = {
-		spread: getExtendedJugList()
-	};
-
-	return Promise.resolve(tickNew);
-
-	function getExtendedJugList() {
-		return mockDataJugList.map((jug) => {
-			return Object.assign({},
-				jug, 
-				{
-					value: 0,
-					percent: 0
-				});
-		});
-	}
-}

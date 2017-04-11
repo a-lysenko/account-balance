@@ -46,4 +46,20 @@ exports.getAllTicks = (successCb, errorCb) => {
             successCb(ticks);
         }
     })
-}
+};
+
+exports.getTick = (tickId, successCb, errorCb) => {
+    TickModel.findById(tickId, (err, tick) => {
+        if (err) {
+            console.log(`err on get tick by ID (${tickId})`, err);
+            errorCb(err);
+            return;
+        }
+
+        console.log(`Tick was gotten by ID ${tickId} successfully: ${tick}`);
+        if (successCb) {
+            successCb(tick);
+        }
+    });
+
+};
