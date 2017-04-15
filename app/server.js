@@ -19,7 +19,9 @@ app.get('/tick-desk-data', (req, res) => {
     // TODO - remove mock tick desk data concat
     tickDeskCtrl.getAllTicks()
         .then((ticks) => {
-            res.send(ticks.concat(mockDataTickDesk));
+            res.send(ticks);
+            // TODO - remove it if one is not needed
+            //res.send(ticks.concat(mockDataTickDesk));
         });
 });
 
