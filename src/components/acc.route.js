@@ -4,7 +4,7 @@
     angular.module('acc')
         .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             $urlRouterProvider
-                .otherwise('/');
+                .otherwise('/tick-desk');
 
             $stateProvider
                 .state('jug-list', {
@@ -24,7 +24,7 @@
                     controllerAs: 'vm'
                 })
                 .state('tick-desk', {
-                    url: '/',
+                    url: '/tick-desk',
                     // TODO - remove balance income directive and use controller here directly
                     // TODO - but previously check if you just can use property 'component'.
                     //        if yes - transform the directive to component and use the approach
@@ -36,13 +36,21 @@
                  * nested state: tick-item.plan (url: /tick/:id/plan)
                  * nested state: tick-item.fact (url: /tick/:id/fact)
                  * nested state: tick-item.new (url: /tick/new)- new item*/
-
-                .state('tick-plan', {
-                    url: '/:id/tick-plan',
+                .state('tick', {
+                    url: '/tick/:id',
+                    abstract: true,
+                    // TODO - use to pass resolved tick, probably
+                    //params: {
+                    //  tickObj: {key: 'val'}
+                    //},
+                    template: '<ui-view />'
+                })
+                .state('tick.plan', {
+                    url: '/tick-plan',
                     template: '<tick-plan>Here is tick-plan directive</tick-plan>'
                 })
-                .state('tick-fact', {
-                    url: '/:id/tick-fact',
+                .state('tick.fact', {
+                    url: '/tick-fact',
                     template: '<tick-fact>Here is tick-fact directive</tick-fact>'
                 });
 

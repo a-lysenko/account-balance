@@ -23,7 +23,7 @@
         };
 
         function addTick() {
-            $state.go('tick-plan', {
+            $state.go('tick.plan', {
                 id: 'new'
             });
         }
