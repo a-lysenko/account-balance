@@ -33,7 +33,7 @@
         };
 
         function saveTickPlan() {
-            tickPlanService.saveNewTick(ctrl.tickPlanData)
+            tickPlanService.saveTick($state.params.id, ctrl.tickPlanData)
                 .then((resData) => {
                     console.log('resData', resData);
                     $state.go('tick-desk');

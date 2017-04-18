@@ -19,6 +19,14 @@
                 },
                 url: 'tick-plan-data/:id',
                 isArray: false
+            },
+            update: {
+                method: 'PUT',
+                params: {
+                    id: ''
+                },
+                url: 'tick-plan-data/:id',
+                isArray: false
             }
         });
 
@@ -37,7 +45,7 @@
             getTickPlanData,
             retrievePlanMenuDataFrom,
             isTickNew,
-            saveNewTick,
+            saveTick,
             round2
         };
 
@@ -49,7 +57,6 @@
                     .$promise.then((tickNew) => {
                         return Object.assign({}, emptyData, tickNew);
                     });
-                $q.resolve(angular.copy(emptyData));
             } else {
                 tickPlanDataQ = tickPlanDataRes.get({id: id})
                     .$promise;
@@ -69,8 +76,23 @@
             return id === 'new';
         }
 
+        function saveTick(id, data) {
+            let tickDataQ;
+
+            if (isTickNew(id)) {
+                tickDataQ = saveNewTick(data);
+            } else {
+                tickDataQ = updateTick(id, data);
+            }
+            return tickDataQ;
+        }
+
         function saveNewTick(tickData) {
             return tickNewRes.add({}, tickData).$promise;
+        }
+
+        function updateTick(tickId, tickData) {
+            return tickPlanDataRes.update({id: tickId}, tickData).$promise;
         }
 
         function round2(value) {

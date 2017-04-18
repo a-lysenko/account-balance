@@ -44,6 +44,19 @@
                     //  tickObj: {key: 'val'}
                     //},
                     template: '<ui-view />'
+                    // TODO - in such manner a verification of id can be provided
+                    //resolve: {
+                    //    foo: function ($q, $timeout) {
+                    //        const def = $q.defer();
+                    //
+                    //        $timeout(() => {
+                    //            console.log('resolved');
+                    //            def.resolve('foo val');
+                    //        }, 2000);
+                    //
+                    //        return def.promise;
+                    //    }
+                    //}
                 })
                 .state('tick.plan', {
                     url: '/tick-plan',

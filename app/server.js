@@ -25,6 +25,19 @@ app.get('/tick-desk-data', (req, res) => {
         });
 });
 
+app.route('/tick-plan-data/:id')
+    .get((req, res) => {
+        tickCtrl.getTick(req.params.id)
+            .then((tick) => {
+                res.send(tick);
+            });
+
+    })
+    .put((req, res) => {
+        console.log('Updated tick ID:', req.params.id, 'data', req.body);
+        res.send('Success 3.14');
+    });
+
 app.get('/tick-plan-data/:id', (req, res) => {
     tickCtrl.getTick(req.params.id)
         .then((tick) => {
@@ -55,7 +68,6 @@ app.route('/tick-new')
                 res.send(tickId);
             });
 	});
-
 
 
 app.listen(8080);
