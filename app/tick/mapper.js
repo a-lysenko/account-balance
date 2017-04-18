@@ -1,4 +1,4 @@
-function buildNewTickData(clientData) {
+function buildTickData(clientData) {
     const spread = clientData.spread.map((item) => {
         return {
             id: item.id,
@@ -40,5 +40,6 @@ function buildClientTick(dbTickData, jugList) {
     }
 }
 
-exports.buildNewTickData = buildNewTickData;
+exports.buildTickData = buildTickData;
+
 exports.buildClientTick = buildClientTick;

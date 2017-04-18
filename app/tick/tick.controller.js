@@ -7,7 +7,7 @@ class TickController {
     constructor() {}
 
     saveTick(clientTickData) {
-        const dbTickData = tickMapper.buildNewTickData(clientTickData);
+        const dbTickData = tickMapper.buildTickData(clientTickData);
 
         const promise = new Promise((resolveFn, rejectFn) => {
 
@@ -53,6 +53,15 @@ class TickController {
         return promise;
     }
 
+    updateTick(tickId, clientTickData) {
+        const dbTickData = tickMapper.buildTickData(clientTickData);
+
+        return new Promise((resolveFn, rejectFn) => {
+
+            // TODO - replace callback interface of 'updateTick' with promise. This code is evidence it should be done
+            db.updateTick(tickId, dbTickData, resolveFn, rejectFn);
+        });
+    }
 }
 
 module.exports = new TickController();

@@ -33,6 +33,21 @@ exports.saveTick = (tickData, successCb, errorCb) => {
     });
 };
 
+exports.updateTick = (tickId, tickData, successCb, errorCb) => {
+    //const tick = new TickModel(tickData);
+    TickModel.findByIdAndUpdate(tickId, tickData, (err, updatedTick) => {
+        if (err) {
+            console.log('err on update tick', err);
+            errorCb(err);
+            return;
+        }
+
+        console.log('Tick updated successfully. tick._id', updatedTick._id);
+
+        successCb(updatedTick._id);
+    });
+};
+
 exports.getAllTicks = (successCb, errorCb) => {
     TickModel.find((err, ticks) => {
         if (err) {

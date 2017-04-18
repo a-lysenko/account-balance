@@ -34,8 +34,11 @@ app.route('/tick-plan-data/:id')
 
     })
     .put((req, res) => {
-        console.log('Updated tick ID:', req.params.id, 'data', req.body);
-        res.send('Success 3.14');
+        tickCtrl.updateTick(req.params.id, req.body)
+            .then((tickId) => {
+                console.log(`Tick (id ${req.params.id}) was successfully updated!`);
+                res.send(tickId);
+            });
     });
 
 app.get('/tick-plan-data/:id', (req, res) => {
