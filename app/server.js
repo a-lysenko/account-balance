@@ -1,77 +1,12 @@
 const db = require('./db/main.js');
-const tickDeskCtrl = require('./tick-desk/tickDesk.controller');
-const tickCtrl = require('./tick/tick.controller');
 
 const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
 
-const mockDataTickDesk = require('./mock/tickDesk.mock');
-const mockDataTickPlan = require('./mock/tickPlan.mock');
-const mockDataTickFact = require('./mock/tickFact.mock');
-const mockDataJugList = require('./mock/jugList.mock');
-
-app.use(express.static('./public'));
-app.use(bodyParser.json());
-
-app.get('/tick-desk-data', (req, res) => {
-    // TODO - remove mock tick desk data concat
-    tickDeskCtrl.getAllTicks()
-        .then((ticks) => {
-            res.send(ticks);
-            // TODO - remove it if one is not needed
-            //res.send(ticks.concat(mockDataTickDesk));
-        });
-});
-
-app.route('/tick-plan-data/:id')
-    .get((req, res) => {
-        tickCtrl.getTick(req.params.id)
-            .then((tick) => {
-                res.send(tick);
-            });
-
-    })
-    .put((req, res) => {
-        tickCtrl.updateTick(req.params.id, req.body)
-            .then((tickId) => {
-                console.log(`Tick (id ${req.params.id}) was successfully updated!`);
-                res.send(tickId);
-            });
-    });
-
-app.get('/tick-plan-data/:id', (req, res) => {
-    tickCtrl.getTick(req.params.id)
-        .then((tick) => {
-            res.send(tick);
-        });
-
-});
-app.get('/tick-fact-data/:id', (req, res) => {
-    res.send(mockDataTickFact);
-
-});
-
-app.get('/jug-list', (req, res) => {
-	res.send(mockDataJugList);
-});
-
-app.route('/tick-new')
-	.get((req, res) => {
-        tickCtrl.getTickNew()
-			.then((tickNew) => {
-				res.send(tickNew);
-			});
-	})
-	.post((req, res) => {
-        tickCtrl.saveTick(req.body)
-            .then((tickId) => {
-                console.log('New tick was successfully saved!');
-                res.send(tickId);
-            });
-	});
-
+const Router = require('router');
+const router = new Router(app);
 
 app.listen(8080);
 
