@@ -5,7 +5,10 @@ const app = express();
 
 const bodyParser = require('body-parser');
 
-const Router = require('router');
+app.use(express.static('./public'));		
+app.use(bodyParser.json());
+
+const Router = require('./router');
 const router = new Router(app);
 
 app.listen(8080);
