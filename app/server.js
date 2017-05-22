@@ -8,8 +8,11 @@ const bodyParser = require('body-parser');
 app.use(express.static('./public'));		
 app.use(bodyParser.json());
 
-const Router = require('./router');
-const router = new Router(app);
+const tickCtrl = require('./tick/tick.controller');
+tickCtrl.setRoute(app);
+
+const tickDeskCtrl = require('./tick-desk/tickDesk.controller');
+tickDeskCtrl.setRoute(app);
 
 app.listen(8080);
 
