@@ -8,12 +8,15 @@ function setup(tickCtrl, app) {
 
     app.get('/tick-fact-data/:id', getTickFactData);
 
+    // TODO - later move it into separate component
     app.get('/jug-list', getJugList);
 
     app.route('/tick-new')
         .get(getNewTick)
         .post(saveTick);
 
+    app.route('/tick/:id')
+        .delete(removeTick);
 
     function getTickPlanData(req, res) {
         tickCtrl.getTick(req.params.id)
@@ -50,6 +53,14 @@ function setup(tickCtrl, app) {
             .then((tickId) => {
                 console.log('New tick was successfully saved!');
                 res.send(tickId);
+            });
+    }
+
+    function removeTick(req, res) {
+        console.log('Tick Router. req.params.id', req.params.id);
+        tickCtrl.removeTick(req.params.id)
+            .then((tick) => {
+                res.send(tick);
             });
     }
 }
