@@ -28,8 +28,9 @@ function buildClientTick(dbTickData) {
     const spread = dbTickData.spread.map((item) => {
 
          return {
-            name: item.name,
-            defaultPercent: item.defaultPercent,
+            // TOOD - remove || after data will be valid
+            name: item.name || 'no name',
+            defaultPercent: item.defaultPercent || 0,
 
             plannedValue: item.plannedValue,
             plannedPercent: item.plannedPercent,
