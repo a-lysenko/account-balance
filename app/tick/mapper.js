@@ -1,41 +1,50 @@
 function buildTickData(clientData) {
     const spread = clientData.spread.map((item) => {
         return {
-            id: item.id,
-            plannedValue: item.value,
-            plannedPercent: item.percent
+            name: item.name,
+            defaultPercent: item.defaultPercent,
+
+            plannedValue: item.plannedValue,
+            plannedPercent: item.plannedPercent,
+            
+            factedValue: item.factedValue,
+            factedPercent: item.factedPercent
         }
     });
 
     return {
         plannedValue: clientData.plannedValue,
+        factedValue: clientData.factedValue,
+
+        // TODO - fill the next (probably including some conditions)
+        // plannedDate
+        // factedDate
+
         spread
     };
 }
 
-function buildClientTick(dbTickData, jugList) {
-    // TODO - move to some common block. Use Map probably
-    const jugCollection = jugList.reduce((collection, jugItem) => {
-        collection[jugItem.id] = jugItem;
-
-        return collection;
-    }, {});
-
+function buildClientTick(dbTickData) {
     const spread = dbTickData.spread.map((item) => {
-        const jugItem = jugCollection[item.id];
 
-        return {
-            id: item.id,
-            name: jugItem.name,
-            defaultPercent: jugItem.defaultPercent,
-            value: item.plannedValue,
-            percent: item.plannedPercent
+         return {
+            name: item.name,
+            defaultPercent: item.defaultPercent,
+
+            plannedValue: item.plannedValue,
+            plannedPercent: item.plannedPercent,
+
+            factedValue: item.factedValue,
+            factedPercent: item.factedPercent
         }
     });
 
     return {
         id: dbTickData._id,
         plannedValue: dbTickData.plannedValue,
+        factedValue: dbTickData.factedValue,
+
+        factedPercent: dbTickData.factedPercent,
         spread
     }
 }
