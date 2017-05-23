@@ -19,6 +19,40 @@ db.once('open', () => {
 
 });
 
+exports.getAllTicks = (successCb, errorCb) => {
+    TickModel.find((err, ticks) => {
+        if (err) {
+            console.log('err on get all ticks', err);
+            errorCb(err);
+            return;
+        }
+
+        console.log('Ticks were gotten successfully. amount of ticks', ticks.length);
+        if (ticks.length) {
+            console.log('First tick', ticks[0]);
+        }
+
+        if (successCb) {
+            successCb(ticks);
+        }
+    })
+};
+
+exports.getTick = (tickId, successCb, errorCb) => {
+    TickModel.findById(tickId, (err, tick) => {
+        if (err) {
+            console.log(`err on get tick by ID (${tickId})`, err);
+            errorCb(err);
+            return;
+        }
+
+        console.log(`Tick was gotten by ID ${tickId} successfully: ${tick}`);
+        if (successCb) {
+            successCb(tick);
+        }
+    });
+};
+
 exports.saveTick = (tickData, successCb, errorCb) => {
     const tick = new TickModel(tickData);
     tick.save((err) => {
@@ -48,33 +82,21 @@ exports.updateTick = (tickId, tickData, successCb, errorCb) => {
     });
 };
 
-exports.getAllTicks = (successCb, errorCb) => {
-    TickModel.find((err, ticks) => {
+exports.removeTick = (tickId, successCb, errorCb) => {
+    TickModel.findByIdAndRemove(tickId, (err, tick) => {
         if (err) {
-            console.log('err on get all ticks', err);
+            console.log(`err on remove tick by ID (${tickId})`, err);
             errorCb(err);
             return;
         }
 
-        console.log('Ticks were gotten successfully. amount of ticks', ticks.length);
-        if (successCb) {
-            successCb(ticks);
-        }
-    })
-};
-
-exports.getTick = (tickId, successCb, errorCb) => {
-    TickModel.findById(tickId, (err, tick) => {
-        if (err) {
-            console.log(`err on get tick by ID (${tickId})`, err);
-            errorCb(err);
-            return;
-        }
-
-        console.log(`Tick was gotten by ID ${tickId} successfully: ${tick}`);
+        console.log(`Tick with ID ${tickId} was removed successfully: ${tick}`);
         if (successCb) {
             successCb(tick);
         }
-    });
+    })
+}
 
-};
+exports.getEmptyTick = () => {
+    return new TickModel({});
+}
