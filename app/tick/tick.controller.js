@@ -19,7 +19,7 @@ class TickController {
             // TODO - replace callback interface of 'saveTick' with promise. This code is evidence it should be done
             db.getTick(tickId,
                 (dbTickData) => {
-                    const clientTick = tickMapper.buildClientTick(dbTickData, mockDataJugList);
+                    const clientTick = tickMapper.buildClientTick(dbTickData);
 
                     resolveFn(clientTick);
                 },
@@ -30,19 +30,24 @@ class TickController {
     }
 
     getTickNew() {
-        const tickNew = {
-            spread: getExtendedJugList()
-        };
+        const tickNew = db.getEmptyTick();
+        const tickNew.spread = getExtendedJugList();
 
         return Promise.resolve(tickNew);
 
         function getExtendedJugList() {
+            // TODO - replace with real data (for instance from some user settings)
             return mockDataJugList.map((jug) => {
                 return Object.assign({},
                     jug,
+
+                    // TODO - use mongoose to create an empty tick instance and fill "spread"
+                    // with as many items as there items in "mockDataJugList", but based 
+                    // on "spreadItemSchema" and extended by appropriate "mockDataJugList" values 
+                    // (without id and so on)
                     {
-                        value: 0,
-                        percent: 0
+                        plannedValue: 0,
+                        plannedPercent: 0
                     });
             });
         }
@@ -68,6 +73,22 @@ class TickController {
             // TODO - replace callback interface of 'updateTick' with promise. This code is evidence it should be done
             db.updateTick(tickId, dbTickData, resolveFn, rejectFn);
         });
+    }
+
+    removeTick(tickId) {
+        const promise = new Promise((resolveFn, rejectFn) => {
+
+            // TODO - replace callback interface of 'removeTick' with promise. This code is evidence it should be done
+            db.removeTick(tickId,
+                (dbTickData) => {
+                    const clientTick = tickMapper.buildClientTick(dbTickData);
+
+                    resolveFn(clientTick);
+                },
+                rejectFn);
+        });
+
+        return promise;
     }
 }
 
