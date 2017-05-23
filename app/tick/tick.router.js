@@ -3,7 +3,7 @@ const mockDataJugList = require('../mock/jugList.mock');
 
 function setup(tickCtrl, app) {
     app.route('/tick-plan-data/:id')
-        .get(getTickPlanData)
+        .get(getTick)
         .put(updateTickPlanData);
 
     app.get('/tick-fact-data/:id', getTickFactData);
@@ -16,9 +16,11 @@ function setup(tickCtrl, app) {
         .post(saveTick);
 
     app.route('/tick/:id')
+        .get(getTick) // duplicates method from '/tick-plan-data/:id'
+        // TODO - switch FE to this url and remove previous implementation 
         .delete(removeTick);
 
-    function getTickPlanData(req, res) {
+    function getTick(req, res) {
         tickCtrl.getTick(req.params.id)
             .then((tick) => {
                 res.send(tick);

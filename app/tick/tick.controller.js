@@ -31,7 +31,7 @@ class TickController {
 
     getTickNew() {
         const tickNew = db.getEmptyTick();
-        const tickNew.spread = getExtendedJugList();
+        tickNew.spread = getExtendedJugList();
 
         return Promise.resolve(tickNew);
 
