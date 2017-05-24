@@ -16,6 +16,8 @@ function buildTickData(clientData) {
         plannedValue: clientData.plannedValue,
         factedValue: clientData.factedValue,
 
+        factedPercent: clientData.factedPercent,
+
         // TODO - fill the next (probably including some conditions)
         // plannedDate
         // factedDate

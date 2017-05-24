@@ -4,7 +4,7 @@ const mockDataJugList = require('../mock/jugList.mock');
 function setup(tickCtrl, app) {
     app.route('/tick-plan-data/:id')
         .get(getTick)
-        .put(updateTickPlanData);
+        .put(updateTick);
 
     app.get('/tick-fact-data/:id', getTickFactData);
 
@@ -18,6 +18,7 @@ function setup(tickCtrl, app) {
     app.route('/tick/:id')
         .get(getTick) // duplicates method from '/tick-plan-data/:id'
         // TODO - switch FE to this url and remove previous implementation 
+        .put(updateTick) // duplicates too
         .delete(removeTick);
 
     function getTick(req, res) {
@@ -27,7 +28,7 @@ function setup(tickCtrl, app) {
             });
     }
 
-    function updateTickPlanData(req, res) {
+    function updateTick(req, res) {
         tickCtrl.updateTick(req.params.id, req.body)
             .then((tickId) => {
                 console.log(`Tick (id ${req.params.id}) was successfully updated!`);
