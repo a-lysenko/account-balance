@@ -1,4 +1,4 @@
-const db = require('../db/main');
+const db = require('../db/main.db');
 
 const tickDeskMapper = require('./mapper');
 const tickDeskRouter = require('./tickDesk.router');

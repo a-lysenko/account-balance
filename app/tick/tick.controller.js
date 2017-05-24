@@ -1,5 +1,5 @@
 const tickMapper = require('./mapper');
-const db = require('../db/main');
+const db = require('../db/main.db');
 
 const mockDataJugList = require('../mock/jugList.mock');
 

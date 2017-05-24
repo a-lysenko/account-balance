@@ -1,4 +1,4 @@
-const db = require('./db/main.js');
+const db = require('./db/main.db.js');
 
 const express = require('express');
 const app = express();
@@ -13,6 +13,9 @@ tickCtrl.setRoute(app);
 
 const tickDeskCtrl = require('./tick-desk/tickDesk.controller');
 tickDeskCtrl.setRoute(app);
+
+const jugListCtrl = require('./jug-list/jugList.controller');
+jugListCtrl.setRoute(app);
 
 app.listen(8080);
 

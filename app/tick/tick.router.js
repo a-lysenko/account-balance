@@ -1,5 +1,5 @@
+// NOTE - don't move it into controller. it will be removed together with method where is used
 const mockDataTickFact = require('../mock/tickFact.mock');
-const mockDataJugList = require('../mock/jugList.mock');
 
 function setup(tickCtrl, app) {
     app.route('/tick-plan-data/:id')
@@ -7,9 +7,6 @@ function setup(tickCtrl, app) {
         .put(updateTick);
 
     app.get('/tick-fact-data/:id', getTickFactData);
-
-    // TODO - later move it into separate component
-    app.get('/jug-list', getJugList);
 
     app.route('/tick-new')
         .get(getNewTick)
@@ -38,10 +35,6 @@ function setup(tickCtrl, app) {
 
     function getTickFactData(req, res) {
         res.send(mockDataTickFact);
-    }
-
-    function getJugList(req, res) {
-        res.send(mockDataJugList);
     }
 
     function getNewTick(req, res) {
