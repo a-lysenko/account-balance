@@ -21,12 +21,12 @@ db.once('open', () => {
 
 });
 
-exports.getAllTicks = tickDBController.getAllTicks,
-exports.getTick     = tickDBController.getTick,
-exports.saveTick    = tickDBController.saveTick,
-exports.updateTick  = tickDBController.updateTick,
-exports.removeTick  = tickDBController.removeTick,
+exports.getAllTicks = tickDBController.getAllTicks;
+exports.getTick     = tickDBController.getTick;
+exports.saveTick    = tickDBController.saveTick;
+exports.updateTick  = tickDBController.updateTick;
+exports.removeTick  = tickDBController.removeTick;
 
 exports.getEmptyTick = () => {
     return new TickModel({});
-}
+};
