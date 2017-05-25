@@ -3,6 +3,8 @@ const db = require('../db/main.db');
 const tickDeskMapper = require('./mapper');
 const tickDeskRouter = require('./tickDesk.router');
 
+const mockDataTickDesk = require('../mock/tickDesk.mock');
+
 class TickDeskController {
     constructor() {}
 
@@ -19,6 +21,9 @@ class TickDeskController {
                 const clientTickDesk = tickDeskMapper.buildClientTickDesk(dbTicks);
 
                 resolveFn(clientTickDesk);
+
+                // TODO - remove it if one is not needed
+                //resolveFn(clientTickDesk.concat(mockDataTickDesk));
             }, rejectFn);
         });
 

@@ -57,6 +57,11 @@ function setup(tickCtrl, app) {
         tickCtrl.removeTick(req.params.id)
             .then((tick) => {
                 res.send(tick);
+            })
+            .catch((err) => {
+                if (err.notFound) {
+                    res.status(404).send(err.message);
+                }
             });
     }
 }
