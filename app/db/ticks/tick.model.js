@@ -17,7 +17,7 @@ module.exports = (mongoose) => {
     const tickSchema = {
         //id: String,
 
-        plannedValue: Number,
+        plannedValue: {type: Number, default: 0},
         factedValue: {type: Number, default: 0},
 
         factedPercent: {type: Number, default: 0},
