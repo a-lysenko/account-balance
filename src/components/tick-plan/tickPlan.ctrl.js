@@ -8,10 +8,9 @@
         const ctrl = this;
 
         const {round2} = tickPlanService;
-        const tickPlanDataQ = tickPlanService.getTickPlanData($state.params.id);
 
         angular.extend(ctrl, {
-            isTickNew: false,
+            //isTickNew: false,
             tickPlanData: [],
             tickPlanMenuData: {},
 
@@ -21,9 +20,12 @@
             handleSpreadItemPercentChange
         });
 
-        ctrl.isTickNew = tickPlanService.isTickNew($state.params.id);
-
         ctrl.$onInit = function () {
+            const tickPlanDataQ = tickPlanService.getTickPlanData({
+                isTickNew: ctrl.isTickNew,
+                id: $state.params.id
+            });
+
             tickPlanDataQ.then((tickPlanData) => {
                 ctrl.tickPlanData = tickPlanData;
                 console.log('ctrl.tickPlanData', ctrl.tickPlanData);
@@ -33,7 +35,12 @@
         };
 
         function saveTickPlan() {
-            tickPlanService.saveTick($state.params.id, ctrl.tickPlanData)
+            const options = {
+                isTickNew: ctrl.isTickNew,
+                id: $state.params.id
+            };
+
+            tickPlanService.saveTick(options, ctrl.tickPlanData)
                 .then((resData) => {
                     console.log('resData', resData);
                     $state.go('tick-desk');
@@ -79,17 +86,17 @@
         }
 
         function updateSpreadItemValue(item) {
-            item.value = round2(ctrl.tickPlanData.plannedValue * item.percent / 100);
+            item.plannedValue = round2(ctrl.tickPlanData.plannedValue * item.plannedPercent / 100);
         }
 
         function updateSpreadItemPercent(item) {
-            item.percent = round2(item.value / ctrl.tickPlanData.plannedValue * 100);
+            item.plannedPercent = round2(item.plannedValue / ctrl.tickPlanData.plannedValue * 100);
         }
 
         function calculateSpreadSum() {
             const {spread} = ctrl.tickPlanData;
             const spreadSum = spread.reduce((acc, spreadItem) => {
-                return acc + spreadItem.value;
+                return acc + spreadItem.plannedValue;
             }, 0);
 
             return round2(spreadSum);

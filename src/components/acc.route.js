@@ -23,6 +23,7 @@
                     controller: 'SetBalanceController',
                     controllerAs: 'vm'
                 })
+
                 .state('tick-desk', {
                     url: '/tick-desk',
                     // TODO - remove balance income directive and use controller here directly
@@ -36,13 +37,20 @@
                  * nested state: tick-item.plan (url: /tick/:id/plan)
                  * nested state: tick-item.fact (url: /tick/:id/fact)
                  * nested state: tick-item.new (url: /tick/new)- new item*/
-                .state('tick', {
+                /*.state('tick', {
                     url: '/tick/:id',
                     abstract: true,
                     // TODO - use to pass resolved tick, probably
                     //params: {
                     //  tickObj: {key: 'val'}
                     //},
+                   /!* onEnter: function ($stateParams) {
+                        console.log('State "tick" activated. id', $stateParams.id);
+                        if ($stateParams.id === '314') {
+                            $stateParams.id = 'new';
+                            console.log('State "tick" changed id', $stateParams.id);
+                        }
+                    },*!/
                     template: '<ui-view />'
                     // TODO - in such manner a verification of id can be provided
                     //resolve: {
@@ -57,13 +65,17 @@
                     //        return def.promise;
                     //    }
                     //}
+                })*/
+                .state('tick-new', {
+                    url: '/tick-new',
+                    template: '<tick-plan is-tick-new="true">Here is tick-plan directive</tick-plan>'
                 })
-                .state('tick.plan', {
-                    url: '/tick-plan',
+                .state('tick-plan', {
+                    url: '/tick/:id/plan',
                     template: '<tick-plan>Here is tick-plan directive</tick-plan>'
                 })
-                .state('tick.fact', {
-                    url: '/tick-fact',
+                .state('tick-fact', {
+                    url: '/tick/:id/fact',
                     template: '<tick-fact>Here is tick-fact directive</tick-fact>'
                 });
 

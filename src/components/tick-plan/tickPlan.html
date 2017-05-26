@@ -37,13 +37,13 @@
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__sum"
-                       ng-model="spreadItem.value"
+                       ng-model="spreadItem.plannedValue"
                        ng-model-options="{debounce: 300}"
-                        ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
+                       ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
             </div>
             <div class="tick-plan-item__jug-container">
                 <input type="number" class="tick-plan-item__percent"
-                       ng-model="spreadItem.percent"
+                       ng-model="spreadItem.plannedPercent"
                        ng-model-options="{debounce: 300}"
                        ng-change="$ctrl.handleSpreadItemPercentChange(spreadItem)">
             </div>

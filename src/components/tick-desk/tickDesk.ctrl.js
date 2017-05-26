@@ -23,9 +23,7 @@
         };
 
         function addTick() {
-            $state.go('tick.plan', {
-                id: 'new'
-            });
+            $state.go('tick-new');
         }
     }
 })();
