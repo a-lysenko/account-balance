@@ -2,10 +2,6 @@
 const mockDataTickFact = require('../mock/tickFact.mock');
 
 function setup(tickCtrl, app) {
-    app.route('/tick-plan-data/:id')
-        .get(getTick)
-        .put(updateTick);
-
     app.get('/tick-fact-data/:id', getTickFactData);
 
     app.route('/tick-new')
