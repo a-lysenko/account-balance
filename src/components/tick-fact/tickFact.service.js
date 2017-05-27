@@ -3,27 +3,26 @@
     angular.module('acc')
         .factory('tickFactService', tickFactService);
 
-    function tickFactService($resource) {
-        const tickFactDataRes = $resource('tick-fact-data', {}, {
-            get: {
-                method: 'GET',
-                params: {
-                    id: ''
-                },
-                url: 'tick-fact-data/:id',
-                isArray: false
-            }
-        });
+    function tickFactService(tickService) {
 
         return {
-            getTickFactData: getTickFactData
+            getTickFactData,
+            saveTick
         };
 
         function getTickFactData(id) {
-            const tickFactDataQ = tickFactDataRes.get({id: id})
-                .$promise;
+            return tickService.getTickData({
+                id,
+                isTickNew: false
+            })
+        }
 
-            return tickFactDataQ;
+        function saveTick({id}, data) {
+            const options = {
+                id,
+                isTickNew: false
+            };
+            return tickService.saveTick(options, data);
         }
     }
 })();

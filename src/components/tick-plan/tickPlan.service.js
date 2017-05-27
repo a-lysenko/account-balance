@@ -18,6 +18,7 @@
             function buildTickPlanData(tickData) {
                 const tickPlanData = {};
 
+                // actually do nothing
                 Object.assign(tickPlanData, tickData);
 
                 return tickPlanData;
