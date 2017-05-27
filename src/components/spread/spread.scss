@@ -1,0 +1,10 @@
+@import "../../scss/style-tick-list";
+
+// TODO - remove duplicates from tick-plan and tick-fact
+.tick-plan-list {
+	@include tick-list;
+}
+
+.tick-plan-item {
+	@include tick-list-item;
+}
