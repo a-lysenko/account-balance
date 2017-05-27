@@ -4,10 +4,8 @@
     angular.module('acc')
         .controller('TickPlanController', TickPlanController);
 
-    function TickPlanController($state, tickPlanService) {
+    function TickPlanController($state, round2, tickPlanService) {
         const ctrl = this;
-
-        const {round2} = tickPlanService;
 
         angular.extend(ctrl, {
             //isTickNew: false,

@@ -44,8 +44,7 @@
 
         return {
             getTickData,
-            saveTick,
-            round2
+            saveTick
         };
 
         function getTickData({id, isTickNew}) {
@@ -78,11 +77,6 @@
 
         function updateTick(tickId, tickData) {
             return tickDataResource.update({id: tickId}, tickData).$promise;
-        }
-
-        // TODO - move to separate common module
-        function round2(value) {
-            return Math.round(value * 100) / 100;
         }
     }
 })();

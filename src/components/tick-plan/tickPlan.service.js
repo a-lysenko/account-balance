@@ -7,8 +7,7 @@
         return {
             getTickPlanData,
             retrievePlanMenuDataFrom,
-            saveTick,
-            round2
+            saveTick
         };
 
         function getTickPlanData({id, isTickNew}) {
@@ -35,11 +34,6 @@
 
         function saveTick({id, isTickNew}, data) {
             return tickService.saveTick({id, isTickNew}, data);
-        }
-
-        // TODO - remove and use round2 directly from where it is implemented
-        function round2(value) {
-            return tickService.round2(value);
         }
     }
 })();
