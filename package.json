@@ -8,7 +8,7 @@
     "build:w": "node tasks/build-watch.js",
     "test": "karma start",
     "server:basic": "node app/server.js",
-    "server:nodemon": "nodemon --ext css,js,html --watch public --delay 1.5 app/server.js",
+    "server:nodemon": "nodemon --ext css,js,html --watch public --watch app --delay 1.5 app/server.js",
     "postinstall": "bower install",
     "prestart": "npm install",
     "start": "npm run build && npm run server:basic",

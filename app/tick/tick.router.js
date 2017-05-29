@@ -1,9 +1,4 @@
-// NOTE - don't move it into controller. it will be removed together with method where is used
-const mockDataTickFact = require('../mock/tickFact.mock');
-
 function setup(tickCtrl, app) {
-    app.get('/tick-fact-data/:id', getTickFactData);
-
     app.route('/tick-new')
         .get(getNewTick)
         .post(saveTick);
@@ -27,10 +22,6 @@ function setup(tickCtrl, app) {
                 console.log(`Tick (id ${req.params.id}) was successfully updated!`);
                 res.send(tickId);
             });
-    }
-
-    function getTickFactData(req, res) {
-        res.send(mockDataTickFact);
     }
 
     function getNewTick(req, res) {
