@@ -7,6 +7,8 @@
         return {
             getTickPlanData,
             retrievePlanMenuDataFrom,
+            buildCommonSpread,
+            compilePlannedDataSpread,
             saveTick
         };
 
@@ -30,6 +32,29 @@
                 unspreadValue: data.unspreadValue || 0,
                 unspreadPercent: data.unspreadPercent || 0
             };
+        }
+
+        function buildCommonSpread(plannedDataSpread) {
+            return plannedDataSpread.map((item) => {
+                return {
+                    name: item.name,
+                    defaultPercent: item.defaultPercent,
+                    value: item.plannedValue,
+                    percent: item.plannedPercent
+                }
+            });
+        }
+
+        function compilePlannedDataSpread(plannedDataSpread, commonSpread) {
+            return plannedDataSpread.map((plannedDataSpreadItem, index) => {
+                const item = Object.assign({}, plannedDataSpreadItem);
+                const {value, percent} = commonSpread[index];
+
+                item.plannedValue = value;
+                item.plannedPercent = percent;
+
+                return item;
+            });
         }
 
         function saveTick({id, isTickNew}, data) {

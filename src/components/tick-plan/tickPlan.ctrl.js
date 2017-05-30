@@ -9,13 +9,13 @@
 
         angular.extend(ctrl, {
             //isTickNew: false,
-            tickPlanData: [],
+            tickPlanData: {},
             tickPlanMenuData: {},
+            commonSpread: [],
 
             saveTickPlan,
             handlePlannedValueChange,
-            handleSpreadItemValueChange,
-            handleSpreadItemPercentChange
+            updateUnspread
         });
 
         ctrl.$onInit = function () {
@@ -29,6 +29,9 @@
                 console.log('ctrl.tickPlanData', ctrl.tickPlanData);
 
                 ctrl.tickPlanMenuData = tickPlanService.retrievePlanMenuDataFrom(ctrl.tickPlanData);
+
+                // TODO - it is not todo. This approach let user have a fallback changes
+                ctrl.commonSpread = tickPlanService.buildCommonSpread(ctrl.tickPlanData.spread);
             });
         };
 
@@ -37,6 +40,11 @@
                 isTickNew: ctrl.isTickNew,
                 id: $state.params.id
             };
+
+            ctrl.tickPlanData.spread = tickPlanService.compilePlannedDataSpread(
+                ctrl.tickPlanData.spread,
+                ctrl.commonSpread
+            );
 
             tickPlanService.saveTick(options, ctrl.tickPlanData)
                 .then((resData) => {
@@ -48,20 +56,7 @@
         function handlePlannedValueChange(plannedValue) {
             console.log('handlePlannedValueChange call', plannedValue);
             updatePlannedValue(plannedValue);
-            updateUnspread();
 
-            ctrl.tickPlanData.spread.forEach((item) => {
-                updateSpreadItemPercent(item);
-            });
-        }
-
-        function handleSpreadItemValueChange(item) {
-            updateSpreadItemPercent(item);
-            updateUnspread();
-        }
-
-        function handleSpreadItemPercentChange(item) {
-            updateSpreadItemValue(item);
             updateUnspread();
         }
 
@@ -72,7 +67,13 @@
         }
 
         function updateUnspread() {
-            const spreadSum = calculateSpreadSum();
+            const spread = tickPlanService.compilePlannedDataSpread(
+                ctrl.tickPlanData.spread,
+                ctrl.commonSpread
+            );
+
+            const spreadSum = calculateSpreadSum(spread);
+
             const unspreadValue = ctrl.tickPlanMenuData.plannedValue - spreadSum;
             const unspread = {
                 unspreadValue: round2(unspreadValue),
@@ -83,16 +84,7 @@
             ctrl.tickPlanMenuData = angular.extend({}, ctrl.tickPlanMenuData, unspread);
         }
 
-        function updateSpreadItemValue(item) {
-            item.plannedValue = round2(ctrl.tickPlanData.plannedValue * item.plannedPercent / 100);
-        }
-
-        function updateSpreadItemPercent(item) {
-            item.plannedPercent = round2(item.plannedValue / ctrl.tickPlanData.plannedValue * 100);
-        }
-
-        function calculateSpreadSum() {
-            const {spread} = ctrl.tickPlanData;
+        function calculateSpreadSum(spread) {
             const spreadSum = spread.reduce((acc, spreadItem) => {
                 return acc + spreadItem.plannedValue;
             }, 0);

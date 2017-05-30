@@ -18,28 +18,33 @@
 
         };
 
+        ctrl.$onChanges = function (changes) {
+            console.log('changes', changes);
+            console.log('ctrl.spread', ctrl.spread);
+
+            if (changes.summary) {
+                ctrl.spread.forEach((item) => {
+                    updateSpreadItemPercent(item);
+                });
+            }
+        };
+
         function handleSpreadItemValueChange(item) {
             updateSpreadItemPercent(item);
-
-            // TODO - pass ctrl.spread
-            ctrl.handleSpreadChange();
+            ctrl.handleSpreadItemChange();
         }
 
         function handleSpreadItemPercentChange(item) {
             updateSpreadItemValue(item);
-
-            // TODO - pass ctrl.spread
-            ctrl.handleSpreadChange();
+            ctrl.handleSpreadItemChange();
         }
 
         function updateSpreadItemValue(item) {
-            // TODO - change basis - here is ctrl.tickPlanData.plannedValue - or remove method
-            item.value = round2(ctrl.tickPlanData.plannedValue * item.percent / 100);
+            item.value = round2(ctrl.summary * item.percent / 100);
         }
 
         function updateSpreadItemPercent(item) {
-            // TODO - change basis - here is ctrl.tickPlanData.plannedValue - or remove method
-            item.percent = round2(item.value / ctrl.tickPlanData.plannedValue * 100);
+            item.percent = round2(item.value / ctrl.summary * 100);
         }
     }
 })();

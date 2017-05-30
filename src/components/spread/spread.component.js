@@ -5,7 +5,8 @@
         .component('spread', {
             bindings: {
                 spread: '<',
-                handleSpreadChange: '&'
+                summary: '<',
+                handleSpreadItemChange: '&onSpreadItemChange'
             },
             templateUrl: 'spread/spread.html',
             controller: 'SpreadController',
