@@ -28,9 +28,7 @@
 
         function retrievePlanMenuDataFrom(data) {
             return {
-                plannedValue: data.plannedValue || 0,
-                unspreadValue: data.unspreadValue || 0,
-                unspreadPercent: data.unspreadPercent || 0
+                plannedValue: data.plannedValue || 0
             };
         }
 

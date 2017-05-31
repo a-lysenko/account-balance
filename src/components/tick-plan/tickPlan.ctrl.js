@@ -66,22 +66,14 @@
             ctrl.tickPlanMenuData.plannedValue = plannedValue;
         }
 
+        // TODO - rename to what it does
         function updateUnspread() {
-            const spread = tickPlanService.compilePlannedDataSpread(
-                ctrl.tickPlanData.spread,
-                ctrl.commonSpread
-            );
-
-            const spreadSum = calculateSpreadSum(spread);
-
-            const unspreadValue = ctrl.tickPlanMenuData.plannedValue - spreadSum;
-            const unspread = {
-                unspreadValue: round2(unspreadValue),
-                unspreadPercent: round2(unspreadValue / ctrl.tickPlanMenuData.plannedValue * 100)
-            };
-
-            // It is not applied for one-way binding without copying
-            ctrl.tickPlanMenuData = angular.extend({}, ctrl.tickPlanMenuData, unspread);
+            //const spread = tickPlanService.compilePlannedDataSpread(
+            //    ctrl.tickPlanData.spread,
+            //    ctrl.commonSpread
+            //);
+            //
+            //const spreadSum = calculateSpreadSum(spread);
         }
 
         function calculateSpreadSum(spread) {
