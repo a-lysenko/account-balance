@@ -1,7 +1,7 @@
 <section class="main">
     <section class="tick-plan-header">
         <div class="tick-plan-header__plan-container">
-            <plan-menu plan-menu-data="$ctrl.tickPlanMenuData"
+            <plan-menu planned-value="$ctrl.tickPlanData.plannedValue"
                        init-edit-panel-is-active="::$ctrl.isTickNew"
                        on-planned-sum-edit-end="$ctrl.handlePlannedValueChange(plannedValue)">
             </plan-menu>
@@ -26,8 +26,8 @@
         </div>
     </section>
 
-    <spread spread="$ctrl.commonSpread" summary="$ctrl.tickPlanData.plannedValue"
-            on-spread-item-change="$ctrl.updateUnspread()"></spread>
+    <spread spread="$ctrl.commonSpread"
+            on-spread-item-change="$ctrl.updatePlannedValue(summary)"></spread>
 </section>
 
 <acc-footer save="$ctrl.saveTickPlan()"></acc-footer>

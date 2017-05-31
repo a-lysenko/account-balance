@@ -6,7 +6,6 @@
     function tickPlanService(tickService) {
         return {
             getTickPlanData,
-            retrievePlanMenuDataFrom,
             buildCommonSpread,
             compilePlannedDataSpread,
             saveTick
@@ -24,12 +23,6 @@
 
                 return tickPlanData;
             }
-        }
-
-        function retrievePlanMenuDataFrom(data) {
-            return {
-                plannedValue: data.plannedValue || 0
-            };
         }
 
         function buildCommonSpread(plannedDataSpread) {

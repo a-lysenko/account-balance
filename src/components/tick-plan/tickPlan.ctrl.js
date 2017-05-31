@@ -10,12 +10,11 @@
         angular.extend(ctrl, {
             //isTickNew: false,
             tickPlanData: {},
-            tickPlanMenuData: {},
             commonSpread: [],
 
             saveTickPlan,
             handlePlannedValueChange,
-            updateUnspread
+            updatePlannedValue
         });
 
         ctrl.$onInit = function () {
@@ -27,8 +26,6 @@
             tickPlanDataQ.then((tickPlanData) => {
                 ctrl.tickPlanData = tickPlanData;
                 console.log('ctrl.tickPlanData', ctrl.tickPlanData);
-
-                ctrl.tickPlanMenuData = tickPlanService.retrievePlanMenuDataFrom(ctrl.tickPlanData);
 
                 // TODO - it is not todo. This approach let user have a fallback changes
                 ctrl.commonSpread = tickPlanService.buildCommonSpread(ctrl.tickPlanData.spread);
@@ -60,28 +57,9 @@
             updateUnspread();
         }
 
-        function updatePlannedValue(plannedValue) {
-            plannedValue = round2(plannedValue);
-            ctrl.tickPlanData.plannedValue = plannedValue;
-            ctrl.tickPlanMenuData.plannedValue = plannedValue;
-        }
-
-        // TODO - rename to what it does
-        function updateUnspread() {
-            //const spread = tickPlanService.compilePlannedDataSpread(
-            //    ctrl.tickPlanData.spread,
-            //    ctrl.commonSpread
-            //);
-            //
-            //const spreadSum = calculateSpreadSum(spread);
-        }
-
-        function calculateSpreadSum(spread) {
-            const spreadSum = spread.reduce((acc, spreadItem) => {
-                return acc + spreadItem.plannedValue;
-            }, 0);
-
-            return round2(spreadSum);
+        function updatePlannedValue(summary) {
+            summary = round2(summary);
+            ctrl.tickPlanData.plannedValue = summary;
         }
     }
 })();

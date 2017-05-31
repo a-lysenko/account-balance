@@ -7,7 +7,7 @@
             controller: 'PlanMenuController',
             controllerAs: '$ctrl',
             bindings: {
-                planMenuData: '<',
+                plannedValue: '<',
                 initEditPanelIsActive: '<?',
                 onPlannedSumEditEnd: '&'
             }

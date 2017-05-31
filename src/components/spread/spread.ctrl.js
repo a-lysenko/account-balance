@@ -10,8 +10,7 @@
         angular.extend(ctrl, {
             spread: [],
 
-            handleSpreadItemValueChange,
-            handleSpreadItemPercentChange
+            handleSpreadItemValueChange
         });
 
         ctrl.$onInit = function () {
@@ -21,30 +20,32 @@
         ctrl.$onChanges = function (changes) {
             console.log('changes', changes);
             console.log('ctrl.spread', ctrl.spread);
-
-            if (changes.summary) {
-                ctrl.spread.forEach((item) => {
-                    updateSpreadItemPercent(item);
-                });
-            }
         };
 
-        function handleSpreadItemValueChange(item) {
-            updateSpreadItemPercent(item);
-            ctrl.handleSpreadItemChange();
+        function handleSpreadItemValueChange() {
+            const spreadSum = calculateSpreadSum(ctrl.spread);
+
+            recalculateSpreadPercents(spreadSum);
+
+            ctrl.handleSpreadItemChange({
+                summary: spreadSum
+            });
         }
 
-        function handleSpreadItemPercentChange(item) {
-            updateSpreadItemValue(item);
-            ctrl.handleSpreadItemChange();
+        function updateSpreadItemPercent(item, spreadSum) {
+            item.percent = round2(item.value / spreadSum * 100);
         }
 
-        function updateSpreadItemValue(item) {
-            item.value = round2(ctrl.summary * item.percent / 100);
+        function recalculateSpreadPercents(spreadSum) {
+            ctrl.spread.forEach((item) => {
+                updateSpreadItemPercent(item, spreadSum);
+            });
         }
 
-        function updateSpreadItemPercent(item) {
-            item.percent = round2(item.value / ctrl.summary * 100);
+        function calculateSpreadSum(spread) {
+            return spread.reduce((acc, spreadItem) => {
+                return acc + spreadItem.value;
+            }, 0);
         }
     }
 })();
