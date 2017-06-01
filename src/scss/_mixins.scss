@@ -88,6 +88,16 @@
     }
 }
 
+@mixin parenthesis-value-wrapped {
+    &:before {
+        content: "(";
+    }
+
+    &:after {
+        content: ")";
+    }
+}
+
 @mixin plain-text {
     font-size: 1rem;
     font-weight: normal;

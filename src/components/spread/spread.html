@@ -4,7 +4,10 @@
         <div class="tick-plan-item__jug-container">
             <span class="tick-plan-item__jug">
                 {{spreadItem.name}}
-                <span class="tick-plan-item__jug-percent">{{spreadItem.defaultPercent}}</span>
+                <span class="tick-plan-item__jug-percent"
+                        ng-if="!$ctrl.usePlannedValueByItem">{{spreadItem.defaultPercent}}</span>
+                <span class="tick-plan-item__jug-value"
+                      ng-if="$ctrl.usePlannedValueByItem">planned {{spreadItem.plannedValue}}</span>
             </span>
         </div>
 

@@ -22,10 +22,14 @@
             console.log('ctrl.spread', ctrl.spread);
         };
 
-        function handleSpreadItemValueChange() {
+        function handleSpreadItemValueChange(item) {
             const spreadSum = calculateSpreadSum(ctrl.spread);
 
-            recalculateSpreadPercents(spreadSum);
+            if (ctrl.usePlannedValueByItem) {
+                updateSpreadItemPercent(item, item.plannedValue);
+            } else {
+                recalculateSpreadPercents(spreadSum);
+            }
 
             ctrl.handleSpreadItemChange({
                 summary: spreadSum

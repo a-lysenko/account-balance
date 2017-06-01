@@ -40,6 +40,10 @@
         @include percent-value-wrapped;
     }
 
+    &__jug-value {
+        @include parenthesis-value-wrapped;
+    }
+
     &__sum,
     &__percent {
         display: block;
