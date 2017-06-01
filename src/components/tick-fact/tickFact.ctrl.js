@@ -11,6 +11,7 @@
 
         angular.extend(ctrl, {
             tickFactData: [],
+            commonSpread: [],
 
             saveTickFact: saveTickFact
         });
@@ -19,6 +20,8 @@
             tickFactDataQ.then((tickFactData) => {
                 ctrl.tickFactData = tickFactData;
                 console.log('ctrl.tickFactData', ctrl.tickFactData);
+
+                ctrl.commonSpread = tickFactService.buildCommonSpread(ctrl.tickFactData.spread);
             });
         };
 

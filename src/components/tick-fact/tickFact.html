@@ -33,26 +33,8 @@
         <button class="tick-fact-header__spread-btn">Spread</button>
     </section>
 
-    <ul class="tick-fact-list">
-        <li ng-repeat="spreadItem in $ctrl.tickFactData.spread"
-            class="tick-fact-item">
-            <div class="tick-fact-item__jug-container">
-                    <span class="tick-fact-item__jug">
-                        {{spreadItem.name}}
-                        <span class="tick-fact-item__jug-percent">{{spreadItem.defaultPercent}}</span>
-                    </span>
-
-            </div>
-            <div class="tick-fact-item__jug-container">
-                <input type="number" class="tick-fact-item__sum"
-                       ng-model="spreadItem.value">
-            </div>
-            <div class="tick-fact-item__jug-container">
-                <input type="number" class="tick-fact-item__percent"
-                       ng-model="spreadItem.percent">
-            </div>
-        </li>
-    </ul>
+    <spread spread="$ctrl.commonSpread"
+            on-spread-item-change="console.log('facted spread changed')"></spread>
 </section>
 
 <acc-footer save="$ctrl.saveTickFact()"></acc-footer>
