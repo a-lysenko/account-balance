@@ -32,7 +32,16 @@
         }
 
         function saveTickFact() {
-            console.log('saveTickFact called');
+            ctrl.tickFactData.spread = tickFactService.compileFactedDataSpread(
+                ctrl.tickFactData.spread,
+                ctrl.commonSpread
+            );
+
+            tickFactService.saveTick($state.params.id, ctrl.tickFactData)
+                .then((resData) => {
+                    console.log('resData', resData);
+                    $state.go('tick-desk');
+                });
         }
     }
 })();

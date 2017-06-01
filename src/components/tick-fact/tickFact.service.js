@@ -8,6 +8,7 @@
         return {
             getTickFactData,
             buildCommonSpread,
+            compileFactedDataSpread,
             saveTick
         };
 
@@ -22,7 +23,8 @@
             return factedDataSpread.map((item) => {
                 return {
                     name: item.name,
-                    defaultPercent: item.defaultPercent,
+                    //defaultPercent: item.defaultPercent,
+                    plannedValue: item.plannedValue,
                     value: item.factedValue,
                     percent: item.factedPercent
                 }
@@ -41,7 +43,7 @@
             });
         }
 
-        function saveTick({id}, data) {
+        function saveTick(id, data) {
             const options = {
                 id,
                 isTickNew: false
