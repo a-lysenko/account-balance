@@ -53,8 +53,6 @@
         function handlePlannedValueChange(plannedValue) {
             console.log('handlePlannedValueChange call', plannedValue);
             updatePlannedValue(plannedValue);
-
-            updateUnspread();
         }
 
         function updatePlannedValue(summary) {
