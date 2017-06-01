@@ -13,7 +13,7 @@
             <div class="tick-fact-header__sum-values-list">
                 <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.factedValue}}</span>
                 <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.plannedValue}}</span>
-                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.leftValue}}</span>
+                <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.plannedValue - $ctrl.tickFactData.factedValue}}</span>
                 <span class="tick-fact-header__sum-value">{{$ctrl.tickFactData.prevLeftValue}}</span>
             </div>
             <div class="tick-fact-header__extras-list">
