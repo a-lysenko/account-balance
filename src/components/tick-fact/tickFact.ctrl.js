@@ -4,7 +4,7 @@
     angular.module('acc')
         .controller('TickFactController', TickFactController);
 
-    function TickFactController($state, round2, tickFactService) {
+    function TickFactController($state, round2, tickFactService, headerService) {
         const ctrl = this;
 
         const tickFactDataQ = tickFactService.getTickFactData($state.params.id);
@@ -16,6 +16,10 @@
             saveTickFact
         });
 
+        const trashBinActionId = headerService.registerTrashBinAction(function () {
+            console.log('I am trash bin action from tick fact');
+        });
+
         ctrl.$onInit = function () {
             tickFactDataQ.then((tickFactData) => {
                 ctrl.tickFactData = tickFactData;
@@ -23,6 +27,10 @@
 
                 ctrl.commonSpread = tickFactService.buildCommonSpread(ctrl.tickFactData.spread);
             });
+        };
+
+        ctrl.$onDestroy = function () {
+            headerService.unregisterTrashBinAction(trashBinActionId);
         };
 
         function updateFactedMenuData(summary) {
