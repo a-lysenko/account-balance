@@ -16,7 +16,7 @@
         justify-content: space-between;
     }
 
-    &__sum-destination-lis,
+    &__sum-destination-list,
     &__sum-values-list,
     &__extras-list {
         display: block;
@@ -49,25 +49,4 @@
         display: inline;
         @include percent-value;
     }
-
-    &__edit-fact-sum-btn-container {
-        float: right;
-        margin-left: 0.125em;
-    }
-
-    &__edit-fact-sum-btn {
-        @include button;
-    }
-
-    &__spread-btn {
-        @include button;
-    }
-}
-
-.tick-fact-list {
-	@include tick-list;
-}
-
-.tick-fact-item {
-	@include tick-list-item;
 }
