@@ -7,7 +7,7 @@
 .tick-fact-header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     padding: 10px 10px 0 10px;
 
     &__sum-container {
@@ -20,6 +20,10 @@
     &__sum-values-list,
     &__extras-list {
         display: block;
+    }
+
+    &__sum-destination-list {
+        margin-right: 3px;
     }
 
     &__sum-destination-item,
