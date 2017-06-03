@@ -73,6 +73,7 @@
                 });
         }
 
+        // candidate to remove
         function handlePlannedValueChange(plannedValue) {
             console.log('handlePlannedValueChange call', plannedValue);
             updatePlannedValue(plannedValue);
