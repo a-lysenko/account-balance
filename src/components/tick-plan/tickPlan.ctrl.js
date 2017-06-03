@@ -4,8 +4,10 @@
     angular.module('acc')
         .controller('TickPlanController', TickPlanController);
 
-    function TickPlanController($state, round2, tickPlanService) {
+    function TickPlanController($state, round2, tickPlanService, headerService) {
         const ctrl = this;
+
+        let trashBinActionId;
 
         angular.extend(ctrl, {
             //isTickNew: false,
@@ -18,6 +20,13 @@
         });
 
         ctrl.$onInit = function () {
+            if (!ctrl.isTickNew) {
+                trashBinActionId = headerService.registerTrashBinAction(function () {
+                    console.log('I am trash bin action from tick plan');
+                    removeTick();
+                });
+            }
+
             const tickPlanDataQ = tickPlanService.getTickPlanData({
                 isTickNew: ctrl.isTickNew,
                 id: $state.params.id
@@ -32,6 +41,12 @@
             });
         };
 
+        ctrl.$onDestroy = function () {
+            if (!ctrl.isTickNew) {
+                headerService.unregisterTrashBinAction(trashBinActionId);
+            }
+        };
+
         function saveTickPlan() {
             const options = {
                 isTickNew: ctrl.isTickNew,
@@ -44,6 +59,14 @@
             );
 
             tickPlanService.saveTick(options, ctrl.tickPlanData)
+                .then((resData) => {
+                    console.log('resData', resData);
+                    $state.go('tick-desk');
+                });
+        }
+
+        function removeTick() {
+            tickPlanService.removeTick($state.params.id)
                 .then((resData) => {
                     console.log('resData', resData);
                     $state.go('tick-desk');

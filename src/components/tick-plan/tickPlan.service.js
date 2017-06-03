@@ -8,7 +8,8 @@
             getTickPlanData,
             buildCommonSpread,
             compilePlannedDataSpread,
-            saveTick
+            saveTick,
+            removeTick
         };
 
         function getTickPlanData({id, isTickNew}) {
@@ -50,6 +51,10 @@
 
         function saveTick({id, isTickNew}, data) {
             return tickService.saveTick({id, isTickNew}, data);
+        }
+
+        function removeTick(id) {
+            return tickService.removeTick(id);
         }
     }
 })();

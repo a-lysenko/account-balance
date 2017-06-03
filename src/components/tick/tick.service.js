@@ -44,7 +44,8 @@
 
         return {
             getTickData,
-            saveTick
+            saveTick,
+            removeTick
         };
 
         function getTickData({id, isTickNew}) {
@@ -77,6 +78,10 @@
 
         function updateTick(tickId, tickData) {
             return tickDataResource.update({id: tickId}, tickData).$promise;
+        }
+
+        function removeTick(tickId) {
+            return tickDataResource.remove({id: tickId}).$promise;
         }
     }
 })();
