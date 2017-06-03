@@ -32,13 +32,18 @@
                 id: $state.params.id
             });
 
-            tickPlanDataQ.then((tickPlanData) => {
-                ctrl.tickPlanData = tickPlanData;
-                console.log('ctrl.tickPlanData', ctrl.tickPlanData);
+            tickPlanDataQ
+                .then((tickPlanData) => {
+                    ctrl.tickPlanData = tickPlanData;
+                    console.log('ctrl.tickPlanData', ctrl.tickPlanData);
 
-                // TODO - it is not todo. This approach let user have a fallback changes
-                ctrl.commonSpread = tickPlanService.buildCommonSpread(ctrl.tickPlanData.spread);
-            });
+                    // TODO - it is not todo. This approach let user have a fallback changes
+                    ctrl.commonSpread = tickPlanService.buildCommonSpread(ctrl.tickPlanData.spread);
+                })
+                .catch((err) => {
+                    console.log(`Error on getting tick by id ${$state.params.id}:`, err.data);
+                    $state.go('tick-desk');
+                });
         };
 
         ctrl.$onDestroy = function () {

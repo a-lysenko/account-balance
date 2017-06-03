@@ -22,12 +22,17 @@
         });
 
         ctrl.$onInit = function () {
-            tickFactDataQ.then((tickFactData) => {
-                ctrl.tickFactData = tickFactData;
-                console.log('ctrl.tickFactData', ctrl.tickFactData);
+            tickFactDataQ
+                .then((tickFactData) => {
+                    ctrl.tickFactData = tickFactData;
+                    console.log('ctrl.tickFactData', ctrl.tickFactData);
 
-                ctrl.commonSpread = tickFactService.buildCommonSpread(ctrl.tickFactData.spread);
-            });
+                    ctrl.commonSpread = tickFactService.buildCommonSpread(ctrl.tickFactData.spread);
+                })
+                .catch((err) => {
+                    console.log(`Error on getting tick by id ${$state.params.id}:`, err.data);
+                    $state.go('tick-desk');
+                });
         };
 
         ctrl.$onDestroy = function () {
