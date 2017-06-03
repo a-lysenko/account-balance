@@ -18,6 +18,7 @@
 
         const trashBinActionId = headerService.registerTrashBinAction(function () {
             console.log('I am trash bin action from tick fact');
+            clearTickFact();
         });
 
         ctrl.$onInit = function () {
@@ -49,6 +50,21 @@
                 .then((resData) => {
                     console.log('resData', resData);
                     $state.go('tick-desk');
+                });
+        }
+
+        function clearTickFact() {
+            ctrl.tickFactData.factedValue = 0;
+            ctrl.tickFactData.factedPercent = 0;
+            ctrl.tickFactData.spread.forEach((item) => {
+                item.factedValue = 0;
+                item.factedPercent = 0;
+            });
+
+            tickFactService.saveTick($state.params.id, ctrl.tickFactData)
+                .then((resData) => {
+                    console.log('resData', resData);
+                    $state.go('tick-plan', {id: $state.params.id});
                 });
         }
     }
