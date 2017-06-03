@@ -29,6 +29,18 @@ class TickDBController {
                 return;
             }
 
+            if (tick === null) {
+                console.log(`Err. Tick with ID ${tickId} was not found to get: ${tick}`);
+                if (errorCb) {
+                    const error = {
+                        notFound: true
+                        //query: [`id: ${tickId}`]
+                    };
+                    errorCb(error);
+                }
+                return;
+            }
+
             console.log(`Tick was gotten by ID ${tickId} successfully: ${tick}`);
             if (successCb) {
                 successCb(tick);

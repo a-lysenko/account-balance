@@ -12,8 +12,13 @@ function setup(tickCtrl, app) {
         tickCtrl.getTick(req.params.id)
             .then((tick) => {
                 res.send(tick);
+            })
+            .catch((err) => {
+                if (err.notFound) {
+                    res.status(404).send(err.message);
+                }
             });
-    }
+}
 
     function updateTick(req, res) {
         tickCtrl.updateTick(req.params.id, req.body)

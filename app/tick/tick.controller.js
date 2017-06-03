@@ -23,7 +23,12 @@ class TickController {
 
                     resolveFn(clientTick);
                 },
-                rejectFn);
+                (err) => {
+                    if (err && err.notFound) {
+                        err.message = `Tick with id ${tickId} was not found`;
+                        rejectFn(err);
+                    }
+                });
         });
 
         return promise;
