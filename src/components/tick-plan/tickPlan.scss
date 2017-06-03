@@ -65,11 +65,3 @@
         margin: auto 0; // auto - flex magic to center vertically
     }
 }
-
-.tick-plan-list {
-	@include tick-list;
-}
-
-.tick-plan-item {
-	@include tick-list-item;
-}

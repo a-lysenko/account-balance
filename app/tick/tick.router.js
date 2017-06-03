@@ -4,9 +4,8 @@ function setup(tickCtrl, app) {
         .post(saveTick);
 
     app.route('/tick/:id')
-        .get(getTick) // duplicates method from '/tick-plan-data/:id'
-        // TODO - switch FE to this url and remove previous implementation 
-        .put(updateTick) // duplicates too
+        .get(getTick)
+        .put(updateTick)
         .delete(removeTick);
 
     function getTick(req, res) {
