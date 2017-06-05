@@ -65,8 +65,16 @@
 
             tickPlanService.saveTick(options, ctrl.tickPlanData)
                 .then((resData) => {
+                	const stateGoOptions = {
+                		location: true
+                	};
+                	
+		            if (ctrl.isTickNew) {
+		            	stateGoOptions.location = 'replace';
+		            }
+
                     console.log('resData', resData);
-                    $state.go('tick-desk');
+                    $state.go('tick-desk', {} , stateGoOptions);
                 });
         }
 
@@ -74,7 +82,7 @@
             tickPlanService.removeTick($state.params.id)
                 .then((resData) => {
                     console.log('resData', resData);
-                    $state.go('tick-desk');
+                    $state.go('tick-desk', {}, {location: 'replace'});
                 });
         }
 
