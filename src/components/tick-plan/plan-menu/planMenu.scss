@@ -1,4 +1,5 @@
 @import "../../../scss/mixins";
+@import "../../../scss/variables";
 
 .plan-menu {
     display: flex;
@@ -8,10 +9,11 @@
     &__header {
         display: block;
         margin: 0;
-        border-bottom: 1px solid $black;
+        border-bottom: 1px solid $grey;
         padding: 0;
         @include plain-text;
 
+        color: $lightgrey;
         width: 100%;
     }
 
@@ -51,6 +53,14 @@
 
         @include plain-text;
         text-align: right;
+    }
+
+    &__sum-destination-item {
+        color: $lightgrey;
+    }
+
+    &__sum-value {
+        color: $white;
     }
 
     &__edit-plan-sum-btn {
@@ -108,12 +118,4 @@
         display: inline;
         @include percent-value;
     }
-
-    &__spread-btn {
-        @include button;
-
-        width: 90%;
-        margin: 0 auto;
-    }
-
 }

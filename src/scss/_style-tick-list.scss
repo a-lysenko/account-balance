@@ -6,20 +6,21 @@
     margin: 10px 0 0;
     padding: 0;
     list-style-type: none;
-    background-color: $main;
+    background-color: $dark;
 }
 
 @mixin tick-list-item {
     display: flex;
-    margin-top: 10px;
+    margin-top: 0;
     border: none;
-    border-top: 1px solid $black;
-    border-right: 1px solid $black;
-    border-bottom: 1px solid $black;
-    box-shadow: 0 3px 1px 0 $light;
+    //border-top: 1px solid $black;
+    //border-right: 1px solid $black;
+    border-bottom: 1px solid $grey;
+    //box-shadow: 0 3px 1px 0 $light;
 
     &:first-child {
         margin-top: 0;
+        border-top: 1px solid $grey;
     }
 
     &__jug-container {
@@ -34,6 +35,8 @@
     &__jug {
         margin: auto; // flex magic
         padding-top: 6px;
+
+        color: $lightgrey;
     }
 
     &__jug-percent {

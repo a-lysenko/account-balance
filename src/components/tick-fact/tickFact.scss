@@ -44,13 +44,25 @@
         text-align: right;
     }
 
+    &__sum-destination-item {
+        color: $lightgrey;
+    }
+
+    &__sum-value {
+        color: $white;
+    }
+
     &__extra-item {
         margin-left: 5px;
         text-align: left;
+
+        color: $lightgrey;
     }
 
     &__percent-value {
         display: inline;
         @include percent-value;
+
+        color: $white;
     }
 }

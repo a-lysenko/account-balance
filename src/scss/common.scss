@@ -16,7 +16,7 @@
 // This file is not imported to any other file. But it's a part of concatenated stylesheet.
 // All scss files with name not from '_' are included.
 // These styles used across all the app out of index.html directly
-// TODO - Probably layouts should be transformed so that .main will used in index.html
+// TODO - Probably layouts should be transformed so that .main will be used in index.html
 
 html, body {
     height: 100%;
@@ -39,5 +39,5 @@ html, body {
     width: 100%;
     margin: 0 auto;
     height: 100%;
-    background-color: $main;
+    background-color: $dark;
 }
