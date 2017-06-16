@@ -63,13 +63,14 @@
     color: $white;
 
     //transition: background-color, color $transition-slow linear;
-    transition: border-color $transition-slow linear;
+    transition: box-shadow $transition-slow linear,
+                border-color $transition-slow linear;
 
     &:focus {
         outline-style: none;
         //background-color: $dark;
-        box-shadow: inset 0 0 2px 0 lightgreen,
-                          0 0 2px 0 lightgreen;
+        box-shadow: inset 0 0 3px 0 lightgreen,
+                    0 0 2px 0 lightgreen;
         //color: $light;
         border-color: $mintgreen;
     }
