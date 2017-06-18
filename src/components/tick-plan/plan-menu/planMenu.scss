@@ -6,17 +6,6 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    &__header {
-        display: block;
-        margin: 0;
-        border-bottom: 1px solid $grey;
-        padding: 0;
-        @include plain-text;
-
-        color: $lightgrey;
-        width: 100%;
-    }
-
     &__main {
         display: flex;
         flex-direction: row;
@@ -68,6 +57,13 @@
 
         display: inline-block;
         height: 100%;
+
+        width: 24px;
+        background-color: transparent;
+        background: url('../images/pages-3-48-dark.png') center center no-repeat;
+        background-size: contain;
+        border: none;
+        box-shadow: none;
     }
 
     &__edit-plan-sum-panel {
