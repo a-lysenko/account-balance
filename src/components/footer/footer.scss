@@ -1,48 +1,102 @@
 @import "../../scss/mixins";
 @import "../../scss/variables";
 
-.footer {
-    display: flex;
-    flex-direction: row-reverse;
-
-    position: fixed;
+.footer-container {
+    display: block;
     box-sizing: border-box;
+    height: 2*$footer-height;
+    transition: transform 0.25s ease-in;
+
+    &_remove-panel {
+        transform: translateY(-$footer-height);
+    }
+}
+
+.footer {
+    position: fixed;
     bottom: 0;
+    display: block;
+    box-sizing: border-box;
     width: 100%;
-    max-height: $footer-height;
-    padding: 5px 15px 15px 15px;
-    background-color: transparent;
+    height: $footer-height;
+    padding: 0;
+    overflow: hidden;
+    background-color: $darkgrey;
 
-    &__btn {
-        @include footer-button;
-        margin-left: 10px;
+    .footer__panel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        &.footer__btn_add,
-        &.footer__btn_save {
+        box-sizing: border-box;
+        height: $footer-height;
+        overflow: hidden;
+    }
+
+    .footer__button {
+        width: 33.33333%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        outline: none;
+
+        &_small {
+            width: 25%;
+        }
+
+        &_half-width {
+            width: 50%;
+        }
+
+        &_full-width {
+            width: 100%;
+        }
+
+        &_save {
             background-color: $mintgreen;
         }
     }
 }
 
-@mixin icon($imgPath) {
+@mixin icon($url) {
     display: block;
-    width: 50px;
-    height: 50px;
-    background: url($imgPath) center center no-repeat;
-    background-origin: border-box;
-    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    background: url($url) center no-repeat;
+    background-size: 30px;
+
+    &_small {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+    }
 }
 
-.icon-add {
-    @include icon('../images/i-add.png');
-}
+.icon {
+    &-remove {
+        @include icon('http://www.iconsdb.com/icons/download/white/trash-9-48.png');
+    }
 
-.icon-save {
-    @include icon('../images/i-save.png');
-}
+    &-ok {
+        @include icon('http://www.iconsdb.com/icons/download/white/checkmark-48.png');
+    }
 
-// TODO - replace fliter with icon
-.icon-add,
-.icon-save {
-    filter: invert(1);
+    &-forward {
+        @include icon('http://www.iconsdb.com/icons/download/white/arrow-36-48.png');
+    }
+
+    &-no {
+        @include icon('http://www.iconsdb.com/icons/download/white/x-mark-48.png');
+    }
+
+    &-yes {
+        @include icon('http://www.iconsdb.com/icons/download/white/check-mark-48.png');
+    }
 }

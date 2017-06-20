@@ -7,13 +7,25 @@
     function FooterController() {
         const ctrl = this;
         angular.extend(ctrl, {
-            isSave: false,
-            isAdd: false
+            isRemove: false,
+            isGo: false,
+            isRemovePanelActive: false,
+
+            showRemovePanel,
+            hideRemovePanel
         });
 
         ctrl.$onInit = function () {
-            ctrl.isSave = !!ctrl.save;
-            ctrl.isAdd = !!ctrl.add;
+            ctrl.isRemove = !!ctrl.remove;
+            ctrl.isGo = !!ctrl.go;
         };
+
+        function showRemovePanel() {
+            ctrl.isRemovePanelActive = true;
+        }
+
+        function hideRemovePanel() {
+            ctrl.isRemovePanelActive = false;
+        }
     }
 })();

@@ -5,8 +5,11 @@
         .component('accFooter', {
             templateUrl: 'footer/footer.html',
             bindings: {
-                save: '&?',
-                add: '&?'
+                remove: '&?',
+                save: '&',
+                go: '&?',
+                hideRemove: '=',
+                hideGo: '='
             },
             controller: 'FooterController',
             controllerAs: '$ctrl'
