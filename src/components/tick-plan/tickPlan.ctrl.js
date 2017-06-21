@@ -15,6 +15,8 @@
             commonSpread: [],
 
             saveTickPlan,
+            removeTick,
+            goToTickFact,
             handlePlannedValueChange,
             updatePlannedValue
         });
@@ -84,6 +86,12 @@
                     console.log('resData', resData);
                     $state.go('tick-desk', {}, {location: 'replace'});
                 });
+        }
+
+        function goToTickFact() {
+            console.log('I am goToTickFact');
+
+            //$state.go('tick-fact', {id: $state.params.id});
         }
 
         // candidate to remove

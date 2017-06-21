@@ -29,4 +29,7 @@
             on-spread-item-change="$ctrl.updatePlannedValue(summary)"></spread>
 </section>
 
-<acc-footer save="$ctrl.saveTickPlan()"></acc-footer>
+<acc-footer save="$ctrl.saveTickPlan()"
+            remove="{{!$ctrl.isTickNew ? '$ctrl.removeTick()' : undefined}}"
+            go="!$ctrl.isTickNew && $ctrl.goToTickFact()">
+</acc-footer>
