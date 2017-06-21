@@ -81,22 +81,22 @@
 
 .icon {
     &-remove {
-        @include icon('http://www.iconsdb.com/icons/download/white/trash-9-48.png');
+        @include icon('../images/trash-9-48.png');
     }
 
     &-ok {
-        @include icon('http://www.iconsdb.com/icons/download/white/checkmark-48.png');
+        @include icon('../images/checkmark-48.png');
     }
 
     &-forward {
-        @include icon('http://www.iconsdb.com/icons/download/white/arrow-36-48.png');
+        @include icon('../images/arrow-36-48.png');
     }
 
     &-no {
-        @include icon('http://www.iconsdb.com/icons/download/white/x-mark-48.png');
+        @include icon('../images/x-mark-48.png');
     }
 
     &-yes {
-        @include icon('http://www.iconsdb.com/icons/download/white/check-mark-48.png');
+        @include icon('../images/check-mark-48.png');
     }
 }

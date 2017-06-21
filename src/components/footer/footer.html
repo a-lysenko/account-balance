@@ -1,20 +1,23 @@
 <footer class="footer">
     <div id="footer-container"
-         class="footer-container footer-container_remove-panel"
+         class="footer-container"
          ng-class="{'footer-container_remove-panel': $ctrl.isRemovePanelActive}">
         <div class="footer__panel">
-            <button ng-if="!$ctrl.hideRemove && $ctrl.isRemove"
+            <button ng-if="$ctrl.isRemoveBtnDisplayed()"
                     id="remove-btn"
                     class="footer__button"
+                    ng-class="{'footer__button_half-width': $ctrl.halfScreenButtons}"
                     ng-click="$ctrl.showRemovePanel()">
                 <i class="icon-remove"></i>
             </button>
             <button id="save-btn"
                     class="footer__button footer__button_save"
+                    ng-class="{'footer__button_half-width': $ctrl.halfScreenButtons,
+                        'footer__button_full-width': $ctrl.fullScreenButtons}"
                     ng-click="$ctrl.save()">
                 <i class="icon-ok"></i>
             </button>
-            <button ng-if="!$ctrl.hideGo && $ctrl.isGo"
+            <button ng-if="$ctrl.isGoBtnDisplayed()"
                     id="facted-btn"
                     class="footer__button footer__button_facted"
                     ng-click="$ctrl.go()">

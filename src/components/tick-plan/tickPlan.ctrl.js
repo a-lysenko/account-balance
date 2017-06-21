@@ -89,9 +89,7 @@
         }
 
         function goToTickFact() {
-            console.log('I am goToTickFact');
-
-            //$state.go('tick-fact', {id: $state.params.id});
+            $state.go('tick-fact', {id: $state.params.id});
         }
 
         // candidate to remove

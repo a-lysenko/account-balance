@@ -30,6 +30,8 @@
 </section>
 
 <acc-footer save="$ctrl.saveTickPlan()"
-            remove="{{!$ctrl.isTickNew ? '$ctrl.removeTick()' : undefined}}"
-            go="!$ctrl.isTickNew && $ctrl.goToTickFact()">
+            remove="$ctrl.removeTick()"
+            go="$ctrl.goToTickFact()"
+            hide-remove="$ctrl.isTickNew"
+            hide-go="$ctrl.isTickNew">
 </acc-footer>
