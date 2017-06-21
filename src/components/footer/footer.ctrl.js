@@ -14,6 +14,8 @@
         ctrl.$onInit = function () {
             ctrl.isSave = !!ctrl.save;
             ctrl.isAdd = !!ctrl.add;
+
+            ctrl.go();
         };
     }
 })();

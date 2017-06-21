@@ -6,7 +6,8 @@
             templateUrl: 'footer/footer.html',
             bindings: {
                 save: '&?',
-                add: '&?'
+                add: '&?',
+                go: '&?'
             },
             controller: 'FooterController',
             controllerAs: '$ctrl'
