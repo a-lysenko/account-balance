@@ -13,7 +13,8 @@
             tickFactData: [],
             commonSpread: [],
             updateFactedMenuData,
-            saveTickFact
+            saveTickFact,
+            clearTickFact
         });
 
         const trashBinActionId = headerService.registerTrashBinAction(function () {
