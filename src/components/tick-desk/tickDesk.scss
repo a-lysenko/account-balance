@@ -1,82 +1,83 @@
 @import "../../scss/mixins";
 @import "../../scss/style-tick-list";
+@import "../../scss/variables";
 
 .tick-list {
-	@include tick-list;
+    @include tick-list;
 }
 
 .tick-item {
-	@include tick-list-item;
+    @include tick-list-item;
 
-	display: flex;
-	flex-direction: row;
-	align-content: space-between;
-	align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: center;
 
-	padding: 5px 0 5px 5px;
-  	transition: background-color $transition-quick linear;
+    padding: 5px 0 5px 5px;
+    transition: background-color $transition-quick linear;
 
-	&:hover,
-  	&:active {
-	  background-color: $grey;
-	}
-  
-  	&:hover {
-	  cursor: pointer;
-	}
-  
-	&__achieved-percent {
-		flex-shrink: 1;
+    &:hover,
+    &:active {
+        background-color: $grey;
+    }
 
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
 
-		box-sizing: border-box;
-		height: 50px;
-		width: 50px;
-		border: 2px solid $lightgrey;
-		border-radius: 50%;
-		font-size: 20px;
+    &__achieved-percent {
+        flex-shrink: 1;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: border-box;
+        height: 50px;
+        width: 50px;
+        border: 2px solid $lightgrey;
+        border-radius: 50%;
+        font-size: 20px;
         color: $mintgreen;
 
-		&_great {
-		    color: green;
-			border-color: green;
-		}
+        &_great {
+            color: green;
+            border-color: green;
+        }
 
-		&_good {
-		    color: yellowgreen;
-			border-color: yellowgreen;
-		}
+        &_good {
+            color: yellowgreen;
+            border-color: yellowgreen;
+        }
 
-		&_poor {
-			color: red;
-			border-color: red;
-		}
-	}
+        &_poor {
+            color: red;
+            border-color: red;
+        }
+    }
 
-	&__container {
-		flex-shrink: 1;
+    &__container {
+        flex-shrink: 1;
 
-		display: block;
-	}
+        display: block;
+    }
 
-	&__sum-container,
-	&__date-container {
-		display: block;
-		margin: 0;
-		padding: 0 0 0 10px;
-	}
+    &__sum-container,
+    &__date-container {
+        display: block;
+        margin: 0;
+        padding: 0 0 0 10px;
+    }
 
-	&__text,
-	&__planned-sum,
-	&__unfacted-sum,
-	&__date-text,
-	&__date-value {
-		display: inline;
-	}
+    &__text,
+    &__planned-sum,
+    &__unfacted-sum,
+    &__date-text,
+    &__date-value {
+        display: inline;
+    }
 
     &__text,
     &__planned-sum,
@@ -84,36 +85,36 @@
         color: $white;
     }
 
-	&__date-text,
-	&__date-value {
-		font-size: 0.75em;
-		font-style: italic;
+    &__date-text,
+    &__date-value {
+        font-size: 0.75em;
+        font-style: italic;
 
         color: $lightgrey;
-	}
+    }
 
-	&__medal-box {
-		flex-shrink: 1;
-	    align-self: flex-start;
+    &__medal-box {
+        flex-shrink: 1;
+        align-self: flex-start;
 
-		display: block;
-		min-width: 80px;
-		min-height: 50px;
-		height: 100%;
-	}
+        display: block;
+        min-width: 80px;
+        min-height: 50px;
+        height: 100%;
+    }
 }
 
 .medal-list {
-	display: flex;
-	flex-direction: row-reverse;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 
-	&__item {
-		display: inline-block;
-		margin-left: 5px;
-	}
+    &__item {
+        display: inline-block;
+        margin-left: 5px;
+    }
 }
 
 .icon-medal {
@@ -126,11 +127,47 @@
     background-origin: border-box;
 
     &.icon-medal_balancer {
-    	background-image: url(../images/i-achievement-balancer.png);
+        background-image: url(../images/i-achievement-balancer.png);
     }
 
     &.icon-medal_gold {
-    	background-image: url(../images/i-achievement-gold.png);
+        background-image: url(../images/i-achievement-gold.png);
     }
 }
 
+.tick-desk__btn-add {
+    position: fixed;
+    box-sizing: border-box;
+    bottom: 20px;
+    right: 15px;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    padding: 0;
+    outline: none;
+    background-color: transparent;
+
+    &:hover {
+        box-shadow: inset 0 0 10px 1px $black;
+    }
+
+    &:active {
+        box-shadow: inset 0 0 15px 2px $black;
+    }
+}
+
+@mixin icon($imgPath) {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url($imgPath) center center no-repeat;
+    background-origin: border-box;
+    overflow: hidden;
+}
+
+.icon-add {
+    //@include icon('../images/add-row-48.png');
+    @include icon('../images/add-48.png');
+}
