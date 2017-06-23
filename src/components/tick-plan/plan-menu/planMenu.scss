@@ -9,12 +9,11 @@
     &__main {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: stretch;
-        padding: 5px 5px 0 0;
+        padding: 0;
 
-        flex-wrap: wrap;
-        width: 100%;
+        flex-basis: 100%;
         box-sizing: border-box;
         overflow: hidden;
 

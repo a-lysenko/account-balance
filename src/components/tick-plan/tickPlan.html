@@ -1,28 +1,9 @@
 <section class="main">
     <section class="tick-plan-header">
-        <div class="tick-plan-header__plan-container">
-            <plan-menu planned-value="$ctrl.tickPlanData.plannedValue"
-                       init-edit-panel-is-active="::$ctrl.isTickNew"
-                       on-planned-sum-edit-end="$ctrl.handlePlannedValueChange(plannedValue)">
-            </plan-menu>
-        </div>
-
-        <div class="tick-plan-header__fact-container">
-            <div class="fact-menu">
-                <a ng-if="::!$ctrl.isTickNew"
-                   class="fact-menu__facted-link"
-                   ui-sref="tick-fact({id: $ctrl.tickPlanData.id})">
-                    <span>
-                        Facted <span class="fact-menu__percent-value">{{$ctrl.tickPlanData.factedPercent}}</span>
-                    </span>
-                    <i class="icon-arrow-right"></i>
-                </a>
-                <span ng-if="::$ctrl.isTickNew"
-                      class="fact-menu__no-link-text">
-                    To access facted save before
-                </span>
-            </div>
-        </div>
+        <plan-menu planned-value="$ctrl.tickPlanData.plannedValue"
+                   init-edit-panel-is-active="::$ctrl.isTickNew"
+                   on-planned-sum-edit-end="$ctrl.handlePlannedValueChange(plannedValue)">
+        </plan-menu>
     </section>
 
     <spread spread="$ctrl.commonSpread"
