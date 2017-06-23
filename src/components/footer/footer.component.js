@@ -8,8 +8,8 @@
                 remove: '&?',
                 save: '&',
                 go: '&?',
-                hideRemove: '=',
-                hideGo: '='
+                hideRemove: '<?',
+                hideGo: '<?'
             },
             controller: 'FooterController',
             controllerAs: '$ctrl'
