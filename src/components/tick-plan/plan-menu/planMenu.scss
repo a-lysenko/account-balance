@@ -4,7 +4,8 @@
 .plan-menu {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
+    padding: 25px 5px 15px 5px;
 
     &__main {
         display: flex;
@@ -23,25 +24,25 @@
         }
     }
 
-    &__sum-destination-list,
-    &__sum-values-list,
-    &__extras-list {
-        display: block;
-    }
-
-    &__sum-destination-item,
-    &__sum-value,
-    &__extra-item {
-        display: block;
-        box-sizing: content-box;
-        margin: 0;
-        height: 1.5rem;
-        padding: 3px 0;
-        line-height: 1.5rem;
-
-        @include plain-text;
-        text-align: right;
-    }
+    //&__sum-destination-list,
+    //&__sum-values-list,
+    //&__extras-list {
+    //    display: block;
+    //}
+    //
+    //&__sum-destination-item,
+    //&__sum-value,
+    //&__extra-item {
+    //    display: block;
+    //    box-sizing: content-box;
+    //    margin: 0;
+    //    height: 1.5rem;
+    //    padding: 3px 0;
+    //    line-height: 1.5rem;
+    //
+    //    @include plain-text;
+    //    text-align: right;
+    //}
 
     &__sum-destination-item {
         color: $lightgrey;
@@ -54,15 +55,27 @@
     &__edit-plan-sum-btn {
         @include button;
 
-        display: inline-block;
-        height: 100%;
+        display: block;
+        width: 36px;
+        height: 36px;
 
-        width: 24px;
         background-color: transparent;
-        background: url('../images/pages-3-48-dark.png') center center no-repeat;
-        background-size: contain;
         border: none;
         box-shadow: none;
+    }
+
+    .icon-spread {
+        display: block;
+        width: 36px;
+        height: 36px;
+        background: url('../images/pages-3-48-dark.png') center no-repeat;
+        background-size: 36px;
+
+        &_small {
+            width: 25px;
+            height: 25px;
+            background-size: 25px;
+        }
     }
 
     &__edit-plan-sum-panel {

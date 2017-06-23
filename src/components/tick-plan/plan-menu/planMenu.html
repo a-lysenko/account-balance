@@ -15,17 +15,21 @@
 
     <div class="plan-menu__main"
          ng-class="{'plan-menu__main_hidden': $ctrl.editPanelIsActive}">
+        <h3 class="plan-menu__sum-destination-item">To plan:</h3>
+        <span class="plan-menu__sum-value">{{$ctrl.plannedValue | number:2}}</span>
+        <button class="plan-menu__edit-plan-sum-btn"
+                ng-click="$ctrl.openEditPanel()">
+            <i class="icon-spread"></i>
+        </button>
+
+
         <div class="plan-menu__sum-destination-list">
-            <h3 class="plan-menu__sum-destination-item">To plan:</h3>
         </div>
         <div class="plan-menu__sum-values-list">
-            <span class="plan-menu__sum-value">{{$ctrl.plannedValue | number:2}}</span>
         </div>
         <div class="plan-menu__extras-list">
             <div class="plan-menu__extra-item">
-                <button class="plan-menu__edit-plan-sum-btn"
-                        ng-click="$ctrl.openEditPanel()">
-                </button>
+
             </div>
         </div>
     </div>
