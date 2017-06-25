@@ -4,8 +4,7 @@
 .plan-menu {
     display: flex;
     flex-direction: row;
-    //flex-wrap: wrap;
-    padding: 25px 5px 15px 5px;
+    padding: 30px 5px 35px 5px;
 
     &__main {
         display: flex;
@@ -16,7 +15,7 @@
 
         flex-basis: 100%;
         box-sizing: border-box;
-        overflow: hidden;
+        overflow: visible; // to give possibility display part of letters below the main line
 
         &.plan-menu__main_hidden {
             margin-left: -100%;
@@ -51,9 +50,21 @@
         margin: 0;
         padding: 0;
         color: $lightgrey;
+
+        font-size: 24px;
+        height: 18px;
+        line-height: 18px;
     }
 
     &__sum-value {
+        $height: 28px;
+        $area-height: $height * 0.75; // to prevent bottom space of line-height
+
+        display: block;
+        font-size: $height;
+        line-height: $area-height;
+        height: $area-height;
+        margin-right: 10px;
         color: $white;
     }
 
