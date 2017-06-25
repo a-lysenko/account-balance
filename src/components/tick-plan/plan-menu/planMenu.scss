@@ -44,16 +44,21 @@
     //}
 
     &__sum-destination-item {
+        $height: 24px;
+        $area-height: $height * 0.75; // to prevent bottom space of line-height
+
         flex-grow: 1;
 
         display: block;
         margin: 0;
         padding: 0;
-        color: $lightgrey;
 
-        font-size: 24px;
-        height: 18px;
-        line-height: 18px;
+        font-size: $height;
+        height: $area-height;
+        line-height: $area-height;
+
+        font-weight: normal;
+        color: $lightgrey;
     }
 
     &__sum-value {
