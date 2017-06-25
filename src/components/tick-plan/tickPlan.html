@@ -1,10 +1,8 @@
 <section class="main">
-    <section class="tick-plan-header">
-        <plan-menu planned-value="$ctrl.tickPlanData.plannedValue"
-                   init-edit-panel-is-active="::$ctrl.isTickNew"
-                   on-planned-sum-edit-end="$ctrl.handlePlannedValueChange(plannedValue)">
-        </plan-menu>
-    </section>
+    <plan-menu planned-value="$ctrl.tickPlanData.plannedValue"
+               init-edit-panel-is-active="::$ctrl.isTickNew"
+               on-planned-sum-edit-end="$ctrl.handlePlannedValueChange(plannedValue)">
+    </plan-menu>
 
     <spread spread="$ctrl.commonSpread"
             on-spread-item-change="$ctrl.updatePlannedValue(summary)"></spread>
