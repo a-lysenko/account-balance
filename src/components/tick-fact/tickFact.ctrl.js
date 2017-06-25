@@ -4,7 +4,7 @@
     angular.module('acc')
         .controller('TickFactController', TickFactController);
 
-    function TickFactController($state, round2, tickFactService, headerService) {
+    function TickFactController($state, round2, tickFactService) {
         const ctrl = this;
 
         const tickFactDataQ = tickFactService.getTickFactData($state.params.id);
@@ -15,11 +15,6 @@
             updateFactedMenuData,
             saveTickFact,
             clearTickFact
-        });
-
-        const trashBinActionId = headerService.registerTrashBinAction(function () {
-            console.log('I am trash bin action from tick fact');
-            clearTickFact();
         });
 
         ctrl.$onInit = function () {
@@ -34,10 +29,6 @@
                     console.log(`Error on getting tick by id ${$state.params.id}:`, err.data);
                     $state.go('tick-desk');
                 });
-        };
-
-        ctrl.$onDestroy = function () {
-            headerService.unregisterTrashBinAction(trashBinActionId);
         };
 
         function updateFactedMenuData(summary) {
