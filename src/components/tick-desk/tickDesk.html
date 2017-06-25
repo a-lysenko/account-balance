@@ -5,7 +5,7 @@
             class="tick-item">
 				<span class="tick-item__achieved-percent"
                         ng-class="'tick-item__achieved-percent_' + tick.tickStatus">
-					{{tick.factedPercent}}%
+					{{tick.factedPercent | roundFloor}}%
 				</span>
 
             <div class="tick-item__container">
