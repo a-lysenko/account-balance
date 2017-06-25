@@ -7,8 +7,6 @@
     function TickPlanController($state, round2, tickPlanService) {
         const ctrl = this;
 
-        let trashBinActionId;
-
         angular.extend(ctrl, {
             //isTickNew: false,
             tickPlanData: {},
