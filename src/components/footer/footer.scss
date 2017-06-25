@@ -4,7 +4,6 @@
 .footer-container {
     display: block;
     box-sizing: border-box;
-    height: 2*$footer-height;
     transition: transform 0.25s ease-in;
 
     &_remove-panel {
@@ -15,6 +14,7 @@
 .footer {
     position: fixed;
     bottom: 0;
+
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -66,16 +66,26 @@
 }
 
 @mixin icon($url) {
+    $defaultSize: 30px;
+    $largeSize: 36px;
+    $smallSize: 25px;
+
     display: block;
-    width: 30px;
-    height: 30px;
+    width: $defaultSize;
+    height: $defaultSize;
     background: url($url) center no-repeat;
-    background-size: 30px;
+    background-size: $defaultSize;
+
+    &_large {
+        width: $largeSize;
+        height: $largeSize;
+        background-size: $largeSize;
+    }
 
     &_small {
-        width: 25px;
-        height: 25px;
-        background-size: 25px;
+        width: $smallSize;
+        height: $smallSize;
+        background-size: $smallSize;
     }
 }
 

@@ -79,7 +79,6 @@
             $state.go('tick-fact', {id: $state.params.id});
         }
 
-        // candidate to remove
         function handlePlannedValueChange(plannedValue) {
             console.log('handlePlannedValueChange call', plannedValue);
             updatePlannedValue(plannedValue);
