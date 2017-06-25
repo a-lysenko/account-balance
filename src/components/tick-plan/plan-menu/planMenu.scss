@@ -23,26 +23,6 @@
         }
     }
 
-    //&__sum-destination-list,
-    //&__sum-values-list,
-    //&__extras-list {
-    //    display: block;
-    //}
-    //
-    //&__sum-destination-item,
-    //&__sum-value,
-    //&__extra-item {
-    //    display: block;
-    //    box-sizing: content-box;
-    //    margin: 0;
-    //    height: 1.5rem;
-    //    padding: 3px 0;
-    //    line-height: 1.5rem;
-    //
-    //    @include plain-text;
-    //    text-align: right;
-    //}
-
     &__sum-destination-item {
         $height: 24px;
         $area-height: $height * 0.75; // to prevent bottom space of line-height
