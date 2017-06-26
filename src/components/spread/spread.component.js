@@ -6,7 +6,8 @@
             bindings: {
                 spread: '<',
                 usePlannedValueByItem: '<',
-                handleSpreadItemChange: '&onSpreadItemChange'
+                handleSpreadItemChange: '&onSpreadItemChange',
+                showProgressBar: '<'
             },
             templateUrl: 'spread/spread.html',
             controller: 'SpreadController',

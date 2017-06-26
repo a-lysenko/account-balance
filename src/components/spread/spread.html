@@ -1,26 +1,36 @@
-<ul class="tick-plan-list">
+<ul class="spread-list">
     <li ng-repeat="spreadItem in $ctrl.spread track by $index"
-        class="tick-plan-item">
-        <div class="tick-plan-item__jug-container">
-            <span class="tick-plan-item__jug">
+        class="spread-list-item"
+            ng-class="{'spread-list-item_no-border': $ctrl.showProgressBar}">
+        <div class="spread-list-item__jug-container">
+            <span class="spread-list-item__jug">
                 {{spreadItem.name}}
-                <span class="tick-plan-item__jug-percent"
+                <span class="spread-list-item__jug-percent"
                         ng-if="!$ctrl.usePlannedValueByItem">{{spreadItem.defaultPercent}}</span>
-                <span class="tick-plan-item__jug-value"
+                <!-- TODO - remove this in favour to hint in the third section-->
+                <span class="spread-list-item__jug-value"
                       ng-if="$ctrl.usePlannedValueByItem">planned {{spreadItem.plannedValue}}</span>
             </span>
         </div>
 
-        <div class="tick-plan-item__jug-container">
-            <input type="number" class="tick-plan-item__sum"
+        <div class="spread-list-item__jug-container">
+            <input type="number" class="spread-list-item__sum"
                    ng-model="spreadItem.value"
                    ng-model-options="{debounce: 400}"
                    ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
         </div>
-        <div class="tick-plan-item__jug-container">
-            <input type="number" class="tick-plan-item__percent"
+        <div class="spread-list-item__jug-container">
+            <input type="number" class="spread-list-item__percent"
+                   ng-class="{'spread-list-item__percent_no-border': $ctrl.showProgressBar}"
                    ng-model="spreadItem.percent"
                    disabled="true">
+        </div>
+
+        <div ng-if="$ctrl.showProgressBar"
+                class="spread-progress">
+            <div class="progress-container">
+                <div class="progress"></div>
+            </div>
         </div>
     </li>
 </ul>
