@@ -7,13 +7,12 @@
 .tick-fact-header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 10px 10px 0 10px;
 
     &__sum-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: block;
     }
 
     &__sum-destination-list,
@@ -64,5 +63,53 @@
         @include percent-value;
 
         color: $white;
+    }
+
+
+
+    &__summary-text {
+        @include plain-text;
+
+        display: block;
+        box-sizing: content-box;
+        margin: 0;
+        height: 1.5rem;
+        padding: 3px 0;
+        line-height: 1.5rem;
+
+        color: $lightgrey;
+    }
+
+    &__changeable-value {
+        color: $white;
+    }
+
+    &__achieved-percent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-sizing: border-box;
+        height: 50px;
+        width: 50px;
+        border: 2px solid $lightgrey;
+        border-radius: 50%;
+        font-size: 20px;
+        color: $mintgreen;
+
+        //&_great {
+        //    color: green;
+        //    border-color: green;
+        //}
+        //
+        //&_good {
+        //    color: yellowgreen;
+        //    border-color: yellowgreen;
+        //}
+        //
+        //&_poor {
+        //    color: red;
+        //    border-color: red;
+        //}
     }
 }
