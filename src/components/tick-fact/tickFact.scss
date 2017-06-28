@@ -9,63 +9,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 10px 10px 0 10px;
+    padding: 25px 10px 0 10px;
 
-    &__sum-container {
+    &__container {
         display: block;
     }
-
-    &__sum-destination-list,
-    &__sum-values-list,
-    &__extras-list {
-        display: block;
-    }
-
-    &__sum-destination-list {
-        margin-right: 3px;
-    }
-
-    &__sum-destination-item,
-    &__sum-value,
-    &__extra-item {
-        display: block;
-        box-sizing: content-box;
-        margin: 0;
-        height: 1.5rem;
-        padding: 3px 0;
-        line-height: 1.5rem;
-
-        @include plain-text;
-    }
-
-    &__sum-destination-item,
-    &__sum-value {
-        text-align: right;
-    }
-
-    &__sum-destination-item {
-        color: $lightgrey;
-    }
-
-    &__sum-value {
-        color: $white;
-    }
-
-    &__extra-item {
-        margin-left: 5px;
-        text-align: left;
-
-        color: $lightgrey;
-    }
-
-    &__percent-value {
-        display: inline;
-        @include percent-value;
-
-        color: $white;
-    }
-
-
 
     &__summary-text {
         @include plain-text;
@@ -73,9 +21,8 @@
         display: block;
         box-sizing: content-box;
         margin: 0;
-        height: 1.5rem;
         padding: 3px 0;
-        line-height: 1.5rem;
+        font-size: 20px;
 
         color: $lightgrey;
     }
@@ -85,13 +32,16 @@
     }
 
     &__achieved-percent {
+        @include percent-value;
+
         display: flex;
         justify-content: center;
         align-items: center;
 
         box-sizing: border-box;
-        height: 50px;
-        width: 50px;
+        height: 60px;
+        width: 60px;
+        margin-right: 10px;
         border: 2px solid $lightgrey;
         border-radius: 50%;
         font-size: 20px;
