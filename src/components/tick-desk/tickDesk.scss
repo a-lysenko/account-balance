@@ -4,6 +4,8 @@
 
 .tick-list {
     @include tick-list;
+
+    margin-top: 25px;
 }
 
 .tick-item {
@@ -14,8 +16,13 @@
     align-content: space-between;
     align-items: center;
 
-    padding: 5px 0 5px 5px;
+    padding: 10px 0 7px 5px;
+    border-bottom: none;
     transition: background-color $transition-quick linear;
+
+    &:first-child {
+        border-top: none;
+    }
 
     &:hover,
     &:active {
