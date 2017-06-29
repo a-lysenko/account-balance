@@ -46,7 +46,7 @@
         width: 50px;
         border: 2px solid $lightgrey;
         border-radius: 50%;
-        font-size: 20px;
+        font-size: $font-large;
         color: $mintgreen;
 
         &_great {
@@ -85,15 +85,15 @@
     }
 
     &__text {
-        font-size: 20px;
-        line-height: 20px;
+        font-size: $font-large;
+        line-height: $font-large;
         font-weight: normal;
 
         color: $white;
 
         &_small {
-            font-size: 0.75rem;
-            line-height: 0.75rem;
+            font-size: $font-small;
+            line-height: $font-small;
 
             color: $lightgrey;
         }

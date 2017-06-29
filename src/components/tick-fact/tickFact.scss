@@ -22,7 +22,7 @@
         box-sizing: content-box;
         margin: 0;
         padding: 3px 0;
-        font-size: 20px;
+        font-size: $font-large;
 
         color: $lightgrey;
     }
@@ -44,7 +44,7 @@
         margin-right: 10px;
         border: 2px solid $lightgrey;
         border-radius: 50%;
-        font-size: 20px;
+        font-size: $font-large;
         color: $mintgreen;
 
         //&_great {

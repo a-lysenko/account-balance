@@ -24,8 +24,7 @@
     }
 
     &__sum-destination-item {
-        $height: 24px;
-        $area-height: $height * 0.75; // to prevent bottom space of line-height
+        $area-height: $font-large * 0.75; // to prevent bottom space of line-height
 
         flex-grow: 1;
 
@@ -33,7 +32,7 @@
         margin: 0;
         padding: 0;
 
-        font-size: $height;
+        font-size: $font-large;
         height: $area-height;
         line-height: $area-height;
 
@@ -42,11 +41,10 @@
     }
 
     &__sum-value {
-        $height: 28px;
-        $area-height: $height * 0.75; // to prevent bottom space of line-height
+        $area-height: $font-xlarge * 0.75; // to prevent bottom space of line-height
 
         display: block;
-        font-size: $height;
+        font-size: $font-xlarge;
         line-height: $area-height;
         height: $area-height;
         margin-right: 10px;
