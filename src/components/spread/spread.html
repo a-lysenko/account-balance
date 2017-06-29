@@ -1,7 +1,6 @@
 <ul class="spread-list">
     <li ng-repeat="spreadItem in $ctrl.spread track by $index"
-        class="spread-list-item"
-            ng-class="{'spread-list-item_no-border': $ctrl.showProgressBar}">
+        class="spread-list-item">
         <div class="spread-list-item__jug-container">
             <span class="spread-list-item__jug">
                 {{spreadItem.name}}
