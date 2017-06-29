@@ -3,38 +3,26 @@
         <li ng-repeat="tick in $ctrl.tickDeskData"
             ui-sref="tick-plan({id: tick.id})"
             class="tick-item">
-				<span class="tick-item__achieved-percent"
+            <span class="tick-item__achieved-percent"
                         ng-class="'tick-item__achieved-percent_' + tick.tickStatus">
 					{{tick.factedPercent | roundFloor}}%
 				</span>
 
             <div class="tick-item__container">
                 <div class="tick-item__sum-container">
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								of
-							</span>
-							<span class="tick-item__planned-sum">
-								{{tick.plannedValue}}
-							</span>
+                    <div class="tick-item__text">
+                        {{tick.factedValue}} of {{tick.plannedValue}}
                     </div>
 
-                    <div class="tick-item__container">
-							<span class="tick-item__text">
-								Unfacted:
-							</span>
-							<span class="tick-item__unfacted-sum">
-								 {{tick.unfactedValue}}
-							</span>
+                    <div class="tick-item__text_small">
+                        left {{tick.unfactedValue}}
                     </div>
                 </div>
 
                 <div class="tick-item__date-container">
-                    <span class="tick-item__date-text">plan</span>
-                    <span class="tick-item__date-value">{{tick.plannedDate | date:'dd.MM.yyyy'}}</span>
-                    <span class="tick-item__date-text">-</span>
-                    <span class="tick-item__date-text">fact</span>
-                    <span class="tick-item__date-value">{{tick.factedDate | date}}</span>
+                    <div class="tick-item__text_small">
+                        plan {{tick.plannedDate | date:'d MMM yy'}} - fact {{tick.factedDate | date:'d MMM yy'}}
+                    </div>
                 </div>
             </div>
 

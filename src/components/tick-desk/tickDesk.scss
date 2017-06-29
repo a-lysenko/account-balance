@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: row;
     align-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     padding: 10px 0 7px 5px;
     border-bottom: none;
@@ -69,35 +69,34 @@
         flex-shrink: 1;
 
         display: block;
+        margin: 0 0 0 10px;
     }
 
-    &__sum-container,
-    &__date-container {
+    &__sum-container {
         display: block;
         margin: 0;
-        padding: 0 0 0 10px;
+        padding: 0;
     }
 
-    &__text,
-    &__planned-sum,
-    &__unfacted-sum,
-    &__date-text,
-    &__date-value {
-        display: inline;
+    &__date-container {
+        display: block;
+        margin-top: 10px;
+        padding: 0;
     }
 
-    &__text,
-    &__planned-sum,
-    &__unfacted-sum {
+    &__text {
+        font-size: 20px;
+        line-height: 20px;
+        font-weight: normal;
+
         color: $white;
-    }
 
-    &__date-text,
-    &__date-value {
-        font-size: 0.75em;
-        font-style: italic;
+        &_small {
+            font-size: 0.75rem;
+            line-height: 0.75rem;
 
-        color: $lightgrey;
+            color: $lightgrey;
+        }
     }
 
     &__medal-box {

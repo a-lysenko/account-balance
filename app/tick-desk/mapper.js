@@ -20,6 +20,7 @@ function buildClientTickItem(dbDataItem) {
         plannedDate: dbDataItem.plannedDate, // is in db
         factedDate: dbDataItem.factedDate, // is in db
         plannedValue: dbDataItem.plannedValue, // is in db
+        factedValue: dbDataItem.factedValue, // is in db
         unfactedValue: dbDataItem.plannedValue - dbDataItem.factedValue, // calculate
         factedPercent: dbDataItem.factedPercent, // is in db
         tickStatus: dbDataItem.tickStatus, // "great", etc
