@@ -16,7 +16,7 @@
         <div class="spread-list-item__jug-container">
             <input type="number" class="spread-list-item__sum"
                    ng-model="spreadItem.value"
-                   ng-model-options="{debounce: 400}"
+                   ng-model-options="{debounce: 100}"
                    ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
         </div>
         <div class="spread-list-item__jug-container">
@@ -28,9 +28,7 @@
 
         <div ng-if="$ctrl.showProgressBar"
                 class="spread-progress">
-            <div class="progress-container">
-                <div class="progress"></div>
-            </div>
+            <progress-bar progress="spreadItem.percent"></progress-bar>
         </div>
     </li>
 </ul>
