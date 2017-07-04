@@ -38,10 +38,16 @@
 
     &__jug-percent {
         @include percent-value-wrapped;
+
+        display: block;
+        font-size: $font-small;
     }
 
     &__jug-value {
         @include parenthesis-value-wrapped;
+
+        display: block;
+        font-size: $font-small;
     }
 
     &__sum,

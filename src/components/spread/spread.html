@@ -18,11 +18,25 @@
                    ng-model-options="{debounce: 100}"
                    ng-change="$ctrl.handleSpreadItemValueChange(spreadItem)">
         </div>
-        <div class="spread-list-item__jug-container">
-            <input type="number" class="spread-list-item__percent"
-                   ng-class="{'spread-list-item__percent_no-border': $ctrl.showProgressBar}"
+        <div class="spread-list-item__jug-container"
+                ng-class="{'spread-list-item__jug-container_centered-content': $ctrl.showProgressBar}">
+            <input ng-if="!$ctrl.showProgressBar"
+                   type="number"
+                   class="spread-list-item__percent spread-list-item__percent_no-border"
                    ng-model="spreadItem.percent"
                    disabled="true">
+
+
+            <div ng-if="$ctrl.showProgressBar"
+                 class="spread-list-item__jug-container
+                        spread-list-item__jug-container_centered-content">
+                <span class="spread-list-item__percent-text">{{spreadItem.percent | roundFloor}}</span>
+                <div class="btn">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
         </div>
 
         <div ng-if="$ctrl.showProgressBar"

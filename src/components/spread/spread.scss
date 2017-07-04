@@ -1,3 +1,4 @@
+@import "../../scss/mixins";
 @import "../../scss/style-tick-list";
 
 .spread-list {
@@ -19,6 +20,21 @@
 
     &__jug-container {
         padding: 5px 5px 0;
+
+        // TODO - move centralizing into separate class
+        // out of this container responsibility
+        &_centered-content {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__percent-text {
+        @include percent-value;
+
+        display: block;
+        margin-right: 5px;
+        color: $lightgrey;
     }
 
     // TODO - refactor styles: this and around
@@ -34,4 +50,28 @@
     left: 0;
     right: 0;
     width: 100%;
+}
+
+// TODO - move into separate component probably
+.btn {
+    $common-size: 14px;
+    $additional-space: 2px;
+    width: $common-size;
+    height: $common-size;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $darkgrey;
+    //box-shadow: 0 0 0 1px #505050;
+    box-sizing: content-box;
+    padding: $additional-space;
+}
+
+.circle {
+    display: block;
+    width: 2px;
+    height: 2px;
+    background-color: #505050;
+    border-radius: 50%;
 }
