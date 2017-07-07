@@ -75,3 +75,33 @@
     background-color: #505050;
     border-radius: 50%;
 }
+// alternative variant see below
+
+// alternative variant
+.rect {
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border: 1px solid #292929;
+    background-color: transparent;
+
+    & .circle {
+        display: block;
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background-color: #292929;
+        top: 8px;
+        left: 8px;
+    }
+
+    .circle.circle_left {
+        left: 3px;
+    }
+
+    .circle.circle_right {
+        left: 13px;
+    }
+}
