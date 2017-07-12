@@ -15,7 +15,8 @@
 
         flex-basis: 100%;
         box-sizing: border-box;
-        overflow: visible; // to give possibility display part of letters below the main line
+
+        line-height: $font-xlarge;
 
         &.plan-menu__main_hidden {
             margin-left: -100%;
@@ -24,8 +25,6 @@
     }
 
     &__sum-destination-item {
-        $area-height: $font-large * 0.75; // to prevent bottom space of line-height
-
         flex-grow: 1;
 
         display: block;
@@ -33,20 +32,14 @@
         padding: 0;
 
         font-size: $font-large;
-        height: $area-height;
-        line-height: $area-height;
 
         font-weight: normal;
         color: $lightgrey;
     }
 
     &__sum-value {
-        $area-height: $font-xlarge * 0.75; // to prevent bottom space of line-height
-
         display: block;
         font-size: $font-xlarge;
-        line-height: $area-height;
-        height: $area-height;
         margin-right: 10px;
         color: $white;
     }
